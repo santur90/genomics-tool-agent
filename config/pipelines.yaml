@@ -1,0 +1,10 @@
+# Allowlist: agents can only run pipelines registered here (never arbitrary paths).
+pipelines:
+  rnaseq_mini:
+    path: pipelines/rnaseq_mini/main.nf
+    description: Mini RNA-seq pipeline (FASTQC_STUB -> COUNT_STUB -> DESEQ2)
+    allowed_params: [counts, metadata, factor, ref_level]
+    path_params: [counts, metadata]
+  # Add your own private pipelines here, e.g.:
+  # atacseq_private:
+  #   path: /abs/path/inside/project/or/symlink/main.nf

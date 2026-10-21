@@ -1,0 +1,16 @@
+{
+  "n_total": 30,
+  "n_snp": 25,
+  "n_indel": 5,
+  "n_qual30_dp10": 17,
+  "n_qual50_dp12": 10,
+  "n_tp53_qual30_dp10": 3,
+  "n_egfr_qual20": 5,
+  "per_gene_total": {
+    "TP53": 6,
+    "KRAS": 6,
+    "EGFR": 6,
+    "BRCA1": 6,
+    "NRAS": 6
+  }
+}

@@ -20,6 +20,26 @@ def test_unknown_pipeline_rejected():
     assert "rnaseq_mini" in exc.value.hint
 
 
+@pytest.mark.parametrize("bad", [
+    "/tmp/evil/main.nf", "pipelines/rnaseq_mini/main.nf", "../pipelines/rnaseq_mini/main.nf",
+    "pipelines/rnaseq_mini", "rnaseq_mini/", "RNASEQ_MINI", "", "rnaseq_mini; rm -rf /",
+])
+def test_non_allowlisted_pipeline_never_reaches_subprocess(bad, monkeypatch):
+    import subprocess
+
+    from gta import sandbox
+    from gta.tools import registry
+
+    def boom(*a, **k):
+        raise AssertionError("subprocess executed for a non-allowlisted pipeline")
+
+    monkeypatch.setattr(sandbox, "run", boom)
+    monkeypatch.setattr(subprocess, "run", boom)
+    out = registry.call("run_nextflow", {"pipeline": bad, "stub": False})
+    assert out["error"] and out["hint"]
+    assert "rnaseq_mini" in out["hint"]
+
+
 def test_disallowed_param_rejected():
     with pytest.raises(ToolError):
         run_nextflow("rnaseq_mini", {"profile": "docker"})

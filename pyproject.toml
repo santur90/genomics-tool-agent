@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "pytest-cov", "ruff"]
 
 [project.scripts]
 gta = "gta.cli:app"
@@ -31,3 +31,20 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+filterwarnings = ["ignore:The dispersion trend curve fitting did not converge:UserWarning"]
+
+[tool.coverage.run]
+source = ["src/gta"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["data/variants", "runs"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]  # long prompt/description strings; ruff format handles code

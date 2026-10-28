@@ -1,4 +1,5 @@
 """Nextflow DESEQ2 step: reuse gta.tools.rnaseq and copy outputs to the work dir."""
+
 import argparse
 import shutil
 

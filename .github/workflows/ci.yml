@@ -5,26 +5,65 @@ on:
   pull_request:
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install ruff
+      - run: ruff check .
+      - run: ruff format --check .
+
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    env:
+      CONDA_PKGS_DIRS: ~/conda_pkgs_dir
     defaults:
       run:
         shell: bash -el {0}
     steps:
       - uses: actions/checkout@v4
+      - name: Cache conda packages
+        uses: actions/cache@v4
+        with:
+          path: ~/conda_pkgs_dir
+          key: conda-${{ runner.os }}-py${{ matrix.python-version }}-${{ hashFiles('.github/workflows/ci.yml') }}
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
           channels: conda-forge,bioconda
           channel-priority: strict
+          conda-remove-defaults: true
+          use-only-tar-bz2: true
           activate-environment: gta
       - name: Install bioinformatics tools
-        run: conda install -y bcftools samtools bwa wgsim nextflow "openjdk>=17"
+        run: conda install -y --override-channels -c conda-forge -c bioconda bcftools samtools bwa wgsim nextflow "openjdk>=17"
       - name: Install package
         run: pip install -e ".[dev]"
       - name: Generate test data
         run: make data
-      - name: Tests
-        run: pytest -q
+      - name: Tests with coverage
+        run: pytest --strict-skips --cov --cov-report=xml --cov-report=term-missing
+      - name: Coverage summary
+        if: always() && hashFiles('coverage.xml') != ''
+        run: |
+          python - >> "$GITHUB_STEP_SUMMARY" <<'PY'
+          import xml.etree.ElementTree as ET
+          rate = float(ET.parse("coverage.xml").getroot().get("line-rate"))
+          print(f"### Coverage (Python ${{ matrix.python-version }}): {rate * 100:.1f}%")
+          PY
+      - name: Upload coverage.xml
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-py${{ matrix.python-version }}
+          path: coverage.xml
+          if-no-files-found: ignore
       - name: Mock evaluation
         run: gta eval --mock

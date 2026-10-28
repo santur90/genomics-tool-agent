@@ -1,0 +1,191 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "date": "2026-10-27",
+  "repeats": 1,
+  "n_tasks": 5,
+  "aggregate": {
+    "overall": {
+      "task_success": {
+        "mean": 0.8,
+        "sd": 0.0
+      },
+      "tool_selection_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "arg_accuracy": {
+        "mean": 0.8,
+        "sd": 0.0
+      },
+      "invalid_call_rate": {
+        "mean": 0.06666666666666667,
+        "sd": 0.0
+      },
+      "hallucinated_number_rate": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "n_steps": {
+        "mean": 2.6,
+        "sd": 0.0
+      },
+      "n_duplicate_calls": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "latency_s": {
+        "mean": 7.017603141989094,
+        "sd": 0.0
+      },
+      "tokens": {
+        "mean": 7129.2,
+        "sd": 0.0
+      }
+    },
+    "by_category": {
+      "single_tool": {
+        "task_success": {
+          "mean": 0.8,
+          "sd": 0.0
+        },
+        "tool_selection_accuracy": {
+          "mean": 1.0,
+          "sd": 0.0
+        },
+        "arg_accuracy": {
+          "mean": 0.8,
+          "sd": 0.0
+        },
+        "invalid_call_rate": {
+          "mean": 0.06666666666666667,
+          "sd": 0.0
+        },
+        "hallucinated_number_rate": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "n_steps": {
+          "mean": 2.6,
+          "sd": 0.0
+        },
+        "n_duplicate_calls": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "latency_s": {
+          "mean": 7.017603141989094,
+          "sd": 0.0
+        },
+        "tokens": {
+          "mean": 7129.2,
+          "sd": 0.0
+        }
+      }
+    }
+  },
+  "tasks": [
+    {
+      "id": "st_vcf_filter_count",
+      "category": "single_tool",
+      "repeat": 0,
+      "answer": "The number of variants in data/variants/toy.vcf.gz with QUAL>=30 and DP>=10 is 0.",
+      "tools_called": [
+        "filter_vcf"
+      ],
+      "metrics": {
+        "task_success": 0.0,
+        "tool_selection_accuracy": 1.0,
+        "arg_accuracy": 0.0,
+        "invalid_call_rate": 0.0,
+        "hallucinated_number_rate": 0.0,
+        "n_steps": 2.0,
+        "n_duplicate_calls": 0.0,
+        "latency_s": 4.105073666956741,
+        "tokens": 5170.0
+      }
+    },
+    {
+      "id": "st_vcf_summary_types",
+      "category": "single_tool",
+      "repeat": 0,
+      "answer": "The VCF file contains 25 SNPs and 5 indels.",
+      "tools_called": [
+        "summarize_vcf"
+      ],
+      "metrics": {
+        "task_success": 1.0,
+        "tool_selection_accuracy": 1.0,
+        "arg_accuracy": 1.0,
+        "invalid_call_rate": 0.0,
+        "hallucinated_number_rate": 0.0,
+        "n_steps": 2.0,
+        "n_duplicate_calls": 0.0,
+        "latency_s": 3.3100754999904893,
+        "tokens": 5123.0
+      }
+    },
+    {
+      "id": "st_inspect_metadata",
+      "category": "single_tool",
+      "repeat": 0,
+      "answer": "The data/rnaseq/metadata.tsv file has 2 columns: \"sample\" and \"condition\". There are 12 samples listed.",
+      "tools_called": [
+        "inspect_file"
+      ],
+      "metrics": {
+        "task_success": 1.0,
+        "tool_selection_accuracy": 1.0,
+        "arg_accuracy": 1.0,
+        "invalid_call_rate": 0.0,
+        "hallucinated_number_rate": 0.0,
+        "n_steps": 2.0,
+        "n_duplicate_calls": 0.0,
+        "latency_s": 3.0191294589894824,
+        "tokens": 5172.0
+      }
+    },
+    {
+      "id": "st_deseq_counts",
+      "category": "single_tool",
+      "repeat": 0,
+      "answer": "There are 52 genes up-regulated and 31 genes down-regulated.",
+      "tools_called": [
+        "run_deseq2",
+        "run_deseq2"
+      ],
+      "metrics": {
+        "task_success": 1.0,
+        "tool_selection_accuracy": 1.0,
+        "arg_accuracy": 1.0,
+        "invalid_call_rate": 0.0,
+        "hallucinated_number_rate": 0.0,
+        "n_steps": 3.0,
+        "n_duplicate_calls": 0.0,
+        "latency_s": 12.462809499993455,
+        "tokens": 8552.0
+      }
+    },
+    {
+      "id": "st_ora_gene_file",
+      "category": "single_tool",
+      "repeat": 0,
+      "answer": "The most enriched gene set is PATHWAY_UP, with an overlap of 40 genes, a set size of 50 genes, a p-value of 1.557e-51, and a padj of 3.113e-50.",
+      "tools_called": [
+        "run_ora",
+        "run_ora",
+        "inspect_file"
+      ],
+      "metrics": {
+        "task_success": 1.0,
+        "tool_selection_accuracy": 1.0,
+        "arg_accuracy": 1.0,
+        "invalid_call_rate": 0.3333333333333333,
+        "hallucinated_number_rate": 0.0,
+        "n_steps": 4.0,
+        "n_duplicate_calls": 0.0,
+        "latency_s": 12.190927584015299,
+        "tokens": 11629.0
+      }
+    }
+  ]
+}

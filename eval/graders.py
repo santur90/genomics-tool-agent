@@ -1,4 +1,5 @@
 """Deterministic graders for agent runs."""
+
 from __future__ import annotations
 
 import math
@@ -121,8 +122,11 @@ def grade_task(task: dict[str, Any], result: AgentResult, truth: dict[str, Any])
         "tool_selection_accuracy": sel,
         "arg_accuracy": args,
         "invalid_call_rate": invalid / len(result.calls) if result.calls else 0.0,
-        "hallucinated_number_rate": hallucinated_number_rate(result.answer, task["prompt"], [c.result for c in result.calls]),
+        "hallucinated_number_rate": hallucinated_number_rate(
+            result.answer, task["prompt"], [c.result for c in result.calls]
+        ),
         "n_steps": float(result.n_steps),
+        "n_duplicate_calls": float(result.n_duplicate_calls),
         "latency_s": result.latency_s,
         "tokens": float(result.prompt_tokens + result.completion_tokens),
     }

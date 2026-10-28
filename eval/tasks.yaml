@@ -68,7 +68,7 @@ tasks:
     mock:
       calls:
         - {name: run_deseq2, arguments: {counts: data/rnaseq/counts.tsv, metadata: data/rnaseq/metadata.tsv, design_factor: condition, ref_level: control}}
-        - {name: run_ora, arguments: {gmt: data/genesets/toy.gmt, gene_list_file: "{r0.outputs.up_genes}"}}
+        - {name: run_ora, arguments: {gmt: data/genesets/toy.gmt, gene_list_file: "{r0.outputs.up_genes}", de_results: "{r0.outputs.results_tsv}"}}
       answer: "The top pathway is {r1.summary.top[0].set} with adjusted p-value {r1.summary.top[0].padj}."
 
   - id: ms_call_filter_summarize
@@ -108,7 +108,7 @@ tasks:
     mock:
       calls:
         - {name: run_deseq2, arguments: {counts: data/rnaseq/counts.tsv, metadata: data/rnaseq/metadata.tsv, design_factor: condition, ref_level: control}}
-        - {name: run_ora, arguments: {gmt: data/genesets/toy.gmt, gene_list_file: "{r0.outputs.up_genes}"}}
+        - {name: run_ora, arguments: {gmt: data/genesets/toy.gmt, gene_list_file: "{r0.outputs.up_genes}", de_results: "{r0.outputs.results_tsv}"}}
       answer: "{r1.summary.top[0].set} (padj {r1.summary.top[0].padj}), {r1.summary.top[1].set} (padj {r1.summary.top[1].padj}), {r1.summary.top[2].set} (padj {r1.summary.top[2].padj})."
 
   - id: ms_filter_then_summarize_gene

@@ -1,14 +1,15 @@
 """Restricted subprocess execution and path safety helpers."""
+
 from __future__ import annotations
 
 import os
 import secrets
 import shutil
 import subprocess
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Sequence
 
 ALLOWED_COMMANDS = frozenset({"bcftools", "samtools", "bwa", "wgsim", "nextflow"})
 PROJECT_ROOT = Path(os.environ.get("GTA_ROOT") or Path(__file__).resolve().parents[2]).resolve()
@@ -55,15 +56,21 @@ def safe_path(path: str | os.PathLike[str], *, must_exist: bool = True) -> Path:
         p = PROJECT_ROOT / p
     p = p.resolve()
     if not p.is_relative_to(PROJECT_ROOT):
-        raise SandboxError(f"Path is outside the project: {path}", "Only files inside the project directory are accessible.")
+        raise SandboxError(
+            f"Path is outside the project: {path}", "Only files inside the project directory are accessible."
+        )
     if _BLOCKED_PARTS & set(p.relative_to(PROJECT_ROOT).parts):
-        raise SandboxError(f"Access to this path is not allowed: {path}", "Secrets and git internals are off limits.")
+        raise SandboxError(
+            f"Access to this path is not allowed: {path}", "Secrets and git internals are off limits."
+        )
     if must_exist and not p.exists():
         raise ToolError(f"File not found: {path}", "Check the path; data files live under data/.")
     return p
 
 
-def run(cmd: Sequence[str], *, cwd: Path | str | None = None, timeout: int = 300, check: bool = True) -> RunResult:
+def run(
+    cmd: Sequence[str], *, cwd: Path | str | None = None, timeout: int = 300, check: bool = True
+) -> RunResult:
     """Run an allowlisted command without a shell, inside a run folder."""
     if not cmd or not all(isinstance(c, str) for c in cmd):
         raise SandboxError("Command must be a non-empty list of strings.")
@@ -78,10 +85,15 @@ def run(cmd: Sequence[str], *, cwd: Path | str | None = None, timeout: int = 300
         raise SandboxError(f"Working directory must be inside {RUNS_DIR}")
     workdir.mkdir(parents=True, exist_ok=True)
     try:
-        proc = subprocess.run([resolved, *cmd[1:]], cwd=workdir, capture_output=True, text=True, timeout=timeout)
+        proc = subprocess.run(
+            [resolved, *cmd[1:]], cwd=workdir, capture_output=True, text=True, timeout=timeout
+        )
     except subprocess.TimeoutExpired as exc:
         raise SandboxError(f"{exe} timed out after {timeout}s", "Try a smaller input.") from exc
     result = RunResult(list(cmd), proc.returncode, proc.stdout, proc.stderr)
     if check and proc.returncode != 0:
-        raise ToolError(f"{exe} failed (exit {proc.returncode}): {proc.stderr.strip()[-500:]}", "Check input files and parameters.")
+        raise ToolError(
+            f"{exe} failed (exit {proc.returncode}): {proc.stderr.strip()[-500:]}",
+            "Check input files and parameters.",
+        )
     return result

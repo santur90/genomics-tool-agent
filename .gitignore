@@ -12,3 +12,8 @@ data/variants/*.fq
 data/variants/*.bam
 data/variants/*.bai
 data/variants/ref.fa.*
+
+# eval progress and mock runs
+eval/results/*.partial.jsonl
+eval/results/mock_*
+eval/results/*.done.jsonl

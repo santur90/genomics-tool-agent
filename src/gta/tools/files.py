@@ -1,4 +1,5 @@
 """File inspection tool."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -29,11 +30,20 @@ def read_table(path: Path) -> pd.DataFrame:
 
 
 def _inspect_vcf(path: Path) -> dict[str, Any]:
-    header = sandbox.run(["bcftools", "view", "-h", str(path)], cwd=sandbox.new_run_dir("inspect")).stdout.splitlines()
+    header = sandbox.run(
+        ["bcftools", "view", "-h", str(path)], cwd=sandbox.new_run_dir("inspect")
+    ).stdout.splitlines()
     chrom_line = next((h for h in header if h.startswith("#CHROM")), "")
-    ids = sandbox.run(["bcftools", "query", "-f", "%CHROM\n", str(path)], cwd=sandbox.new_run_dir("inspect")).stdout.splitlines()
+    ids = sandbox.run(
+        ["bcftools", "query", "-f", "%CHROM\n", str(path)], cwd=sandbox.new_run_dir("inspect")
+    ).stdout.splitlines()
     return {
-        "summary": {"type": "vcf", "n_records": len(ids), "n_header_lines": len(header), "columns": chrom_line.lstrip("#").split("\t")},
+        "summary": {
+            "type": "vcf",
+            "n_records": len(ids),
+            "n_header_lines": len(header),
+            "columns": chrom_line.lstrip("#").split("\t"),
+        },
         "outputs": {},
     }
 
@@ -46,7 +56,13 @@ def _inspect_table(path: Path) -> dict[str, Any]:
         return {"summary": {"type": "table", "empty": True}, "outputs": {}}
     head = df.head(5).astype(str).to_dict(orient="records")
     return {
-        "summary": {"type": "table", "n_rows": len(df), "n_columns": df.shape[1], "columns": list(df.columns), "head": head},
+        "summary": {
+            "type": "table",
+            "n_rows": len(df),
+            "n_columns": df.shape[1],
+            "columns": list(df.columns),
+            "head": head,
+        },
         "outputs": {},
     }
 
@@ -56,7 +72,11 @@ def _inspect_gmt(path: Path) -> dict[str, Any]:
     return {"summary": {"type": "gmt", "n_sets": len(names), "set_names": names[:20]}, "outputs": {}}
 
 
-@tool("inspect_file", "Inspect a tsv/csv table (shape, columns, head), a VCF (header and record count), or a GMT file.", InspectFileInput)
+@tool(
+    "inspect_file",
+    "Inspect a tsv/csv table (shape, columns, head), a VCF (header and record count), or a GMT file.",
+    InspectFileInput,
+)
 def inspect_file(path: str) -> dict[str, Any]:
     """Return basic structure information about a data file."""
     p = sandbox.safe_path(path)

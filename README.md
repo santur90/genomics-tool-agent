@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/santur90/genomics-tool-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/santur90/genomics-tool-agent/actions/workflows/ci.yml)
 
+CI runs ruff (lint + format), then pytest with coverage (gate: 80%, `--strict-skips` so missing data/binaries fail instead of skipping) on Python 3.11 and 3.12. The coverage percentage appears in each job summary and `coverage.xml` is uploaded as an artifact.
+
 Bioinformatics workflows (RNA-seq differential expression, enrichment, variant calling and filtering, Nextflow pipelines) are easy to describe in words and tedious to run by hand. This project lets an LLM agent do that through **tool calling**: the model picks tools, fills in arguments, chains outputs, and reports results, while a sandbox restricts what can run. A benchmark with **known-answer synthetic data** scores tool selection, argument fidelity, error handling, safety, and whether the final answer contains numbers that no tool produced.
 
 ## Architecture

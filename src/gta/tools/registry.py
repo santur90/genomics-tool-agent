@@ -1,9 +1,11 @@
 """Tool registry: decorator, OpenAI tool specs, and validated dispatch."""
+
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any, Callable
+from typing import Any
 
 from pydantic import BaseModel, ValidationError
 
@@ -41,7 +43,14 @@ def tool_names() -> list[str]:
 def openai_tool_specs() -> list[dict[str, Any]]:
     """Tool list for the `tools=` parameter of a chat completion."""
     return [
-        {"type": "function", "function": {"name": t.name, "description": t.description, "parameters": t.model.model_json_schema()}}
+        {
+            "type": "function",
+            "function": {
+                "name": t.name,
+                "description": t.description,
+                "parameters": t.model.model_json_schema(),
+            },
+        }
         for t in _REGISTRY.values()
     ]
 
@@ -61,12 +70,24 @@ def call(name: str, args_json: str | dict[str, Any] | None) -> dict[str, Any]:
             raise ValueError("arguments must be a JSON object")
         args = spec.model.model_validate(raw)
     except (ValueError, ValidationError) as exc:
-        detail = [f"{'.'.join(map(str, e['loc']))}: {e['msg']}" for e in exc.errors()] if isinstance(exc, ValidationError) else str(exc)
-        return _error("invalid_arguments", f"Invalid arguments for {name}: {detail}", "Fix the arguments to match the tool's JSON schema.")
+        detail = (
+            [f"{'.'.join(map(str, e['loc']))}: {e['msg']}" for e in exc.errors()]
+            if isinstance(exc, ValidationError)
+            else str(exc)
+        )
+        return _error(
+            "invalid_arguments",
+            f"Invalid arguments for {name}: {detail}",
+            "Fix the arguments to match the tool's JSON schema.",
+        )
     try:
         result = spec.func(**args.model_dump())
         return json.loads(json.dumps(result, default=str))
     except ToolError as exc:
         return _error("tool_error", exc.message, exc.hint)
     except Exception as exc:  # unexpected failures must not crash the agent loop
-        return _error("tool_error", f"{type(exc).__name__}: {exc}", "Report this failure to the user instead of guessing results.")
+        return _error(
+            "tool_error",
+            f"{type(exc).__name__}: {exc}",
+            "Report this failure to the user instead of guessing results.",
+        )

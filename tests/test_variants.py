@@ -21,7 +21,9 @@ def test_inspect_vcf():
 def test_filter_matches_truth():
     t = _truth()
     assert filter_vcf(VCF, min_qual=30, min_dp=10)["summary"]["n_output"] == t["n_qual30_dp10"]
-    assert filter_vcf(VCF, min_qual=30, min_dp=10, gene="TP53")["summary"]["n_output"] == t["n_tp53_qual30_dp10"]
+    assert (
+        filter_vcf(VCF, min_qual=30, min_dp=10, gene="TP53")["summary"]["n_output"] == t["n_tp53_qual30_dp10"]
+    )
     assert filter_vcf(VCF, min_qual=20, gene="EGFR")["summary"]["n_output"] == t["n_egfr_qual20"]
 
 
@@ -39,7 +41,13 @@ def _truth_snp_positions() -> set[int]:
     positions = set()
     for line in (ROOT / "data/variants/truth.txt").read_text().splitlines():
         parts = line.split("\t")
-        if len(parts) >= 4 and len(parts[2]) == 1 and len(parts[3]) == 1 and parts[2] != "-" and parts[3] != "-":
+        if (
+            len(parts) >= 4
+            and len(parts[2]) == 1
+            and len(parts[3]) == 1
+            and parts[2] != "-"
+            and parts[3] != "-"
+        ):
             positions.add(int(parts[1]))
     return positions
 
@@ -50,7 +58,12 @@ def test_call_variants_recall():
     import subprocess
 
     res = call_variants("data/variants/sample.bam", "data/variants/ref.fa", min_qual=20)
-    out = subprocess.run(["bcftools", "query", "-f", "%POS\n", res["outputs"]["vcf"]], capture_output=True, text=True, check=True).stdout
+    out = subprocess.run(
+        ["bcftools", "query", "-f", "%POS\n", res["outputs"]["vcf"]],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
     called = {int(x) for x in out.split()}
     truth = _truth_snp_positions()
     assert truth, "no SNPs parsed from truth.txt"

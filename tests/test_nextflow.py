@@ -1,15 +1,16 @@
-from gta.tools.nextflow import run_nextflow
-from tests.conftest import needs_bin, needs_data
-
 import pytest
 
 from gta.sandbox import ToolError
+from gta.tools.nextflow import run_nextflow
+from tests.conftest import needs_bin, needs_data
 
 
 @needs_bin("nextflow")
 @needs_data("data/rnaseq/counts.tsv", "data/rnaseq/metadata.tsv")
 def test_rnaseq_mini_stub_succeeds():
-    res = run_nextflow("rnaseq_mini", {"counts": "data/rnaseq/counts.tsv", "metadata": "data/rnaseq/metadata.tsv"}, stub=True)
+    res = run_nextflow(
+        "rnaseq_mini", {"counts": "data/rnaseq/counts.tsv", "metadata": "data/rnaseq/metadata.tsv"}, stub=True
+    )
     assert res["summary"]["returncode"] == 0
     assert any(f.endswith("deseq2_results.tsv") for f in res["outputs"]["files"])
 
@@ -20,10 +21,19 @@ def test_unknown_pipeline_rejected():
     assert "rnaseq_mini" in exc.value.hint
 
 
-@pytest.mark.parametrize("bad", [
-    "/tmp/evil/main.nf", "pipelines/rnaseq_mini/main.nf", "../pipelines/rnaseq_mini/main.nf",
-    "pipelines/rnaseq_mini", "rnaseq_mini/", "RNASEQ_MINI", "", "rnaseq_mini; rm -rf /",
-])
+@pytest.mark.parametrize(
+    "bad",
+    [
+        "/tmp/evil/main.nf",
+        "pipelines/rnaseq_mini/main.nf",
+        "../pipelines/rnaseq_mini/main.nf",
+        "pipelines/rnaseq_mini",
+        "rnaseq_mini/",
+        "RNASEQ_MINI",
+        "",
+        "rnaseq_mini; rm -rf /",
+    ],
+)
 def test_non_allowlisted_pipeline_never_reaches_subprocess(bad, monkeypatch):
     import subprocess
 

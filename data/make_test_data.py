@@ -1,4 +1,5 @@
 """Simulate an RNA-seq count matrix with planted DE genes and a toy GMT file."""
+
 from __future__ import annotations
 
 import json
@@ -42,21 +43,29 @@ def write_rnaseq(counts: np.ndarray, conditions: list[str]) -> dict:
     """Write counts, metadata, planted gene list and ground_truth.json."""
     out = ROOT / "rnaseq"
     out.mkdir(parents=True, exist_ok=True)
-    samples = [f"ctrl_{i}" for i in range(1, N_PER_GROUP + 1)] + [f"treat_{i}" for i in range(1, N_PER_GROUP + 1)]
+    samples = [f"ctrl_{i}" for i in range(1, N_PER_GROUP + 1)] + [
+        f"treat_{i}" for i in range(1, N_PER_GROUP + 1)
+    ]
     genes = [gene_name(i) for i in range(1, N_GENES + 1)]
     with open(out / "counts.tsv", "w") as fh:
         fh.write("gene\t" + "\t".join(samples) + "\n")
-        for g, row in zip(genes, counts):
+        for g, row in zip(genes, counts, strict=True):
             fh.write(g + "\t" + "\t".join(map(str, row)) + "\n")
     with open(out / "metadata.tsv", "w") as fh:
         fh.write("sample\tcondition\n")
-        for s, c in zip(samples, conditions):
+        for s, c in zip(samples, conditions, strict=True):
             fh.write(f"{s}\t{c}\n")
     up, down = genes[:N_UP], genes[N_UP : N_UP + N_DOWN]
     (out / "planted_up.txt").write_text("\n".join(up) + "\n")
     truth = {
-        "seed": SEED, "n_genes": N_GENES, "n_samples": len(samples), "fold_change": FOLD,
-        "n_up": N_UP, "n_down": N_DOWN, "up_genes": up, "down_genes": down,
+        "seed": SEED,
+        "n_genes": N_GENES,
+        "n_samples": len(samples),
+        "fold_change": FOLD,
+        "n_up": N_UP,
+        "n_down": N_DOWN,
+        "up_genes": up,
+        "down_genes": down,
         "enriched_pathway": "PATHWAY_UP",
     }
     (out / "ground_truth.json").write_text(json.dumps(truth, indent=2))

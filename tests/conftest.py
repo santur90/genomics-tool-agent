@@ -1,4 +1,5 @@
 """Shared fixtures: skip data/tool-dependent tests when prerequisites are missing."""
+
 import shutil
 from pathlib import Path
 
@@ -23,3 +24,24 @@ def needs_bin(*names: str):
 @pytest.fixture(scope="session")
 def root() -> Path:
     return ROOT
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--strict-skips",
+        action="store_true",
+        default=False,
+        help="fail (instead of skip) tests skipped because data or binaries are missing",
+    )
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+    if not item.config.getoption("--strict-skips") or not report.skipped:
+        return
+    reason = report.longrepr[2] if isinstance(report.longrepr, tuple) else str(report.longrepr)
+    if "missing data" in reason or "missing binaries" in reason:
+        report.outcome = "failed"
+        report.longrepr = f"--strict-skips: {reason}"

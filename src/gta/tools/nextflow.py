@@ -1,8 +1,8 @@
 """Run allowlisted Nextflow pipelines."""
+
 from __future__ import annotations
 
 import re
-from pathlib import Path
 from typing import Any
 
 import yaml
@@ -21,7 +21,9 @@ class NextflowInput(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
     pipeline: str = Field(description="Pipeline name from config/pipelines.yaml (not a path)")
-    params: dict[str, str] = Field(default_factory=dict, description="Pipeline parameters, e.g. {'counts': 'data/rnaseq/counts.tsv'}")
+    params: dict[str, str] = Field(
+        default_factory=dict, description="Pipeline parameters, e.g. {'counts': 'data/rnaseq/counts.tsv'}"
+    )
     stub: bool = Field(True, description="Use -stub-run (fast dry run without real computation)")
 
 
@@ -46,7 +48,11 @@ def _build_params(spec: dict[str, Any], params: dict[str, str]) -> list[str]:
     return args
 
 
-@tool("run_nextflow", "Run a registered Nextflow pipeline by name (stub mode by default) and list its output files.", NextflowInput)
+@tool(
+    "run_nextflow",
+    "Run a registered Nextflow pipeline by name (stub mode by default) and list its output files.",
+    NextflowInput,
+)
 def run_nextflow(pipeline: str, params: dict[str, str] | None = None, stub: bool = True) -> dict[str, Any]:
     """Run an allowlisted pipeline in a run folder."""
     pipelines = load_pipelines()
@@ -56,12 +62,27 @@ def run_nextflow(pipeline: str, params: dict[str, str] | None = None, stub: bool
     script = sandbox.safe_path(spec["path"])
     extra = _build_params(spec, params or {})
     out = sandbox.new_run_dir(f"nf-{pipeline}")
-    cmd = ["nextflow", "run", str(script), "-ansi-log", "false", "-work-dir", str(out / "work"), "--outdir", str(out / "results")]
+    cmd = [
+        "nextflow",
+        "run",
+        str(script),
+        "-ansi-log",
+        "false",
+        "-work-dir",
+        str(out / "work"),
+        "--outdir",
+        str(out / "results"),
+    ]
     if stub:
         cmd.append("-stub-run")
     proc = sandbox.run(cmd + extra, cwd=out, timeout=900)
     files = sorted(str(p) for p in (out / "results").rglob("*") if p.is_file())
     return {
-        "summary": {"pipeline": pipeline, "stub": stub, "returncode": proc.returncode, "n_output_files": len(files)},
+        "summary": {
+            "pipeline": pipeline,
+            "stub": stub,
+            "returncode": proc.returncode,
+            "n_output_files": len(files),
+        },
         "outputs": {"outdir": str(out / "results"), "files": files},
     }

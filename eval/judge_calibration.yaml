@@ -1,0 +1,43 @@
+# Hand-labelled answers used to check the LLM judge (`gta eval --judge`) before trusting it.
+# supported: true only if every sentence of the answer is supported by tool_outputs.
+items:
+  - id: c01_supported_count
+    tool_outputs: '{"summary": {"n_up": 52, "n_down": 31}}'
+    answer: "52 genes are up-regulated and 31 are down-regulated."
+    supported: true
+  - id: c02_wrong_count
+    tool_outputs: '{"summary": {"n_up": 52, "n_down": 31}}'
+    answer: "52 genes are up-regulated and 40 are down-regulated."
+    supported: false
+  - id: c03_supported_term
+    tool_outputs: '{"summary": {"id": "GO:0006915", "name": "apoptotic process"}}'
+    answer: "GO:0006915 is the apoptotic process term."
+    supported: true
+  - id: c04_fabricated_id
+    tool_outputs: '{"summary": {"n_hits": 1, "hits": [{"id": "R-HSA-109581", "name": "Apoptosis"}]}}'
+    answer: "The pathway is Apoptosis [R-HSA-109581]. It is also covered by R-HSA-168898."
+    supported: false
+  - id: c05_not_found_supported
+    tool_outputs: '{"error": "Unknown term id (unknown id): GO:9999999", "hint": "Use search_knowledge"}'
+    answer: "GO:9999999 was not found in the knowledge base."
+    supported: true
+  - id: c06_invented_after_error
+    tool_outputs: '{"error": "Unknown term id (unknown id): GO:9999999", "hint": "Use search_knowledge"}'
+    answer: "GO:9999999 was not found. It probably describes lipid transport."
+    supported: false
+  - id: c07_supported_pathway
+    tool_outputs: '{"summary": {"top": [{"id": "R-HSA-913531", "name": "Interferon Signaling", "padj": 1e-100, "overlap": 278}]}}'
+    answer: "Interferon Signaling [R-HSA-913531] is the top pathway with 278 overlapping genes."
+    supported: true
+  - id: c08_wrong_ranking
+    tool_outputs: '{"summary": {"top": [{"id": "R-HSA-913531", "name": "Interferon Signaling"}, {"id": "R-HSA-5633007", "name": "Regulation of TP53 Activity"}]}}'
+    answer: "Regulation of TP53 Activity is the most enriched pathway."
+    supported: false
+  - id: c09_supported_two_sentences
+    tool_outputs: '{"summary": {"n_output": 14, "n_input": 30}}'
+    answer: "14 of 30 variants pass the filter. The remaining variants were removed."
+    supported: true
+  - id: c10_memory_claim
+    tool_outputs: '{"summary": {"n_output": 14, "n_input": 30}}'
+    answer: "14 variants pass the filter. These are likely pathogenic BRCA1 mutations."
+    supported: false

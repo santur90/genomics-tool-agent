@@ -1,3 +1,5 @@
+# Packaged default allowlist (paths are relative to this package's resources/).
+# Add your own pipelines in <project>/config/pipelines.yaml (paths relative to the project).
 # Allowlist: agents can only run pipelines registered here (never arbitrary paths).
 pipelines:
   rnaseq_mini:
@@ -5,6 +7,3 @@ pipelines:
     description: Mini RNA-seq pipeline (FASTQC_STUB -> COUNT_STUB -> DESEQ2)
     allowed_params: [counts, metadata, factor, ref_level]
     path_params: [counts, metadata]
-  # Add your own private pipelines here, e.g.:
-  # atacseq_private:
-  #   path: /abs/path/inside/project/or/symlink/main.nf

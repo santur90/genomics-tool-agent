@@ -1,0 +1,23 @@
+R-DRE-109581	Apoptosis	Danio rerio
+R-HSA-109581	Apoptosis	Homo sapiens
+R-HSA-69620	Cell Cycle Checkpoints	Homo sapiens
+R-HSA-2559583	Cellular Senescence	Homo sapiens
+R-HSA-71403	Citric acid cycle (TCA cycle)	Homo sapiens
+R-HSA-5693532	DNA Double-Strand Break Repair	Homo sapiens
+R-HSA-73894	DNA Repair	Homo sapiens
+R-HSA-69306	DNA Replication	Homo sapiens
+R-HSA-69481	G2/M Checkpoints	Homo sapiens
+R-HSA-70171	Glycolysis	Homo sapiens
+R-HSA-913531	Interferon Signaling	Homo sapiens
+R-HSA-877300	Interferon gamma signaling	Homo sapiens
+R-HSA-6791226	Major pathway of rRNA processing in the nucleolus and cytosol	Homo sapiens
+R-HSA-1500620	Meiosis	Homo sapiens
+R-HSA-6798695	Neutrophil degranulation	Homo sapiens
+R-HSA-5633007	Regulation of TP53 Activity	Homo sapiens
+R-HSA-6806003	Regulation of TP53 Expression and Degradation	Homo sapiens
+R-HSA-195721	Signaling by WNT	Homo sapiens
+R-HSA-6796648	TP53 Regulates Transcription of DNA Repair Genes	Homo sapiens
+R-HSA-168898	Toll-like Receptor Cascades	Homo sapiens
+R-HSA-72163	mRNA Splicing - Major Pathway	Homo sapiens
+R-MMU-109581	Apoptosis	Mus musculus
+R-MMU-913531	Interferon Signaling	Mus musculus

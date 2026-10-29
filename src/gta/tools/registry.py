@@ -59,11 +59,23 @@ def _error(kind: str, message: str, hint: str) -> dict[str, Any]:
     return {"error": message, "hint": hint, "kind": kind}
 
 
+def get_spec(name: str) -> ToolSpec | None:
+    """Registered tool by name, or None."""
+    return _REGISTRY.get(name)
+
+
 def call(name: str, args_json: str | dict[str, Any] | None) -> dict[str, Any]:
     """Validate arguments and run a tool; return its dict or a structured error."""
+    return call_validated(name, args_json)[0]
+
+
+def call_validated(
+    name: str, args_json: str | dict[str, Any] | None
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
+    """Like `call`, also returning the validated arguments passed to the tool (None if validation failed)."""
     spec = _REGISTRY.get(name)
     if spec is None:
-        return _error("unknown_tool", f"Unknown tool: {name}", f"Available tools: {tool_names()}")
+        return _error("unknown_tool", f"Unknown tool: {name}", f"Available tools: {tool_names()}"), None
     try:
         raw = json.loads(args_json) if isinstance(args_json, str) and args_json.strip() else (args_json or {})
         if not isinstance(raw, dict):
@@ -75,19 +87,26 @@ def call(name: str, args_json: str | dict[str, Any] | None) -> dict[str, Any]:
             if isinstance(exc, ValidationError)
             else str(exc)
         )
-        return _error(
-            "invalid_arguments",
-            f"Invalid arguments for {name}: {detail}",
-            "Fix the arguments to match the tool's JSON schema.",
+        return (
+            _error(
+                "invalid_arguments",
+                f"Invalid arguments for {name}: {detail}",
+                "Fix the arguments to match the tool's JSON schema.",
+            ),
+            None,
         )
+    validated = args.model_dump()
     try:
-        result = spec.func(**args.model_dump())
-        return json.loads(json.dumps(result, default=str))
+        result = spec.func(**validated)
+        return json.loads(json.dumps(result, default=str)), validated
     except ToolError as exc:
-        return _error("tool_error", exc.message, exc.hint)
+        return _error("tool_error", exc.message, exc.hint), validated
     except Exception as exc:  # unexpected failures must not crash the agent loop
-        return _error(
-            "tool_error",
-            f"{type(exc).__name__}: {exc}",
-            "Report this failure to the user instead of guessing results.",
+        return (
+            _error(
+                "tool_error",
+                f"{type(exc).__name__}: {exc}",
+                "Report this failure to the user instead of guessing results.",
+            ),
+            validated,
         )

@@ -12,7 +12,21 @@ from datetime import datetime
 from pathlib import Path
 
 ALLOWED_COMMANDS = frozenset({"bcftools", "samtools", "bwa", "wgsim", "nextflow"})
-PROJECT_ROOT = Path(os.environ.get("GTA_ROOT") or Path(__file__).resolve().parents[2]).resolve()
+
+
+def _default_root() -> Path:
+    """GTA_ROOT, else the repo checkout (editable install), else the current directory."""
+    if os.environ.get("GTA_ROOT"):
+        return Path(os.environ["GTA_ROOT"])
+    checkout = Path(__file__).resolve().parents[2]
+    return (
+        checkout
+        if (checkout / "pyproject.toml").is_file() and (checkout / "src" / "gta").is_dir()
+        else Path.cwd()
+    )
+
+
+PROJECT_ROOT = _default_root().resolve()
 RUNS_DIR = PROJECT_ROOT / "runs"
 WORK_DIR = RUNS_DIR / "work"
 _BLOCKED_PARTS = {".env", ".git"}
@@ -79,7 +93,15 @@ def run(
         raise SandboxError(f"Command not allowed: {exe}", f"Allowed commands: {sorted(ALLOWED_COMMANDS)}")
     resolved = shutil.which(exe)
     if resolved is None:
-        raise SandboxError(f"Executable not installed: {exe}", "Install it via conda (bioconda channel).")
+        raise SandboxError(
+            f"Executable not installed: {exe}",
+            f"Run `gta doctor` to see what is missing; install with conda (bioconda channel): conda install -c bioconda {exe}",
+        )
+    if exe == "nextflow" and shutil.which("java") is None:
+        raise SandboxError(
+            "Java is not installed (required by nextflow)",
+            "Run `gta doctor`; install with: conda install -c conda-forge openjdk",
+        )
     workdir = Path(cwd).resolve() if cwd else new_run_dir(exe)
     if not workdir.is_relative_to(RUNS_DIR):
         raise SandboxError(f"Working directory must be inside {RUNS_DIR}")

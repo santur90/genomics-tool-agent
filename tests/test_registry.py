@@ -14,6 +14,9 @@ def test_specs_cover_all_tools():
         "filter_vcf",
         "summarize_vcf",
         "run_nextflow",
+        "search_knowledge",
+        "get_term",
+        "annotate_genes",
     }
     assert all(s["function"]["parameters"]["type"] == "object" for s in specs)
 

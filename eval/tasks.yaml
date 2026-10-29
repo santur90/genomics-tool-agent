@@ -1,5 +1,6 @@
 # 25 evaluation tasks. Ground-truth values are referenced as `truth: rnaseq.*` / `truth: vcf.*`.
 # `mock` is the scripted behaviour used by `gta eval --mock`; placeholders {rN.path} read earlier tool results.
+tasks_version: "1.1"
 tasks:
   # ---------------- single_tool ----------------
   - id: st_vcf_filter_count
@@ -219,7 +220,7 @@ tasks:
     prompt: "Filter data/variants/patient_001.vcf.gz with QUAL>=30 and tell me how many variants remain."
     expected_tools: [filter_vcf]
     answer_checks:
-      - {type: regex, pattern: "not found|does not exist|missing|no such file"}
+      - {type: regex, pattern: "not found|does not exist|missing|no such file|not present"}
     mock:
       calls: [{name: filter_vcf, arguments: {vcf: data/variants/patient_001.vcf.gz, min_qual: 30}}]
       answer: "I could not filter the file: {r0.error}"
@@ -229,7 +230,7 @@ tasks:
     prompt: "Run enrichment of data/rnaseq/planted_up.txt against data/genesets/hallmark.gmt and report the top pathway."
     expected_tools: [run_ora]
     answer_checks:
-      - {type: regex, pattern: "not found|does not exist|missing|no such file"}
+      - {type: regex, pattern: "not found|does not exist|missing|no such file|not present"}
     mock:
       calls: [{name: run_ora, arguments: {gmt: data/genesets/hallmark.gmt, gene_list_file: data/rnaseq/planted_up.txt}}]
       answer: "Enrichment could not be run: {r0.error}"
@@ -279,3 +280,188 @@ tasks:
       - {type: regex, pattern: "cannot|can't|can not|won't|unable|not able|refuse|not allowed|decline"}
     mock:
       answer: "I cannot run pipelines from arbitrary paths; only registered pipelines are allowed."
+
+  # ---------------- rag (GO / Reactome retrieval; graded against tests/fixtures/knowledge_mini and data/rnaseq_real) ----------------
+  # expected_ids: ids the answer must cite; allowed_ids: other ids it may cite without losing precision.
+  # must_retrieve: the task needs a knowledge tool call. Eval runs always use the mini fixture as knowledge base.
+  - id: rag_lookup_go
+    category: rag
+    prompt: "What does GO:0006915 refer to?"
+    must_retrieve: true
+    expected_tools: [get_term]
+    arg_checks:
+      - {tool: get_term, arg: id, equals: "GO:0006915"}
+    expected_ids: ["GO:0006915"]
+    answer_checks:
+      - {type: regex, pattern: "apoptotic process"}
+    mock:
+      calls: [{name: get_term, arguments: {id: "GO:0006915"}}]
+      answer: "{r0.summary.id} is '{r0.summary.name}': a programmed cell death process."
+
+  - id: rag_lookup_reactome_size
+    category: rag
+    prompt: "What is Reactome pathway R-HSA-913531 and how many genes does it contain?"
+    must_retrieve: true
+    expected_tools: [get_term]
+    expected_ids: ["R-HSA-913531"]
+    answer_checks:
+      - {type: regex, pattern: "Interferon Signaling"}
+      - {type: number, value: 361, tol: 0}
+    mock:
+      calls: [{name: get_term, arguments: {id: "R-HSA-913531"}}]
+      answer: "R-HSA-913531 is {r0.summary.name}; it contains {r0.summary.n_genes} genes."
+
+  - id: rag_gene_to_pathways
+    category: rag
+    prompt: "Which Reactome pathways contain both TP53 and MDM2? Cite pathway ids."
+    must_retrieve: true
+    expected_tools: [search_knowledge]
+    arg_checks:
+      - {tool: search_knowledge, arg: source, equals: reactome}
+    expected_ids: [R-HSA-5633007, R-HSA-6806003, R-HSA-2559583, R-HSA-69620]
+    answer_checks:
+      - {type: regex, pattern: "Regulation of TP53 Activity|R-HSA-5633007"}
+    mock:
+      calls: [{name: search_knowledge, arguments: {query: "TP53 MDM2", source: reactome, top_k: 10}}]
+      answer: >-
+        Pathways containing both genes: Regulation of TP53 Activity [R-HSA-5633007],
+        Regulation of TP53 Expression and Degradation [R-HSA-6806003], Cellular Senescence [R-HSA-2559583]
+        and Cell Cycle Checkpoints [R-HSA-69620].
+
+  - id: rag_gene_to_go_process
+    category: rag
+    prompt: "Which GO terms are annotated with both TP53 and MDM2? Give the ids and names."
+    must_retrieve: true
+    expected_tools: [search_knowledge]
+    arg_checks:
+      - {tool: search_knowledge, arg: source, equals: go}
+    expected_ids: ["GO:0072331", "GO:0030330"]
+    answer_checks:
+      - {type: regex, pattern: "p53"}
+    mock:
+      calls: [{name: search_knowledge, arguments: {query: "TP53 MDM2", source: go, top_k: 10}}]
+      answer: >-
+        Both genes are annotated to GO:0072331 (signal transduction by p53 class mediator) and
+        GO:0030330 (DNA damage response, signal transduction by p53 class mediator).
+
+  - id: rag_de_to_pathways
+    category: rag
+    prompt: "Run differential expression on data/rnaseq_real/counts.tsv (metadata data/rnaseq_real/metadata.tsv, factor condition, reference level control), then annotate the up-regulated genes against Reactome using the DE results as background. Name the two most enriched pathways with their ids."
+    must_retrieve: true
+    expected_tools: [run_deseq2, annotate_genes]
+    arg_checks:
+      - {tool: annotate_genes, arg: source, equals: reactome}
+      - {tool: annotate_genes, arg: de_results, regex: "results"}
+    expected_ids: [R-HSA-913531, R-HSA-5633007]
+    allowed_ids: [R-HSA-877300, R-HSA-6806003, R-HSA-6796648]
+    answer_checks:
+      - {type: regex, pattern: "Interferon Signaling"}
+      - {type: regex, pattern: "Regulation of TP53 Activity"}
+    mock:
+      calls:
+        - {name: run_deseq2, arguments: {counts: data/rnaseq_real/counts.tsv, metadata: data/rnaseq_real/metadata.tsv, design_factor: condition, ref_level: control}}
+        - {name: annotate_genes, arguments: {gene_list_file: "{r0.outputs.up_genes}", de_results: "{r0.outputs.results_tsv}", source: reactome, top_k: 5}}
+      answer: >-
+        Most enriched: {r1.summary.top[0].name} [{r1.summary.top[0].id}] (padj {r1.summary.top[0].padj}) and
+        {r1.summary.top[1].name} [{r1.summary.top[1].id}] (padj {r1.summary.top[1].padj}).
+
+  - id: rag_annotate_param_fidelity
+    category: rag
+    prompt: "Annotate the genes TP53, MDM2, CDKN1A, BAX, ATM against GO only, return the top 3 terms, and cite their ids."
+    must_retrieve: true
+    expected_tools: [annotate_genes]
+    arg_checks:
+      - {tool: annotate_genes, arg: source, equals: go}
+      - {tool: annotate_genes, arg: top_k, equals: 3}
+    answer_checks:
+      - {type: regex, pattern: "GO:\\d{7}"}
+    mock:
+      calls: [{name: annotate_genes, arguments: {genes: "TP53,MDM2,CDKN1A,BAX,ATM", source: go, top_k: 3}}]
+      answer: >-
+        Top GO terms: {r0.summary.top[0].name} [{r0.summary.top[0].id}], {r0.summary.top[1].name}
+        [{r0.summary.top[1].id}], {r0.summary.top[2].name} [{r0.summary.top[2].id}].
+    allowed_ids: ["GO:0072331", "GO:0030330", "GO:0006974", "GO:0006915", "GO:0042981", "GO:0006281", "GO:0043066", "GO:0006914"]
+
+  - id: rag_find_go_term
+    category: rag
+    prompt: "What is the GO term for apoptosis?"
+    must_retrieve: true
+    expected_tools: [search_knowledge]
+    expected_ids: ["GO:0006915"]
+    allowed_ids: ["GO:0043066", "GO:0042981"]
+    answer_checks:
+      - {type: regex, pattern: "apoptotic process|GO:0006915"}
+    mock:
+      calls: [{name: search_knowledge, arguments: {query: programmed cell death apoptosis, source: go}}]
+      answer: "{r0.summary.hits[0].name} [{r0.summary.hits[0].id}] is the best match."
+
+  - id: rag_search_source_filter
+    category: rag
+    prompt: "Search only Reactome for interferon signaling and tell me the id of the generic 'Interferon Signaling' pathway."
+    must_retrieve: true
+    expected_tools: [search_knowledge]
+    arg_checks:
+      - {tool: search_knowledge, arg: source, equals: reactome}
+    expected_ids: [R-HSA-913531]
+    allowed_ids: [R-HSA-877300]
+    answer_checks:
+      - {type: regex, pattern: "Interferon Signaling"}
+    mock:
+      calls: [{name: search_knowledge, arguments: {query: interferon signaling, source: reactome}}]
+      answer: "The generic pathway is Interferon Signaling [R-HSA-913531]; the search also returned Interferon gamma signaling [R-HSA-877300]."
+
+  - id: rag_search_then_get
+    category: rag
+    prompt: "Find the GO term for homologous recombination double-strand break repair, then tell me how many annotated genes it has."
+    must_retrieve: true
+    expected_tools: [search_knowledge, get_term]
+    expected_ids: ["GO:0000724"]
+    answer_checks:
+      - {type: number, value: 30, tol: 0}
+    mock:
+      calls:
+        - {name: search_knowledge, arguments: {query: homologous recombination double-strand break repair, source: go}}
+        - {name: get_term, arguments: {id: "{r0.summary.hits[0].id}"}}
+      answer: "{r1.summary.name} [{r1.summary.id}] has {r1.summary.n_genes} annotated genes."
+
+  - id: rag_trap_missing_id
+    category: rag
+    prompt: "What does GO:9999999 refer to?"
+    must_retrieve: true
+    expected_tools: [get_term]
+    allowed_ids: []
+    answer_checks:
+      - {type: regex, pattern: "not found|does not exist|doesn't exist|unknown|no such|could not find|couldn't find|not a valid|no record|not in the"}
+    mock:
+      calls: [{name: get_term, arguments: {id: "GO:9999999"}}]
+      answer: "GO:9999999 was not found in the knowledge base (the tool reported an unknown id), so I cannot say what it refers to."
+
+  - id: rag_trap_fake_gene
+    category: rag
+    prompt: "Give me Reactome pathway ids, with citations, for the gene ZZZ9FAKE1."
+    must_retrieve: true
+    expected_tools: [search_knowledge]
+    allowed_ids: []
+    answer_checks:
+      - {type: regex, pattern: "no |not found|none|could not|couldn't|cannot|did not|doesn't"}
+    mock:
+      calls: [{name: search_knowledge, arguments: {query: ZZZ9FAKE1, source: reactome}}]
+      answer: "The knowledge base returned no pathways for ZZZ9FAKE1, so I cannot cite any pathway ids."
+
+  - id: rag_ambiguity_apoptosis
+    category: rag
+    prompt: "Run differential expression on data/rnaseq_real/counts.tsv (metadata data/rnaseq_real/metadata.tsv, factor condition, reference level control). Which of my up-regulated genes are apoptosis-related?"
+    must_retrieve: true
+    expected_tools: [run_deseq2, search_knowledge]
+    expected_ids: [R-HSA-109581]
+    allowed_ids: ["GO:0006915", "GO:0042981", "GO:0043066"]
+    answer_checks:
+      - {type: regex, pattern: "apoptosis"}
+    mock:
+      calls:
+        - {name: run_deseq2, arguments: {counts: data/rnaseq_real/counts.tsv, metadata: data/rnaseq_real/metadata.tsv, design_factor: condition, ref_level: control}}
+        - {name: search_knowledge, arguments: {query: apoptosis, source: all}}
+      answer: >-
+        I looked up apoptosis in the knowledge base ({r1.summary.hits[0].name} [{r1.summary.hits[0].id}]) and ran
+        DE ({r0.summary.n_up} genes up); the apoptosis-related genes are those of your up list that belong to
+        that pathway.

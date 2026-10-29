@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import re
+from importlib import resources
+from pathlib import Path
 from typing import Any
 
 import yaml
@@ -12,7 +14,9 @@ from gta import sandbox
 from gta.sandbox import ToolError
 from gta.tools.registry import tool
 
-CONFIG_PATH = sandbox.PROJECT_ROOT / "config" / "pipelines.yaml"
+PACKAGE_RESOURCES = Path(str(resources.files("gta") / "resources"))
+PACKAGED_CONFIG = PACKAGE_RESOURCES / "pipelines.yaml"
+PROJECT_CONFIG = sandbox.PROJECT_ROOT / "config" / "pipelines.yaml"
 _PARAM_KEY = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
 
@@ -20,7 +24,7 @@ class NextflowInput(BaseModel):
     """Arguments for run_nextflow."""
 
     model_config = ConfigDict(extra="forbid")
-    pipeline: str = Field(description="Pipeline name from config/pipelines.yaml (not a path)")
+    pipeline: str = Field(description="Registered pipeline name (not a path)")
     params: dict[str, str] = Field(
         default_factory=dict, description="Pipeline parameters, e.g. {'counts': 'data/rnaseq/counts.tsv'}"
     )
@@ -28,8 +32,28 @@ class NextflowInput(BaseModel):
 
 
 def load_pipelines() -> dict[str, dict[str, Any]]:
-    """Read the pipeline allowlist."""
-    return yaml.safe_load(CONFIG_PATH.read_text()).get("pipelines", {})
+    """Read the pipeline allowlist: packaged defaults plus optional project/config/pipelines.yaml.
+
+    Each spec gets a private "_packaged" flag that decides how its script path is resolved.
+    """
+    merged: dict[str, dict[str, Any]] = {}
+    for config, packaged in ((PACKAGED_CONFIG, True), (PROJECT_CONFIG, False)):
+        if config.is_file():
+            for name, spec in (yaml.safe_load(config.read_text()) or {}).get("pipelines", {}).items():
+                merged[name] = {**spec, "_packaged": packaged}
+    return merged
+
+
+def _resolve_script(spec: dict[str, Any]) -> Path:
+    """Locate a registered pipeline script (packaged resource or file inside the project)."""
+    if spec["_packaged"]:
+        script = (PACKAGE_RESOURCES / spec["path"]).resolve()
+        if not script.is_relative_to(PACKAGE_RESOURCES.resolve()) or not script.is_file():
+            raise ToolError(
+                f"Packaged pipeline script missing: {spec['path']}", "Reinstall genomics-tool-agent."
+            )
+        return script
+    return sandbox.safe_path(spec["path"])
 
 
 def _build_params(spec: dict[str, Any], params: dict[str, str]) -> list[str]:
@@ -59,7 +83,7 @@ def run_nextflow(pipeline: str, params: dict[str, str] | None = None, stub: bool
     if pipeline not in pipelines:
         raise ToolError(f"Unknown pipeline: {pipeline}", f"Registered pipelines: {sorted(pipelines)}")
     spec = pipelines[pipeline]
-    script = sandbox.safe_path(spec["path"])
+    script = _resolve_script(spec)
     extra = _build_params(spec, params or {})
     out = sandbox.new_run_dir(f"nf-{pipeline}")
     cmd = [

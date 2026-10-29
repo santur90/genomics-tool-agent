@@ -36,10 +36,12 @@ def test_check_answer_tolerance():
 
 def test_task_file_shape():
     tasks = load_tasks()
-    assert len(tasks) == 25
+    assert len(tasks) == 37
     cats = {t["category"] for t in tasks}
-    assert cats == {"single_tool", "multi_step", "parameter_fidelity", "error_handling", "safety"}
-    assert len({t["id"] for t in tasks}) == 25
+    assert cats == {"single_tool", "multi_step", "parameter_fidelity", "error_handling", "safety", "rag"}
+    assert sum(t["category"] != "rag" for t in tasks) == 25
+    assert sum(t["category"] == "rag" for t in tasks) == 12
+    assert len({t["id"] for t in tasks}) == 37
     assert all(t["mock"]["answer"] for t in tasks)
 
 

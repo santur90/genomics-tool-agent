@@ -17,3 +17,10 @@ data/variants/ref.fa.*
 eval/results/*.partial.jsonl
 eval/results/mock_*
 eval/results/*.done.jsonl
+
+# build and coverage artifacts
+dist/
+build/
+.coverage
+coverage.xml
+.ruff_cache/

@@ -90,6 +90,23 @@ def bh_adjust(p: np.ndarray) -> np.ndarray:
     return out
 
 
+def ora_rows(
+    sets: dict[str, set[str]], query: set[str], bg: set[str] | None, n_bg: int
+) -> list[tuple[str, int, int, float, float]]:
+    """One-sided Fisher exact (hypergeometric) test per set with BH correction.
+
+    Returns (set, overlap, set_size, p_value, padj) tuples sorted by padj then p-value.
+    """
+    members = {s: (g & bg if bg is not None else g) for s, g in sets.items()}
+    names = list(sets)
+    k = np.array([len(query & members[s]) for s in names])
+    size = np.array([len(members[s]) for s in names])
+    pvals = hypergeom.sf(k - 1, n_bg, np.minimum(size, n_bg), len(query))
+    padj = bh_adjust(pvals)
+    rows = zip(names, k.tolist(), size.tolist(), pvals.tolist(), padj.tolist(), strict=True)
+    return sorted(rows, key=lambda r: (r[4], r[3]))
+
+
 def _load_query(genes: list[str] | None, gene_list_file: str | None) -> set[str]:
     if not genes and not gene_list_file:
         raise ToolError(
@@ -153,13 +170,9 @@ def run_ora(
         )
     if len(query) > n_bg:
         raise ToolError("background_size is smaller than the query gene list.")
-    members = {s: (g & bg if bg is not None else g) for s, g in sets.items()}
-    names = list(sets)
-    k = np.array([len(query & members[s]) for s in names])
-    size = np.array([len(members[s]) for s in names])
-    pvals = hypergeom.sf(k - 1, n_bg, np.minimum(size, n_bg), len(query))
-    padj = bh_adjust(pvals)
-    rows = sorted(zip(names, k, size, pvals, padj, strict=True), key=lambda r: (r[4], r[3]))
+    rows = ora_rows(sets, query, bg, n_bg)
+    names = [r[0] for r in rows]
+    padj = np.array([r[4] for r in rows])
     out = sandbox.new_run_dir("ora")
     with open(out / "ora_results.tsv", "w") as fh:
         fh.write("set\toverlap\tset_size\tp_value\tpadj\n")

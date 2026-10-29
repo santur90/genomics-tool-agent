@@ -1,0 +1,848 @@
+!gaf-version: 2.2
+UniProtKB	O14727	APAF1	involved_in	GO:0006915	PMID:9753320	TAS		P	Apoptotic protease-activating factor 1	APAF1|KIAA0413	protein	taxon:9606	20030904	PINC		UniProtKB:O14727
+UniProtKB	Q92934	BAD	involved_in	GO:0006915	PMID:19667065	IDA		P	Bcl2-associated agonist of cell death	BAD|BBC6|BCL2L8	protein	taxon:9606	20110318	UniProt		UniProtKB:Q92934
+UniProtKB	Q16611	BAK1	involved_in	GO:0006915	PMID:23028632	IDA		P	Bcl-2 homologous antagonist/killer	BAK1|BAK|BCL2L7|CDN1	protein	taxon:9606	20170630	UniProt		UniProtKB:Q16611
+UniProtKB	Q07812	BAX	involved_in	GO:0006915	PMID:17428862	IDA		P	Apoptosis regulator BAX	BAX|BCL2L4	protein	taxon:9606	20200401	DIBU		UniProtKB:Q07812
+UniProtKB	Q96PG8	BBC3	involved_in	GO:0006915	PMID:26212789	IMP		P	Bcl-2-binding component 3, isoforms 3/4	BBC3|PUMA	protein	taxon:9606	20151008	ParkinsonsUK-UCL		UniProtKB:Q96PG8
+UniProtKB	P10415	BCL2	acts_upstream_of_or_within	GO:0006915	PMID:36599	IDA		P	Apoptosis regulator Bcl-2	BCL2	protein	taxon:9606	20140528	MGI		UniProtKB:P10415
+UniProtKB	O43521	BCL2L11	involved_in	GO:0006915	PMID:10381623	TAS		P	Bcl-2-like protein 11	BCL2L11|BIM	protein	taxon:9606	20060322	UniProt		UniProtKB:O43521
+UniProtKB	P29466	CASP1	involved_in	GO:0006915	PMID:7876192	TAS		P	Caspase-1	CASP1|IL1BC|IL1BCE	protein	taxon:9606	20030904	PINC		UniProtKB:P29466
+UniProtKB	P42574	CASP3	involved_in	GO:0006915	PMID:15565177	IMP		P	Caspase-3	CASP3|CPP32	protein	taxon:9606	20170714	UniProt		UniProtKB:P42574
+UniProtKB	P55212	CASP6	involved_in	GO:0006915	PMID:7796396	TAS		P	Caspase-6	CASP6|MCH2	protein	taxon:9606	20030904	PINC		UniProtKB:P55212
+UniProtKB	P55210	CASP7	involved_in	GO:0006915	PMID:17464193	IDA		P	Caspase-7	CASP7|MCH3	protein	taxon:9606	20170630	UniProt		UniProtKB:P55210
+UniProtKB	Q14790	CASP8	involved_in	GO:0006915	PMID:22891283	IMP		P	Caspase-8	CASP8|MCH5	protein	taxon:9606	20131016	UniProt		UniProtKB:Q14790
+UniProtKB	P55211	CASP9	involved_in	GO:0006915	PMID:15069058	IMP		P	Caspase-9	CASP9|MCH6	protein	taxon:9606	20170929	UniProt		UniProtKB:P55211
+UniProtKB	P08571	CD14	involved_in	GO:0006915	PMID:9548256	TAS		P	Monocyte differentiation antigen CD14	CD14	protein	taxon:9606	20030904	PINC		UniProtKB:P08571
+UniProtKB	O15519	CFLAR	involved_in	GO:0006915	PMID:21737330	IMP		P	CASP8 and FADD-like apoptosis regulator	CFLAR|CASH|CASP8AP1|CLARP|MRIT	protein	taxon:9606	20131015	UniProt		UniProtKB:O15519
+UniProtKB	P53355	DAPK1	acts_upstream_of_or_within	GO:0006915	PMID:7828849	IGI	UniProtKB:P01579	P	Death-associated protein kinase 1	DAPK1|DAPK	protein	taxon:9606	20120105	MGI		UniProtKB:P53355
+UniProtKB	Q9UIK4	DAPK2	involved_in	GO:0006915	PMID:10629061	TAS		P	Death-associated protein kinase 2	DAPK2	protein	taxon:9606	20130513	UniProt		UniProtKB:Q9UIK4
+UniProtKB	O43293	DAPK3	involved_in	GO:0006915	PMID:10580117	IDA		P	Death-associated protein kinase 3	DAPK3|ZIPK	protein	taxon:9606	20090817	UniProt		UniProtKB:O43293
+UniProtKB	P43146	DCC	involved_in	GO:0006915	PMID:9796814	TAS		P	Netrin receptor DCC	DCC|IGDCC1	protein	taxon:9606	20030904	PINC		UniProtKB:P43146
+UniProtKB	Q9UJV9	DDX41	involved_in	GO:0006915	PMID:10607561	TAS		P	Probable ATP-dependent RNA helicase DDX41	DDX41|ABS	protein	taxon:9606	20030904	PINC		UniProtKB:Q9UJV9
+UniProtKB	Q9NR28	DIABLO	involved_in	GO:0006915	PMID:10929712	TAS		P	Diablo IAP-binding mitochondrial protein	DIABLO|SMAC	protein	taxon:9606	20030904	PINC		UniProtKB:Q9NR28
+UniProtKB	Q09472	EP300	involved_in	GO:0006915	PMID:9194565	IMP		P	Histone acetyltransferase p300	EP300|P300	protein	taxon:9606	20040623	UniProt		UniProtKB:Q09472
+UniProtKB	P18074	ERCC2	involved_in	GO:0006915	PMID:8675009	IMP		P	General transcription and DNA repair factor IIH helicase subunit XPD	ERCC2|XPD|XPDC	protein	taxon:9606	20040706	UniProt		UniProtKB:P18074
+UniProtKB	P19447	ERCC3	involved_in	GO:0006915	PMID:8675009	IMP		P	General transcription and DNA repair factor IIH helicase/translocase subunit XPB	ERCC3|XPB|XPBC	protein	taxon:9606	20040706	UniProt		UniProtKB:P19447
+UniProtKB	Q13158	FADD	involved_in	GO:0006915	PMID:22891283	IMP		P	FAS-associated death domain protein	FADD|MORT1|GIG3	protein	taxon:9606	20131016	UniProt		UniProtKB:Q13158
+UniProtKB	P25445	FAS	acts_upstream_of_or_within	GO:0006915	PMID:9681877	IDA		P	Tumor necrosis factor receptor superfamily member 6	FAS|APT1|FAS1|TNFRSF6	protein	taxon:9606	20070812	MGI		UniProtKB:P25445
+UniProtKB	P48023	FASLG	involved_in	GO:0006915	PMID:8787672	TAS		P	Tumor necrosis factor ligand superfamily member 6	FASLG|APT1LG1|CD95L|FASL|TNFSF6	protein	taxon:9606	20030904	PINC		UniProtKB:P48023
+UniProtKB	O43903	GAS2	involved_in	GO:0006915	PMID:9521882	TAS		P	Growth arrest-specific protein 2	GAS2	protein	taxon:9606	20030904	PINC		UniProtKB:O43903
+UniProtKB	P10144	GZMB	involved_in	GO:0006915	PMID:12524539	TAS		P	Granzyme B	GZMB|CGL1|CSPB|CTLA1|GRB	protein	taxon:9606	20040709	UniProt		UniProtKB:P10144
+UniProtKB	P40305	IFI27	involved_in	GO:0006915	PMID:18330707	IDA		P	Interferon alpha-inducible protein 27, mitochondrial	IFI27	protein	taxon:9606	20180824	UniProt		UniProtKB:P40305
+UniProtKB	O95831	AIFM1	involved_in	GO:0006915	GO_REF:0000033	IBA	PANTHER:PTN001115081|WB:WBGene00006937|MGI:MGI:1349419|UniProtKB:O95831	P	Apoptosis-inducing factor 1, mitochondrial	AIFM1|AIF|PDCD8	protein	taxon:9606	20210623	GO_Central		
+UniProtKB	Q92667	AKAP1	involved_in	GO:0006915	GO_REF:0000024	ISS	UniProtKB:O08715	P	A-kinase anchor protein 1, mitochondrial	AKAP1|AKAP149|PRKA1	protein	taxon:9606	20201130	UniProt		UniProtKB:Q92667
+UniProtKB	O14727	APAF1	involved_in	GO:0006915	GO_REF:0000117	IEA	ARBA:ARBA00027755	P	Apoptotic protease-activating factor 1	APAF1|KIAA0413	protein	taxon:9606	20260428	UniProt		UniProtKB:O14727
+UniProtKB	P01137	TGFB1	NOT|involved_in	GO:0006915	PMID:3470709	IMP		P	Transforming growth factor beta-1 proprotein	TGFB1|TGFB	protein	taxon:9606	20170214	UniProt		UniProtKB:P01137-PRO_0000033762
+UniProtKB	O95352	ATG7	acts_upstream_of_or_within	GO:0006914	PMID:25327288	IMP		P	Ubiquitin-like modifier-activating enzyme ATG7	ATG7|APG7L	protein	taxon:9606	20160824	MGI		UniProtKB:O95352
+UniProtKB	Q14457	BECN1	acts_upstream_of_or_within	GO:0006914	PMID:28747345	IMP		P	Beclin-1	BECN1|GT197	protein	taxon:9606	20200717	MGI		UniProtKB:Q14457
+UniProtKB	O75629	CREG1	acts_upstream_of_or_within	GO:0006914	PMID:33966596	IDA		P	Protein CREG1	CREG1|CREG|UNQ727/PRO1409	protein	taxon:9606	20221115	MGI		UniProtKB:O75629
+UniProtKB	P50570	DNM2	involved_in	GO:0006914	PMID:29437695	IMP		P	Dynamin-2	DNM2|DYN2	protein	taxon:9606	20231022	UniProt		UniProtKB:P50570
+UniProtKB	Q8NEB9	PIK3C3	acts_upstream_of_or_within	GO:0006914	PMID:25327288	IMP		P	Phosphatidylinositol 3-kinase catalytic subunit type 3	PIK3C3|VPS34	protein	taxon:9606	20160824	MGI		UniProtKB:Q8NEB9
+UniProtKB	P05109	S100A8	involved_in	GO:0006914	PMID:19935772	IDA		P	Protein S100-A8	S100A8|CAGA|CFAG|MRP8	protein	taxon:9606	20120919	UniProt		UniProtKB:P05109
+UniProtKB	P06702	S100A9	involved_in	GO:0006914	PMID:19935772	IDA		P	Protein S100-A9	S100A9|CAGB|CFAG|MRP14	protein	taxon:9606	20120919	UniProt		UniProtKB:P06702
+UniProtKB	P04637	TP53	involved_in	GO:0006914	PMID:23629966	IMP		P	Cellular tumor antigen p53	TP53|P53	protein	taxon:9606	20161108	CAFA		UniProtKB:P04637
+UniProtKB	Q9Y577	TRIM17	involved_in	GO:0006914	PMID:25127057	IDA		P	E3 ubiquitin-protein ligase TRIM17	TRIM17|RBCC|RNF16|TERF	protein	taxon:9606	20150715	UniProt		UniProtKB:Q9Y577
+UniProtKB	Q9C035	TRIM5	involved_in	GO:0006914	PMID:25127057	IDA		P	Tripartite motif-containing protein 5	TRIM5|RNF88	protein	taxon:9606	20150715	UniProt		UniProtKB:Q9C035
+UniProtKB	P55072	VCP	involved_in	GO:0006914	PMID:20104022	IMP		P	Transitional endoplasmic reticulum ATPase	VCP|HEL-220|HEL-S-70	protein	taxon:9606	20160622	UniProt		UniProtKB:P55072
+UniProtKB	P20073	ANXA7	involved_in	GO:0006914	PMID:24007983	IMP		P	Annexin A7	ANXA7|ANX7|SNX|OK/SW-cl.95	protein	taxon:9606	20140425	UniProt		UniProtKB:P20073
+UniProtKB	Q9H0Y0	ATG10	involved_in	GO:0006914	PMID:15657430	IMP		P	Ubiquitin-like-conjugating enzyme ATG10	ATG10|APG10L|PP12616	protein	taxon:9606	20080529	UniProt		UniProtKB:Q9H0Y0
+UniProtKB	Q8WYN0	ATG4A	involved_in	GO:0006914	PMID:30661429	IDA		P	Cysteine protease ATG4A	ATG4A|APG4A|AUTL2	protein	taxon:9606	20210916	UniProt		UniProtKB:Q8WYN0
+UniProtKB	Q9Y4P1	ATG4B	involved_in	GO:0006914	PMID:18387192	IDA		P	Cysteine protease ATG4B	ATG4B|APG4B|AUTL1|KIAA0943	protein	taxon:9606	20160126	BHF-UCL		UniProtKB:Q9Y4P1
+UniProtKB	Q96DT6	ATG4C	involved_in	GO:0006914	PMID:30661429	IDA		P	Cysteine protease ATG4C	ATG4C|APG4C|AUTL1|AUTL3	protein	taxon:9606	20210916	UniProt		UniProtKB:Q96DT6
+UniProtKB	Q86TL0	ATG4D	involved_in	GO:0006914	PMID:30661429	IDA		P	Cysteine protease ATG4D	ATG4D|APG4D|AUTL4	protein	taxon:9606	20210916	UniProt		UniProtKB:Q86TL0
+UniProtKB	Q9H1Y0	ATG5	involved_in	GO:0006914	PMID:26812546	IMP		P	Autophagy protein 5	ATG5|APG5L|ASP	protein	taxon:9606	20171003	UniProt		UniProtKB:Q9H1Y0
+UniProtKB	Q9NQ11	ATP13A2	involved_in	GO:0006914	PMID:27278822	IMP		P	Polyamine-transporting ATPase 13A2	ATP13A2|PARK9	protein	taxon:9606	20190820	UniProt		UniProtKB:Q9NQ11
+UniProtKB	A8MW95	BECN2	acts_upstream_of_or_within	GO:0006914	PMID:23954414	IMP		P	Beclin-2	BECN2|BECN1L1|BECN1P1	protein	taxon:9606	20140324	MGI		UniProtKB:A8MW95
+UniProtKB	Q9NSK7	C19orf12	involved_in	GO:0006914	PMID:26136767	IMP		P	Protein C19orf12	C19orf12	protein	taxon:9606	20160810	UniProt		UniProtKB:Q9NSK7
+UniProtKB	Q96LT7	C9orf72	involved_in	GO:0006914	PMID:24549040	IMP		P	Guanine nucleotide exchange factor C9orf72	C9orf72|DENND9|DENNL72	protein	taxon:9606	20140307	UniProt		UniProtKB:Q96LT7
+UniProtKB	Q9HD42	CHMP1A	involved_in	GO:0006914	PMID:17984323	IMP		P	Charged multivesicular body protein 1a	CHMP1A|CHMP1|KIAA0047|PCOLN3|PRSM1	protein	taxon:9606	20251105	ComplexPortal		UniProtKB:Q9HD42
+UniProtKB	Q7LBR1	CHMP1B	involved_in	GO:0006914	PMID:17984323	IMP		P	Charged multivesicular body protein 1b	CHMP1B|C18orf2	protein	taxon:9606	20251105	ComplexPortal		UniProtKB:Q7LBR1
+UniProtKB	O43633	CHMP2A	involved_in	GO:0006914	PMID:17984323	IMP		P	Charged multivesicular body protein 2a	CHMP2A|BC2|CHMP2	protein	taxon:9606	20251105	ComplexPortal		UniProtKB:O43633
+UniProtKB	Q9UQN3	CHMP2B	involved_in	GO:0006914	PMID:17683935	TAS		P	Charged multivesicular body protein 2b	CHMP2B|CGI-84	protein	taxon:9606	20160118	ParkinsonsUK-UCL		UniProtKB:Q9UQN3
+UniProtKB	Q9Y3E7	CHMP3	involved_in	GO:0006914	PMID:17984323	IMP		P	Charged multivesicular body protein 3	CHMP3|CGI149|NEDF|VPS24|CGI-149	protein	taxon:9606	20251105	ComplexPortal		UniProtKB:Q9Y3E7
+UniProtKB	Q9BY43	CHMP4A	involved_in	GO:0006914	PMID:17984323	IMP		P	Charged multivesicular body protein 4a	CHMP4A|C14orf123|SHAX2|CDA04|HSPC134	protein	taxon:9606	20251105	ComplexPortal		UniProtKB:Q9BY43
+UniProtKB	Q9H444	CHMP4B	involved_in	GO:0006914	PMID:17984323	IMP		P	Charged multivesicular body protein 4b	CHMP4B|C20orf178|SHAX1	protein	taxon:9606	20251105	ComplexPortal		UniProtKB:Q9H444
+UniProtKB	Q96CF2	CHMP4C	involved_in	GO:0006914	PMID:17984323	IMP		P	Charged multivesicular body protein 4c	CHMP4C|SHAX3	protein	taxon:9606	20251105	ComplexPortal		UniProtKB:Q96CF2
+UniProtKB	Q9C0C7	AMBRA1	involved_in	GO:0006914	GO_REF:0000117	IEA	ARBA:ARBA00027757	P	Activating molecule in BECN1-regulated autophagy protein 1	AMBRA1|DCAF3|KIAA1736	protein	taxon:9606	20260428	UniProt		UniProtKB:Q9C0C7
+UniProtKB	P15848	ARSB	involved_in	GO:0006914	GO_REF:0000107	IEA	UniProtKB:P50430|ensembl:ENSRNOP00000014860	P	Arylsulfatase B	ARSB	protein	taxon:9606	20260422	Ensembl		UniProtKB:P15848
+UniProtKB	Q9BSB4	ATG101	involved_in	GO:0006914	GO_REF:0000002	IEA	InterPro:IPR012445	P	Autophagy-related protein 101	ATG101|C12orf44|PP894	protein	taxon:9606	20260428	InterPro		UniProtKB:Q9BSB4
+UniProtKB	Q8NAA4	ATG16L2	NOT|involved_in	GO:0006914	GO_REF:0000024	ISS	UniProtKB:Q6KAU8	P	Protein Atg16l2	ATG16L2|WDR80	protein	taxon:9606	20200421	UniProt		UniProtKB:Q8NAA4
+UniProtKB	Q9NX46	ADPRS	involved_in	GO:0006281	PMID:30045870	IMP		P	ADP-ribosylhydrolase ARH3	ADPRS|ADPRHL2|ARH3	protein	taxon:9606	20181126	UniProt		UniProtKB:Q9NX46
+UniProtKB	P27695	APEX1	involved_in	GO:0006281	PMID:1627644	IDA		P	DNA repair nuclease/redox regulator APEX1	APEX1|APE|APE1|APEX|APX|HAP1|REF1	protein	taxon:9606	20210527	UniProt		UniProtKB:P27695
+UniProtKB	Q9Y294	ASF1A	acts_upstream_of_or_within	GO:0006281	PMID:11897662	IDA		P	Histone chaperone ASF1A	ASF1A|CGI-98|HSPC146	protein	taxon:9606	20060110	MGI		UniProtKB:Q9Y294
+UniProtKB	Q13535	ATR	involved_in	GO:0006281	PMID:8610130	TAS		P	Serine/threonine-protein kinase ATR	ATR|FRP1	protein	taxon:9606	20030904	PINC		UniProtKB:Q13535
+UniProtKB	P06493	CDK1	involved_in	GO:0006281	PMID:21655336	TAS		P	Cyclin-dependent kinase 1	CDK1|CDC2|CDC28A|CDKN1|P34CDC2	protein	taxon:9606	20110912	UniProt		UniProtKB:P06493
+UniProtKB	Q8N2Z9	CENPS	involved_in	GO:0006281	PMID:20347429	IDA		P	Centromere protein S	CENPS|APITD1|FAAP16|MHF1	protein	taxon:9606	20100507	UniProt		UniProtKB:Q8N2Z9
+UniProtKB	Q86WJ1	CHD1L	involved_in	GO:0006281	PMID:19661379	TAS		P	ATP-dependent chromatin remodeler CHD1L	CHD1L|ALC1	protein	taxon:9606	20090814	UniProt		UniProtKB:Q86WJ1
+UniProtKB	O14757	CHEK1	involved_in	GO:0006281	PMID:19716789	IMP		P	Serine/threonine-protein kinase Chk1	CHEK1|CHK1	protein	taxon:9606	20090903	UniProt		UniProtKB:O14757
+UniProtKB	P49674	CSNK1E	involved_in	GO:0006281	PMID:7797465	TAS		P	Casein kinase I isoform epsilon	CSNK1E	protein	taxon:9606	20030904	PINC		UniProtKB:P49674
+UniProtKB	Q16531	DDB1	involved_in	GO:0006281	PMID:8798680	TAS		P	DNA damage-binding protein 1	DDB1|XAP1	protein	taxon:9606	20030904	PINC		UniProtKB:Q16531
+UniProtKB	Q92466	DDB2	involved_in	GO:0006281	PMID:8798680	TAS		P	DNA damage-binding protein 2	DDB2	protein	taxon:9606	20030904	PINC		UniProtKB:Q92466
+UniProtKB	P07992	ERCC1	acts_upstream_of_or_within	GO:0006281	PMID:25538220	IMP		P	DNA excision repair protein ERCC-1	ERCC1	protein	taxon:9606	20160323	MGI		UniProtKB:P07992
+UniProtKB	P19447	ERCC3	involved_in	GO:0006281	PMID:2167179	IMP		P	General transcription and DNA repair factor IIH helicase/translocase subunit XPB	ERCC3|XPB|XPBC	protein	taxon:9606	20071116	UniProt		UniProtKB:P19447
+UniProtKB	Q92889	ERCC4	involved_in	GO:0006281	PMID:17055345	IGI	UniProtKB:Q15554	P	DNA repair endonuclease XPF	ERCC4|ERCC11|XPF	protein	taxon:9606	20150417	BHF-UCL		UniProtKB:Q92889
+UniProtKB	Q03468	ERCC6	involved_in	GO:0006281	PMID:26218421	IMP		P	DNA excision repair protein ERCC-6	ERCC6|CSB	protein	taxon:9606	20161017	UniProt		UniProtKB:Q03468-2
+UniProtKB	Q9UQ84	EXO1	involved_in	GO:0006281	PMID:10364235	TAS		P	Exonuclease 1	EXO1|EXOI|HEX1	protein	taxon:9606	20061106	PINC		UniProtKB:Q9UQ84
+UniProtKB	Q9Y2M0	FAN1	involved_in	GO:0006281	PMID:20603073	IMP		P	Fanconi-associated nuclease 1	FAN1|KIAA1018|MTMR15	protein	taxon:9606	20100721	UniProt		UniProtKB:Q9Y2M0
+UniProtKB	O15360	FANCA	involved_in	GO:0006281	PMID:8896564	TAS		P	Fanconi anemia group A protein	FANCA|FAA|FACA|FANCH	protein	taxon:9606	20030904	PINC		UniProtKB:O15360
+UniProtKB	Q00597	FANCC	involved_in	GO:0006281	PMID:1574115	TAS		P	Fanconi anemia group C protein	FANCC|FAC|FACC	protein	taxon:9606	20030904	PINC		UniProtKB:Q00597
+UniProtKB	O15287	FANCG	involved_in	GO:0006281	PMID:9256465	TAS		P	Fanconi anemia group G protein	FANCG|XRCC9	protein	taxon:9606	20030904	PINC		UniProtKB:O15287
+UniProtKB	Q9NW38	FANCL	involved_in	GO:0006281	PMID:16916645	IMP		P	E3 ubiquitin-protein ligase FANCL	FANCL|PHF9	protein	taxon:9606	20120229	UniProt		UniProtKB:Q9NW38
+UniProtKB	P39748	FEN1	involved_in	GO:0006281	PMID:8007985	TAS		P	Flap endonuclease 1	FEN1|RAD2	protein	taxon:9606	20030904	PINC		UniProtKB:P39748
+UniProtKB	P32780	GTF2H1	involved_in	GO:0006281	PMID:9118947	TAS		P	General transcription factor IIH subunit 1	GTF2H1|BTF2	protein	taxon:9606	20030904	PINC		UniProtKB:P32780
+UniProtKB	Q13889	GTF2H3	involved_in	GO:0006281	PMID:8194529	TAS		P	General transcription factor IIH subunit 3	GTF2H3	protein	taxon:9606	20030904	PINC		UniProtKB:Q13889
+UniProtKB	Q92759	GTF2H4	involved_in	GO:0006281	PMID:9118947	TAS		P	General transcription factor IIH subunit 4	GTF2H4	protein	taxon:9606	20030904	PINC		UniProtKB:Q92759
+UniProtKB	O60921	HUS1	involved_in	GO:0006281	PMID:9872989	TAS		P	Checkpoint protein HUS1	HUS1	protein	taxon:9606	20030904	PINC		UniProtKB:O60921
+UniProtKB	P18858	LIG1	involved_in	GO:0006281	PMID:8696349	TAS		P	DNA ligase 1	LIG1	protein	taxon:9606	20030904	PINC		UniProtKB:P18858
+UniProtKB	O95243	MBD4	involved_in	GO:0006281	PMID:10097147	TAS		P	Methyl-CpG-binding domain protein 4	MBD4|MED1	protein	taxon:9606	20030904	PINC		UniProtKB:O95243
+UniProtKB	P49959	MRE11	involved_in	GO:0006281	PMID:9705271	TAS		P	Double-strand break repair protein MRE11	MRE11|HNGS1|MRE11A	protein	taxon:9606	20030904	PINC		UniProtKB:P49959
+UniProtKB	P43246	MSH2	involved_in	GO:0006281	PMID:8942985	IDA		P	DNA mismatch repair protein Msh2	MSH2	protein	taxon:9606	20080917	BHF-UCL		UniProtKB:P43246
+ComplexPortal	CPX-8841	20s-pa200_human	involved_in	GO:0006281	PMID:32134919	NAS		P	PA200-20S single-capped proteasome	2xPSMA1:2xPSMA2:2xPSMA3:2xPSMA4:2xPSMA5:2xPSMA6:2xPSMA7:2xPSMB1:2xPSMB2:2xPSMB3:2xPSMB4:2xPSMB5:2xPSMB6:2xPSMB7: PSME4|PA200-20S Proteasome	protein_complex	taxon:9606	20251230	ComplexPortal		
+UniProtKB	Q6NS38	ALKBH2	involved_in	GO:0006281	GO_REF:0000002	IEA	InterPro:IPR032852	P	DNA oxidative demethylase ALKBH2	ALKBH2|ABH2	protein	taxon:9606	20260428	InterPro		UniProtKB:Q6NS38
+UniProtKB	Q96Q83	ALKBH3	involved_in	GO:0006281	GO_REF:0000002	IEA	InterPro:IPR032854	P	Alpha-ketoglutarate-dependent dioxygenase alkB homolog 3	ALKBH3|ABH3|DEPC1	protein	taxon:9606	20260428	InterPro		UniProtKB:Q96Q83
+UniProtKB	P09884	POLA1	NOT|involved_in	GO:0006281	PMID:3335506	IDA		P	DNA polymerase alpha catalytic subunit	POLA1|POLA	protein	taxon:9606	20060825	UniProt		UniProtKB:P09884
+UniProtKB	P00519	ABL1	involved_in	GO:0006974	PMID:15657060	IDA		P	Tyrosine-protein kinase ABL1	ABL1|ABL|JTK7	protein	taxon:9606	20121212	UniProt		UniProtKB:P00519
+UniProtKB	O00213	APBB1	involved_in	GO:0006974	PMID:18468999	IDA		P	Amyloid beta precursor protein binding family B member 1	APBB1|FE65|RIR	protein	taxon:9606	20090429	UniProt		UniProtKB:O00213
+UniProtKB	P25054	APC	involved_in	GO:0006974	PMID:14728717	IDA		P	Adenomatous polyposis coli protein	APC|DP2.5	protein	taxon:9606	20070402	UniProt		UniProtKB:P25054
+UniProtKB	Q9UBL3	ASH2L	acts_upstream_of_or_within	GO:0006974	PMID:17500065	IDA		P	Set1/Ash2 histone methyltransferase complex subunit ASH2	ASH2L|ASH2L1	protein	taxon:9606	20120418	MGI		UniProtKB:Q9UBL3
+UniProtKB	P15336	ATF2	involved_in	GO:0006974	PMID:15916964	IMP		P	Cyclic AMP-dependent transcription factor ATF-2	ATF2|CREB2|CREBP1	protein	taxon:9606	20130718	UniProt		UniProtKB:P15336
+UniProtKB	Q13315	ATM	acts_upstream_of_or_within	GO:0006974	PMID:24550317	IMP		P	Serine-protein kinase ATM	ATM	protein	taxon:9606	20150819	MGI		UniProtKB:Q13315
+UniProtKB	Q13535	ATR	involved_in	GO:0006974	PMID:11673449	IDA		P	Serine/threonine-protein kinase ATR	ATR|FRP1	protein	taxon:9606	20240118	UniProt		UniProtKB:Q13535
+UniProtKB	Q9NXR7	BABAM2	involved_in	GO:0006974	PMID:7826398	IEP		P	BRISC and BRCA1-A complex member 2	BABAM2|BRCC45|BRE	protein	taxon:9606	20060315	UniProt		UniProtKB:Q9NXR7
+UniProtKB	Q9UIG0	BAZ1B	involved_in	GO:0006974	PMID:19092802	IDA		P	Tyrosine-protein kinase BAZ1B	BAZ1B|WBSC10|WBSCR10|WBSCR9|WSTF	protein	taxon:9606	20090514	UniProt		UniProtKB:Q9UIG0
+UniProtKB	P10415	BCL2	involved_in	GO:0006974	PMID:17875758	IMP		P	Apoptosis regulator Bcl-2	BCL2	protein	taxon:9606	20101008	UniProt		UniProtKB:P10415
+UniProtKB	P54132	BLM	involved_in	GO:0006974	PMID:12818200	IMP		P	RecQ-like DNA helicase BLM	BLM|RECQ2|RECQL3	protein	taxon:9606	20080123	UniProt		UniProtKB:P54132
+UniProtKB	P38398	BRCA1	involved_in	GO:0006974	PMID:10910365	TAS		P	Breast cancer type 1 susceptibility protein	BRCA1|RNF53	protein	taxon:9606	20030904	PINC		UniProtKB:P38398
+UniProtKB	P51587	BRCA2	involved_in	GO:0006974	PMID:12442171	IDA		P	Breast cancer type 2 susceptibility protein	BRCA2|FACD|FANCD1	protein	taxon:9606	20260224	UniProt		UniProtKB:P51587
+UniProtKB	P55211	CASP9	involved_in	GO:0006974	PMID:15657060	IDA		P	Caspase-9	CASP9|MCH6	protein	taxon:9606	20121212	UniProt		UniProtKB:P55211
+UniProtKB	O75909	CCNK	acts_upstream_of_or_within	GO:0006974	PMID:22012619	IMP		P	Cyclin-K	CCNK|CPR4	protein	taxon:9606	20121205	MGI		UniProtKB:O75909
+UniProtKB	P06493	CDK1	involved_in	GO:0006974	PMID:19202191	IDA		P	Cyclin-dependent kinase 1	CDK1|CDC2|CDC28A|CDKN1|P34CDC2	protein	taxon:9606	20240123	UniProt		UniProtKB:P06493
+UniProtKB	P38936	CDKN1A	involved_in	GO:0006974	PMID:20160708	IMP		P	Cyclin-dependent kinase inhibitor 1	CDKN1A|CAP20|CDKN1|CIP1|MDA6|PIC1|SDI1|WAF1	protein	taxon:9606	20101021	BHF-UCL		UniProtKB:P38936
+UniProtKB	Q8N2Z9	CENPS	involved_in	GO:0006974	PMID:20347428	IMP		P	Centromere protein S	CENPS|APITD1|FAAP16|MHF1	protein	taxon:9606	20110831	UniProt		UniProtKB:Q8N2Z9
+UniProtKB	Q86WJ1	CHD1L	involved_in	GO:0006974	PMID:19661379	IDA		P	ATP-dependent chromatin remodeler CHD1L	CHD1L|ALC1	protein	taxon:9606	20090814	UniProt		UniProtKB:Q86WJ1
+UniProtKB	O14757	CHEK1	involved_in	GO:0006974	PMID:20932473	IMP		P	Serine/threonine-protein kinase Chk1	CHEK1|CHK1	protein	taxon:9606	20111125	UniProt		UniProtKB:O14757
+UniProtKB	O96017	CHEK2	acts_upstream_of_or_within	GO:0006974	PMID:24550317	IDA		P	Serine/threonine-protein kinase Chk2	CHEK2|CDS1|CHK2|RAD53	protein	taxon:9606	20150819	MGI		UniProtKB:O96017
+UniProtKB	P68400	CSNK2A1	involved_in	GO:0006974	PMID:18411307	IDA		P	Casein kinase II subunit alpha	CSNK2A1|CK2A1	protein	taxon:9606	20240118	UniProt		UniProtKB:P68400
+UniProtKB	Q13619	CUL4A	involved_in	GO:0006974	PMID:22118460	EXP		P	Cullin-4A	CUL4A	protein	taxon:9606	20251229	ComplexPortal		UniProtKB:Q13619
+UniProtKB	Q16531	DDB1	involved_in	GO:0006974	PMID:16949367	IMP		P	DNA damage-binding protein 1	DDB1|XAP1	protein	taxon:9606	20170707	UniProt		UniProtKB:Q16531
+UniProtKB	Q92466	DDB2	involved_in	GO:0006974	PMID:22118460	EXP		P	DNA damage-binding protein 2	DDB2	protein	taxon:9606	20251229	ComplexPortal		UniProtKB:Q92466
+UniProtKB	Q9NZJ0	DTL	involved_in	GO:0006974	PMID:16949367	IMP		P	Denticleless protein homolog	DTL|CDT2|CDW1|DCAF2|L2DTL|RAMP	protein	taxon:9606	20170707	UniProt		UniProtKB:Q9NZJ0
+UniProtKB	Q92630	DYRK2	involved_in	GO:0006974	PMID:19965871	IEP		P	Dual specificity tyrosine-phosphorylation-regulated kinase 2	DYRK2	protein	taxon:9606	20111005	UniProt		UniProtKB:Q92630
+UniProtKB	Q13216	ERCC8	involved_in	GO:0006974	PMID:11782547	IDA		P	DNA excision repair protein ERCC-8	ERCC8|CKN1|CSA	protein	taxon:9606	20071002	UniProt		UniProtKB:Q13216
+UniProtKB	Q6NZ36	FAAP20	involved_in	GO:0006974	PMID:22266823	IDA		P	Fanconi anemia core complex-associated protein 20	FAAP20|C1orf86|FP7162	protein	taxon:9606	20120824	UniProt		UniProtKB:Q6NZ36
+UniProtKB	Q9NW38	FANCL	involved_in	GO:0006974	PMID:16916645	IMP		P	E3 ubiquitin-protein ligase FANCL	FANCL|PHF9	protein	taxon:9606	20120229	UniProt		UniProtKB:Q9NW38
+ComplexPortal	CPX-8841	20s-pa200_human	involved_in	GO:0006974	PMID:32134919	NAS		P	PA200-20S single-capped proteasome	2xPSMA1:2xPSMA2:2xPSMA3:2xPSMA4:2xPSMA5:2xPSMA6:2xPSMA7:2xPSMB1:2xPSMB2:2xPSMB3:2xPSMB4:2xPSMB5:2xPSMB6:2xPSMB7: PSME4|PA200-20S Proteasome	protein_complex	taxon:9606	20251230	ComplexPortal		
+UniProtKB	A8MVJ9	A8MVJ9	involved_in	GO:0006974	GO_REF:0000002	IEA	InterPro:IPR019361	P	Putative histone PARylation factor 1-like		protein	taxon:9606	20260428	InterPro		UniProtKB:A8MVJ9
+UniProtKB	O14862	AIM2	involved_in	GO:0006974	GO_REF:0000024	ISS	UniProtKB:Q91VJ1	P	Interferon-inducible protein AIM2	AIM2	protein	taxon:9606	20230104	UniProt		UniProtKB:O14862
+UniProtKB	Q13315	ATM	involved_in	GO:0000724	PMID:10802669	IDA		P	Serine-protein kinase ATM	ATM	protein	taxon:9606	20240123	UniProt		UniProtKB:Q13315
+UniProtKB	P54132	BLM	involved_in	GO:0000724	PMID:23543748	IDA		P	RecQ-like DNA helicase BLM	BLM|RECQ2|RECQL3	protein	taxon:9606	20251224	ComplexPortal		UniProtKB:P54132
+UniProtKB	P38398	BRCA1	involved_in	GO:0000724	PMID:17349954	IDA		P	Breast cancer type 1 susceptibility protein	BRCA1|RNF53	protein	taxon:9606	20070426	HGNC-UCL		UniProtKB:P38398
+UniProtKB	P51587	BRCA2	involved_in	GO:0000724	PMID:12442171	IDA		P	Breast cancer type 2 susceptibility protein	BRCA2|FACD|FANCD1	protein	taxon:9606	20260224	UniProt		UniProtKB:P51587
+UniProtKB	Q14839	CHD4	involved_in	GO:0000724	PMID:25593309	IMP		P	ATP-dependent chromatin remodeler CHD4	CHD4	protein	taxon:9606	20221031	UniProt		UniProtKB:Q14839
+UniProtKB	Q92889	ERCC4	involved_in	GO:0000724	PMID:14728600	IMP		P	DNA repair endonuclease XPF	ERCC4|ERCC11|XPF	protein	taxon:9606	20071126	UniProt		UniProtKB:Q92889
+UniProtKB	P28715	ERCC5	involved_in	GO:0000724	PMID:26833090	IMP		P	DNA excision repair protein ERCC-5	ERCC5|ERCM2|XPG|XPGC	protein	taxon:9606	20210120	UniProt		UniProtKB:P28715
+UniProtKB	Q9Y2M0	FAN1	involved_in	GO:0000724	PMID:20603015	IMP		P	Fanconi-associated nuclease 1	FAN1|KIAA1018|MTMR15	protein	taxon:9606	20100721	UniProt		UniProtKB:Q9Y2M0
+UniProtKB	P39748	FEN1	involved_in	GO:0000724	Reactome:R-HSA-5693538	TAS		P	Flap endonuclease 1	FEN1|RAD2	protein	taxon:9606	20251115	Reactome		UniProtKB:P39748
+UniProtKB	Q17RS7	GEN1	involved_in	GO:0000724	PMID:23166748	IMP		P	Flap endonuclease GEN homolog 1	GEN1	protein	taxon:9606	20140227	UniProt		UniProtKB:Q17RS7
+UniProtKB	O43719	HTATSF1	involved_in	GO:0000724	PMID:35597237	IDA		P	17S U2 SnRNP complex component HTATSF1	HTATSF1	protein	taxon:9606	20230918	UniProt		UniProtKB:O43719
+UniProtKB	Q9ULG1	INO80	involved_in	GO:0000724	PMID:18026119	IMP		P	Chromatin-remodeling ATPase INO80	INO80|INO80A|INOC1|KIAA1259	protein	taxon:9606	20110427	UniProt		UniProtKB:Q9ULG1
+UniProtKB	Q92993	KAT5	involved_in	GO:0000724	PMID:27153538	IDA		P	Histone acetyltransferase KAT5	KAT5|HTATIP|TIP60	protein	taxon:9606	20211105	UniProt		UniProtKB:Q92993
+UniProtKB	P49916	LIG3	involved_in	GO:0000724	Reactome:R-HSA-5693538	TAS		P	DNA ligase 3	LIG3	protein	taxon:9606	20251115	Reactome		UniProtKB:P49916
+UniProtKB	Q9UJA3	MCM8	involved_in	GO:0000724	PMID:23401855	IMP		P	DNA helicase MCM8	MCM8|C20orf154	protein	taxon:9606	20180727	UniProt		UniProtKB:Q9UJA3
+UniProtKB	P49959	MRE11	involved_in	GO:0000724	PMID:15741314	IDA		P	Double-strand break repair protein MRE11	MRE11|HNGS1|MRE11A	protein	taxon:9606	20240123	UniProt		UniProtKB:P49959
+UniProtKB	O60934	NBN	involved_in	GO:0000724	PMID:22464731	IDA		P	Nibrin	NBN|NBS|NBS1|P95	protein	taxon:9606	20240122	UniProt		UniProtKB:O60934
+UniProtKB	Q86YC2	PALB2	involved_in	GO:0000724	PMID:19369211	IDA		P	Partner and localizer of BRCA2	PALB2|FANCN	protein	taxon:9606	20101007	UniProt		UniProtKB:Q86YC2
+UniProtKB	Q9UGP5	POLL	involved_in	GO:0000724	PMID:20693240	IMP		P	DNA polymerase lambda	POLL	protein	taxon:9606	20161117	UniProt		UniProtKB:Q9UGP5
+UniProtKB	Q7Z5Q5	POLN	involved_in	GO:0000724	PMID:19995904	IMP		P	DNA polymerase nu	POLN	protein	taxon:9606	20130621	UniProt		UniProtKB:Q7Z5Q5
+UniProtKB	O00487	PSMD14	involved_in	GO:0000724	PMID:22909820	IMP		P	Ubiquitin C-terminal hydrolase PSMD14	PSMD14|POH1	protein	taxon:9606	20120920	UniProt		UniProtKB:O00487
+UniProtKB	Q92878	RAD50	involved_in	GO:0000724	PMID:27889449	IDA		P	DNA repair protein RAD50	RAD50	protein	taxon:9606	20240123	UniProt		UniProtKB:Q92878
+UniProtKB	Q06609	RAD51	acts_upstream_of_or_within	GO:0000724	PMID:16428451	IDA		P	DNA repair protein RAD51 homolog 1	RAD51|RAD51A|RECA	protein	taxon:9606	20070601	MGI		UniProtKB:Q06609
+UniProtKB	Q96B01	RAD51AP1	involved_in	GO:0000724	PMID:26323318	IMP		P	RAD51-associated protein 1	RAD51AP1|PIR51	protein	taxon:9606	20160602	ParkinsonsUK-UCL		UniProtKB:Q96B01
+UniProtKB	O15315	RAD51B	involved_in	GO:0000724	PMID:23149936	IMP		P	DNA repair protein RAD51 homolog 2	RAD51B|RAD51L1|REC2	protein	taxon:9606	20140220	UniProt		UniProtKB:O15315
+UniProtKB	O43502	RAD51C	involved_in	GO:0000724	PMID:23149936	IMP		P	DNA repair protein RAD51 homolog 3	RAD51C|RAD51L2	protein	taxon:9606	20140220	UniProt		UniProtKB:O43502
+UniProtKB	O75771	RAD51D	involved_in	GO:0000724	PMID:23149936	IMP		P	DNA repair protein RAD51 homolog 4	RAD51D|RAD51L3	protein	taxon:9606	20140220	UniProt		UniProtKB:O75771
+UniProtKB	Q99708	RBBP8	involved_in	GO:0000724	PMID:26721387	IMP		P	DNA endonuclease RBBP8	RBBP8|CTIP	protein	taxon:9606	20230106	UniProt		UniProtKB:Q99708
+UniProtKB	Q9H9A7	RMI1	involved_in	GO:0000724	PMID:23543748	IDA		P	RecQ-mediated genome instability protein 1	RMI1|C9orf76	protein	taxon:9606	20251224	ComplexPortal		UniProtKB:Q9H9A7
+UniProtKB	Q96E14	RMI2	involved_in	GO:0000724	PMID:23543748	IDA		P	RecQ-mediated genome instability protein 2	RMI2|C16orf75	protein	taxon:9606	20251224	ComplexPortal		UniProtKB:Q96E14
+UniProtKB	Q8NAG6	ANKLE1	involved_in	GO:0000724	GO_REF:0000033	IBA	PANTHER:PTN005304145|WB:WBGene00002276	P	Structure-specific endonuclease ANKLE1	ANKLE1|ANKRD41|LEM3	protein	taxon:9606	20220330	GO_Central		
+UniProtKB	Q9NUS5	AP5S1	involved_in	GO:0000724	GO_REF:0000002	IEA	InterPro:IPR029392	P	AP-5 complex subunit sigma-1	AP5S1|C20orf29	protein	taxon:9606	20260428	InterPro		UniProtKB:Q9NUS5
+UniProtKB	Q2TB18	ASTE1	involved_in	GO:0000724	GO_REF:0000107	IEA	UniProtKB:Q8BIR2|ensembl:ENSMUSP00000035181	P	Single-strand DNA endonuclease ASTE1	ASTE1|HT001	protein	taxon:9606	20260422	Ensembl		UniProtKB:Q2TB18
+UniProtKB	Q13535	ATR	involved_in	GO:0006260	Reactome:R-HSA-176116	TAS		P	Serine/threonine-protein kinase ATR	ATR|FRP1	protein	taxon:9606	20251115	Reactome		UniProtKB:Q13535
+UniProtKB	O75419	CDC45	involved_in	GO:0006260	PMID:22474384	IDA		P	Cell division control protein 45 homolog	CDC45|CDC45L|CDC45L2|UNQ374/PRO710	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:O75419
+UniProtKB	P06493	CDK1	involved_in	GO:0006260	PMID:21655336	TAS		P	Cyclin-dependent kinase 1	CDK1|CDC2|CDC28A|CDKN1|P34CDC2	protein	taxon:9606	20110912	UniProt		UniProtKB:P06493
+UniProtKB	P24941	CDK2	involved_in	GO:0006260	PMID:19238148	TAS		P	Cyclin-dependent kinase 2	CDK2|CDKN2	protein	taxon:9606	20110912	UniProt		UniProtKB:P24941
+UniProtKB	O14757	CHEK1	involved_in	GO:0006260	Reactome:R-HSA-176187	TAS		P	Serine/threonine-protein kinase Chk1	CHEK1|CHK1	protein	taxon:9606	20251115	Reactome		UniProtKB:O14757
+UniProtKB	Q9UBU7	DBF4	involved_in	GO:0006260	PMID:10373557	TAS		P	Protein DBF4 homolog A	DBF4|ASK|DBF4A|ZDBF1	protein	taxon:9606	20061106	PINC		UniProtKB:Q9UBU7
+UniProtKB	P51530	DNA2	involved_in	GO:0006260	PMID:22570476	IMP		P	DNA replication ATP-dependent helicase/nuclease DNA2	DNA2|DNA2L|KIAA0083	protein	taxon:9606	20120726	UniProt		UniProtKB:P51530
+UniProtKB	P39748	FEN1	involved_in	GO:0006260	PMID:9778254	TAS		P	Flap endonuclease 1	FEN1|RAD2	protein	taxon:9606	20030904	PINC		UniProtKB:P39748
+UniProtKB	Q14691	GINS1	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication complex GINS protein PSF1	GINS1|KIAA0186|PSF1	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:Q14691
+UniProtKB	Q9Y248	GINS2	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication complex GINS protein PSF2	GINS2|PSF2|CGI-122|DC5|HSPC037	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:Q9Y248
+UniProtKB	Q9BRX5	GINS3	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication complex GINS protein PSF3	GINS3|PSF3	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:Q9BRX5
+UniProtKB	Q9BRT9	GINS4	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication complex GINS protein SLD5	GINS4|SLD5	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:Q9BRT9
+UniProtKB	P49736	MCM2	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication licensing factor MCM2	MCM2|BM28|CCNL1|CDCL1|KIAA0030	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:P49736
+UniProtKB	P25205	MCM3	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication licensing factor MCM3	MCM3	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:P25205
+UniProtKB	P33991	MCM4	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication licensing factor MCM4	MCM4|CDC21	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:P33991
+UniProtKB	P33992	MCM5	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication licensing factor MCM5	MCM5|CDC46	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:P33992
+UniProtKB	Q14566	MCM6	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication licensing factor MCM6	MCM6	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:Q14566
+UniProtKB	P33993	MCM7	involved_in	GO:0006260	PMID:22474384	IDA		P	DNA replication licensing factor MCM7	MCM7|CDC47|MCM2	protein	taxon:9606	20251015	ComplexPortal		UniProtKB:P33993
+UniProtKB	Q9UBD5	ORC3	involved_in	GO:0006260	PMID:10402192	TAS		P	Origin recognition complex subunit 3	ORC3|LATHEO|ORC3L	protein	taxon:9606	20030904	PINC		UniProtKB:Q9UBD5
+UniProtKB	Q15004	PCLAF	involved_in	GO:0006260	PMID:23000965	IDA		P	PCNA-associated factor	PCLAF|KIAA0101|NS5ATP9|PAF|L5	protein	taxon:9606	20121022	UniProt		UniProtKB:Q15004
+UniProtKB	P09884	POLA1	involved_in	GO:0006260	PMID:16762037	IMP		P	DNA polymerase alpha catalytic subunit	POLA1|POLA	protein	taxon:9606	20140725	UniProt	happens_during(GO:0000084)	UniProtKB:P09884
+UniProtKB	P28340	POLD1	involved_in	GO:0006260	PMID:16762037	IMP		P	DNA polymerase delta catalytic subunit	POLD1|POLD	protein	taxon:9606	20060821	UniProt		UniProtKB:P28340
+UniProtKB	P49005	POLD2	involved_in	GO:0006260	PMID:8530069	TAS		P	DNA polymerase delta subunit 2	POLD2	protein	taxon:9606	20030904	PINC		UniProtKB:P49005
+UniProtKB	Q07864	POLE	involved_in	GO:0006260	PMID:16762037	IMP		P	DNA polymerase epsilon catalytic subunit A	POLE|POLE1	protein	taxon:9606	20060821	UniProt		UniProtKB:Q07864
+UniProtKB	P56282	POLE2	involved_in	GO:0006260	PMID:9405441	TAS		P	DNA polymerase epsilon subunit 2	POLE2|DPE2	protein	taxon:9606	20030904	PINC		UniProtKB:P56282
+UniProtKB	Q9NRF9	POLE3	involved_in	GO:0006260	PMID:10801849	TAS		P	DNA polymerase epsilon subunit 3	POLE3|CHRAC17	protein	taxon:9606	20030904	PINC		UniProtKB:Q9NRF9
+UniProtKB	P40938	RFC3	involved_in	GO:0006260	PMID:9488738	IDA		P	Replication factor C subunit 3	RFC3	protein	taxon:9606	20070605	UniProt		UniProtKB:P40938
+UniProtKB	P27694	RPA1	involved_in	GO:0006260	PMID:9430682	IMP		P	Replication protein A 70 kDa DNA-binding subunit	RPA1|REPA1|RPA70	protein	taxon:9606	20140514	UniProt		UniProtKB:P27694
+UniProtKB	P15927	RPA2	involved_in	GO:0006260	PMID:2406247	IDA		P	Replication protein A 32 kDa subunit	RPA2|REPA2|RPA32|RPA34	protein	taxon:9606	20131218	UniProt		UniProtKB:P15927
+UniProtKB	P35244	RPA3	involved_in	GO:0006260	PMID:9430682	IMP		P	Replication protein A 14 kDa subunit	RPA3|REPA3|RPA14	protein	taxon:9606	20140514	UniProt		UniProtKB:P35244
+UniProtKB	P08913	ADRA2A	involved_in	GO:0006260	GO_REF:0000107	IEA	UniProtKB:P22909|ensembl:ENSRNOP00000066242	P	Alpha-2A adrenergic receptor	ADRA2A|ADRA2R|ADRAR	protein	taxon:9606	20260422	Ensembl		UniProtKB:P08913
+UniProtKB	Q8N9N2	ASCC1	involved_in	GO:0006260	PMID:29997253	NAS		P	Activating signal cointegrator 1 complex subunit 1	ASCC1|CGI-18	protein	taxon:9606	20240823	ComplexPortal		UniProtKB:Q8N9N2
+UniProtKB	Q9H1I8	ASCC2	involved_in	GO:0006260	PMID:29997253	NAS		P	Activating signal cointegrator 1 complex subunit 2	ASCC2|ASC1P100|RQT3	protein	taxon:9606	20240823	ComplexPortal		UniProtKB:Q9H1I8
+UniProtKB	Q9NXL9	MCM9	NOT|involved_in	GO:0006260	PMID:23401855	IGI	UniProtKB:Q9UJA3	P	DNA helicase MCM9	MCM9|C6orf61|MCMDC1	protein	taxon:9606	20180727	UniProt		UniProtKB:Q9NXL9
+UniProtKB	O15392	BIRC5	involved_in	GO:0051301	PMID:12805209	IMP		P	Baculoviral IAP repeat-containing protein 5	BIRC5|API4|IAP4	protein	taxon:9606	20060731	UniProt		UniProtKB:O15392-1
+UniProtKB	Q7Z460	CLASP1	acts_upstream_of_or_within	GO:0051301	PMID:21822276	IDA		P	CLIP-associating protein 1	CLASP1|KIAA0622|MAST1	protein	taxon:9606	20120925	MGI		UniProtKB:Q7Z460
+UniProtKB	P53990	IST1	involved_in	GO:0051301	PMID:19129479	IMP		P	IST1 homolog	IST1|KIAA0174	protein	taxon:9606	20150206	UniProt		UniProtKB:P53990
+UniProtKB	Q71U36	TUBA1A	involved_in	GO:0051301	PMID:12090300	TAS		P	Tubulin alpha-1A chain	TUBA1A|TUBA3	protein	taxon:9606	20110707	BHF-UCL		UniProtKB:Q71U36
+UniProtKB	P68363	TUBA1B	involved_in	GO:0051301	PMID:12090300	TAS		P	Tubulin alpha-1B chain	TUBA1B	protein	taxon:9606	20110707	BHF-UCL		UniProtKB:P68363
+UniProtKB	Q9BQE3	TUBA1C	involved_in	GO:0051301	PMID:12090300	TAS		P	Tubulin alpha-1C chain	TUBA1C|TUBA6	protein	taxon:9606	20110707	BHF-UCL		UniProtKB:Q9BQE3
+UniProtKB	P07437	TUBB	involved_in	GO:0051301	PMID:12090300	TAS		P	Tubulin beta chain	TUBB|TUBB5|OK/SW-cl.56	protein	taxon:9606	20110707	BHF-UCL		UniProtKB:P07437
+UniProtKB	Q9HD42	CHMP1A	involved_in	GO:0051301	PMID:19129479	IMP		P	Charged multivesicular body protein 1a	CHMP1A|CHMP1|KIAA0047|PCOLN3|PRSM1	protein	taxon:9606	20150206	UniProt		UniProtKB:Q9HD42
+UniProtKB	Q7LBR1	CHMP1B	involved_in	GO:0051301	PMID:19129479	IMP		P	Charged multivesicular body protein 1b	CHMP1B|C18orf2	protein	taxon:9606	20150206	UniProt		UniProtKB:Q7LBR1
+UniProtKB	P63096	GNAI1	involved_in	GO:0051301	PMID:17635935	IMP		P	Guanine nucleotide-binding protein G(i) subunit alpha-1	GNAI1	protein	taxon:9606	20110318	UniProt		UniProtKB:P63096
+UniProtKB	P04899	GNAI2	involved_in	GO:0051301	PMID:17635935	IMP		P	Guanine nucleotide-binding protein G(i) subunit alpha-2	GNAI2|GNAI2B	protein	taxon:9606	20110325	UniProt		UniProtKB:P04899
+UniProtKB	P08754	GNAI3	involved_in	GO:0051301	PMID:17635935	IDA		P	Guanine nucleotide-binding protein G(i) subunit alpha-3	GNAI3	protein	taxon:9606	20110318	UniProt		UniProtKB:P08754
+UniProtKB	Q53GT1	KLHL22	involved_in	GO:0051301	PMID:19995937	IMP		P	Kelch-like protein 22	KLHL22	protein	taxon:9606	20100608	UniProt		UniProtKB:Q53GT1
+UniProtKB	P27816	MAP4	acts_upstream_of_or_within	GO:0051301	PMID:21822276	IMP		P	Microtubule-associated protein 4	MAP4	protein	taxon:9606	20120925	MGI		UniProtKB:P27816
+UniProtKB	O43566	RGS14	involved_in	GO:0051301	PMID:17635935	IMP		P	Regulator of G protein signaling 14	RGS14	protein	taxon:9606	20110318	UniProt		UniProtKB:O43566
+UniProtKB	Q8N0X7	SPART	involved_in	GO:0051301	PMID:20719964	IMP		P	Spartin	SPART|KIAA0610|SPG20|TAHCCP1	protein	taxon:9606	20130207	UniProt		UniProtKB:Q8N0X7
+UniProtKB	O43805	SSNA1	involved_in	GO:0051301	PMID:25390646	IMP		P	Microtubule nucleation factor SSNA1	SSNA1|NA14	protein	taxon:9606	20220311	UniProt		UniProtKB:O43805
+UniProtKB	Q9UN37	VPS4A	involved_in	GO:0051301	PMID:17853893	IDA		P	Vacuolar protein sorting-associated protein 4A	VPS4A|VPS4	protein	taxon:9606	20150206	UniProt		UniProtKB:Q9UN37
+UniProtKB	Q9UJX3	ANAPC7	involved_in	GO:0051301	GO_REF:0000033	IBA	PANTHER:PTN001757014|WB:WBGene00001281|WB:WBGene00003132|WB:WBGene00003134	P	Anaphase-promoting complex subunit 7	ANAPC7|APC7	protein	taxon:9606	20220922	GO_Central		
+UniProtKB	P56945	BCAR1	involved_in	GO:0051301	PMID:10675905	NAS		P	Breast cancer anti-estrogen resistance protein 1	BCAR1|CAS|CASS1|CRKAS	protein	taxon:9606	20051206	UniProt		UniProtKB:P56945
+UniProtKB	Q13042	CDC16	involved_in	GO:0051301	GO_REF:0000033	IBA	PANTHER:PTN001757014|WB:WBGene00001281|WB:WBGene00003132|WB:WBGene00003134	P	Cell division cycle protein 16 homolog	CDC16|ANAPC6	protein	taxon:9606	20220922	GO_Central		
+UniProtKB	P00519	ABL1	involved_in	GO:0000278	PMID:24522549	TAS		P	Tyrosine-protein kinase ABL1	ABL1|ABL|JTK7	protein	taxon:9606	20140827	ParkinsonsUK-UCL	occurs_in(GO:0005737)	UniProtKB:P00519
+UniProtKB	Q9NYG5	ANAPC11	involved_in	GO:0000278	PMID:11739784	TAS		P	Anaphase-promoting complex subunit 11	ANAPC11|HSPC214	protein	taxon:9606	20041020	UniProt		UniProtKB:Q9NYG5
+UniProtKB	O14965	AURKA	involved_in	GO:0000278	PMID:9153231	TAS		P	Aurora kinase A	AURKA|AIK|AIRK1|ARK1|AURA|AYK1|BTAK|IAK1|STK15|STK6	protein	taxon:9606	20030904	PINC		UniProtKB:O14965
+UniProtKB	O15392	BIRC5	involved_in	GO:0000278	PMID:16291752	TAS		P	Baculoviral IAP repeat-containing protein 5	BIRC5|API4|IAP4	protein	taxon:9606	20060731	UniProt		UniProtKB:O15392-1
+UniProtKB	Q9UJX2	CDC23	involved_in	GO:0000278	PMID:14657031	IDA		P	Cell division cycle protein 23 homolog	CDC23|ANAPC8	protein	taxon:9606	20040414	UniProt		UniProtKB:Q9UJX2
+UniProtKB	Q03188	CENPC	involved_in	GO:0000278	PMID:21529714	IMP		P	Centromere protein C	CENPC|CENPC1|ICEN7	protein	taxon:9606	20120329	UniProt		UniProtKB:Q03188
+UniProtKB	Q02224	CENPE	involved_in	GO:0000278	PMID:24748105	IMP		P	Centromere-associated protein E	CENPE	protein	taxon:9606	20141211	UniProt		UniProtKB:Q02224
+UniProtKB	P49454	CENPF	involved_in	GO:0000278	PMID:7542657	IMP		P	Centromere protein F	CENPF	protein	taxon:9606	20060120	UniProt		UniProtKB:P49454
+UniProtKB	Q96BT3	CENPT	involved_in	GO:0000278	PMID:21695110	IMP		P	Centromere protein T	CENPT|C16orf56|ICEN22	protein	taxon:9606	20120328	UniProt		UniProtKB:Q96BT3
+UniProtKB	P30622	CLIP1	involved_in	GO:0000278	PMID:15928712	TAS		P	CAP-Gly domain-containing linker protein 1	CLIP1|CYLN1|RSN	protein	taxon:9606	20060405	UniProt		UniProtKB:P30622
+UniProtKB	Q00610	CLTC	involved_in	GO:0000278	PMID:15858577	IMP		P	Clathrin heavy chain 1	CLTC|CLH17|CLTCL2|KIAA0034	protein	taxon:9606	20100517	UniProt		UniProtKB:Q00610
+UniProtKB	Q9NSG2	FIRRM	involved_in	GO:0000278	PMID:34260926	IMP		P	FIGNL1-interacting regulator of recombination and mitosis	FIRRM|APOLO1|C1orf112	protein	taxon:9606	20230303	UniProt		UniProtKB:Q9NSG2
+UniProtKB	Q13123	IK	involved_in	GO:0000278	PMID:24252166	IMP		P	Protein Red	IK|RED|RER	protein	taxon:9606	20170707	UniProt		UniProtKB:Q13123
+UniProtKB	O14777	NDC80	involved_in	GO:0000278	PMID:9315664	TAS		P	Kinetochore protein NDC80 homolog	NDC80|HEC|HEC1|KNTC2	protein	taxon:9606	20030904	PINC		UniProtKB:O14777
+UniProtKB	Q99640	PKMYT1	involved_in	GO:0000278	PMID:9001210	TAS		P	Membrane-associated tyrosine- and threonine-specific cdc2-inhibitory kinase	PKMYT1|MYT1	protein	taxon:9606	20030904	PINC		UniProtKB:Q99640
+UniProtKB	P53350	PLK1	involved_in	GO:0000278	PMID:18477460	IMP		P	Serine/threonine-protein kinase PLK1	PLK1|PLK	protein	taxon:9606	20111122	UniProt		UniProtKB:P53350
+UniProtKB	P53041	PPP5C	involved_in	GO:0000278	PMID:7925273	TAS		P	Serine/threonine-protein phosphatase 5	PPP5C|PPP5	protein	taxon:9606	20030904	PINC		UniProtKB:P53041
+UniProtKB	Q96BD8	SKA1	involved_in	GO:0000278	PMID:19289083	IMP		P	SKA complex subunit 1	SKA1|C18orf24	protein	taxon:9606	20090422	UniProt		UniProtKB:Q96BD8
+UniProtKB	Q9UQE7	SMC3	involved_in	GO:0000278	PMID:9506951	TAS		P	Structural maintenance of chromosomes protein 3	SMC3|BAM|BMH|CSPG6|SMC3L1	protein	taxon:9606	20050308	PINC		UniProtKB:Q9UQE7
+UniProtKB	Q9ULW0	TPX2	involved_in	GO:0000278	PMID:9207457	TAS		P	Targeting protein for Xklp2	TPX2|C20orf1|C20orf2|DIL2|HCA519	protein	taxon:9606	20030904	PINC		UniProtKB:Q9ULW0
+UniProtKB	O43543	XRCC2	involved_in	GO:0000278	PMID:21276791	IMP		P	DNA repair protein XRCC2	XRCC2	protein	taxon:9606	20140220	UniProt		UniProtKB:O43543
+UniProtKB	Q15018	ABRAXAS2	involved_in	GO:0000278	PMID:26195665	IMP		P	BRISC complex subunit Abraxas 2	ABRAXAS2|ABRO1|FAM175B|KIAA0157	protein	taxon:9606	20151215	UniProt		UniProtKB:Q15018
+UniProtKB	O43823	AKAP8	involved_in	GO:0000278	PMID:9473338	TAS		P	A-kinase anchor protein 8	AKAP8|AKAP95	protein	taxon:9606	20030904	PINC		UniProtKB:O43823
+UniProtKB	P56211	ARPP19	involved_in	GO:0000278	PMID:21164014	IMP		P	cAMP-regulated phosphoprotein 19	ARPP19	protein	taxon:9606	20110317	UniProt		UniProtKB:P56211
+UniProtKB	P22674	CCNO	involved_in	GO:0000278	PMID:8419333	IDA		P	Cyclin-O	CCNO	protein	taxon:9606	20180123	UniProt		UniProtKB:P22674
+UniProtKB	P30305	CDC25B	involved_in	GO:0000278	PMID:1836978	TAS		P	M-phase inducer phosphatase 2	CDC25B|CDC25HU2	protein	taxon:9606	20030904	PINC		UniProtKB:P30305
+UniProtKB	Q5EE01	CENPW	involved_in	GO:0000278	PMID:21695110	IMP		P	Centromere protein W	CENPW|C6orf173|CUG2	protein	taxon:9606	20120328	UniProt		UniProtKB:Q5EE01
+UniProtKB	Q9BV73	CEP250	involved_in	GO:0000278	PMID:12140259	IDA		P	Centrosome-associated protein CEP250	CEP250|CEP2|CNAP1	protein	taxon:9606	20040407	UniProt		UniProtKB:Q9BV73
+UniProtKB	P53675	CLTCL1	involved_in	GO:0000278	PMID:19509056	IDA		P	Clathrin heavy chain 2	CLTCL1|CLH22|CLTCL|CLTD	protein	taxon:9606	20100517	UniProt		UniProtKB:P53675
+UniProtKB	O75935	DCTN3	involved_in	GO:0000278	PMID:9722614	TAS		P	Dynactin subunit 3	DCTN3|DCTN22	protein	taxon:9606	20030904	PINC		UniProtKB:O75935
+UniProtKB	O14965	AURKA	involved_in	GO:0000278	GO_REF:0000002	IEA	InterPro:IPR030611	P	Aurora kinase A	AURKA|AIK|AIRK1|ARK1|AURA|AYK1|BTAK|IAK1|STK15|STK6	protein	taxon:9606	20260428	InterPro		UniProtKB:O14965
+UniProtKB	Q96GD4	AURKB	involved_in	GO:0000278	PMID:17956729	NAS		P	Aurora kinase B	AURKB|AIK2|AIM1|AIRK2|ARK2|STK1|STK12|STK5	protein	taxon:9606	20260109	ComplexPortal		UniProtKB:Q96GD4
+UniProtKB	Q92560	BAP1	involved_in	GO:0000278	GO_REF:0000107	IEA	UniProtKB:Q99PU7|ensembl:ENSMUSP00000022458	P	Ubiquitin carboxyl-terminal hydrolase BAP1	BAP1|KIAA0272|hucep-6	protein	taxon:9606	20260422	Ensembl		UniProtKB:Q92560
+UniProtKB	O75665	OFD1	NOT|involved_in	GO:0000278	GO_REF:0000024	ISS	UniProtKB:Q80Z25	P	Centriole and centriolar satellite protein OFD1	OFD1|CXorf5	protein	taxon:9606	20100422	UniProt		UniProtKB:O75665
+UniProtKB	P38398	BRCA1	involved_in	GO:0007059	PMID:15965487	IMP		P	Breast cancer type 1 susceptibility protein	BRCA1|RNF53	protein	taxon:9606	20060822	UniProt		UniProtKB:P38398
+UniProtKB	Q03188	CENPC	involved_in	GO:0007059	PMID:21529714	IMP		P	Centromere protein C	CENPC|CENPC1|ICEN7	protein	taxon:9606	20120329	UniProt		UniProtKB:Q03188
+UniProtKB	Q02224	CENPE	involved_in	GO:0007059	PMID:24748105	IMP		P	Centromere-associated protein E	CENPE	protein	taxon:9606	20141211	UniProt		UniProtKB:Q02224
+UniProtKB	P49454	CENPF	involved_in	GO:0007059	PMID:16252009	IMP		P	Centromere protein F	CENPF	protein	taxon:9606	20060120	UniProt		UniProtKB:P49454
+UniProtKB	Q96BT3	CENPT	involved_in	GO:0007059	PMID:21529714	IMP		P	Centromere protein T	CENPT|C16orf56|ICEN22	protein	taxon:9606	20120329	UniProt		UniProtKB:Q96BT3
+UniProtKB	O00571	DDX3X	involved_in	GO:0007059	PMID:21730191	IMP		P	ATP-dependent RNA helicase DDX3X	DDX3X|DBX|DDX3	protein	taxon:9606	20120810	UniProt		UniProtKB:O00571
+UniProtKB	P18074	ERCC2	involved_in	GO:0007059	PMID:20797633	IMP		P	General transcription and DNA repair factor IIH helicase subunit XPD	ERCC2|XPD|XPDC	protein	taxon:9606	20100916	UniProt		UniProtKB:P18074
+UniProtKB	Q9NSG2	FIRRM	involved_in	GO:0007059	PMID:34260926	IMP		P	FIGNL1-interacting regulator of recombination and mitosis	FIRRM|APOLO1|C1orf112	protein	taxon:9606	20230303	UniProt		UniProtKB:Q9NSG2
+UniProtKB	Q9NQS7	INCENP	involved_in	GO:0007059	PMID:16239925	IMP		P	Inner centromere protein	INCENP	protein	taxon:9606	20060803	UniProt		UniProtKB:Q9NQS7
+UniProtKB	Q9H081	MIS12	involved_in	GO:0007059	PMID:12515822	IMP		P	Protein MIS12 homolog	MIS12	protein	taxon:9606	20060714	UniProt		UniProtKB:Q9H081
+UniProtKB	O14777	NDC80	involved_in	GO:0007059	PMID:14699129	IMP		P	Kinetochore protein NDC80 homolog	NDC80|HEC|HEC1|KNTC2	protein	taxon:9606	20090728	UniProt		UniProtKB:O14777
+UniProtKB	Q9GZM8	NDEL1	involved_in	GO:0007059	PMID:17600710	IMP		P	Nuclear distribution protein nudE-like 1	NDEL1|EOPA|MITAP1|NUDEL	protein	taxon:9606	20090324	UniProt		UniProtKB:Q9GZM8
+UniProtKB	Q6P1K2	PMF1	involved_in	GO:0007059	PMID:15502821	IMP		P	Polyamine-modulated factor 1	PMF1	protein	taxon:9606	20060714	UniProt		UniProtKB:Q6P1K2
+UniProtKB	P30153	PPP2R1A	involved_in	GO:0007059	PMID:16580887	IDA		P	Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform	PPP2R1A	protein	taxon:9606	20091210	UniProt		UniProtKB:P30153
+UniProtKB	O14730	RIOK3	involved_in	GO:0007059	PMID:9602165	TAS		P	Serine/threonine-protein kinase RIO3	RIOK3|SUDD	protein	taxon:9606	20030904	PINC		UniProtKB:O14730
+UniProtKB	P23396	RPS3	involved_in	GO:0007059	PMID:23131551	IMP		P	Small ribosomal subunit protein uS3	RPS3|OK/SW-cl.26	protein	taxon:9606	20211119	UniProt		UniProtKB:P23396
+UniProtKB	Q5FBB7	SGO1	involved_in	GO:0007059	PMID:16580887	IDA		P	Shugoshin 1	SGO1|SGOL1	protein	taxon:9606	20091210	UniProt		UniProtKB:Q5FBB7
+UniProtKB	Q9HBM1	SPC25	involved_in	GO:0007059	PMID:14699129	IMP		P	Kinetochore protein Spc25	SPC25|SPBC25|AD024	protein	taxon:9606	20090728	UniProt		UniProtKB:Q9HBM1
+UniProtKB	Q15018	ABRAXAS2	involved_in	GO:0007059	PMID:26195665	IMP		P	BRISC complex subunit Abraxas 2	ABRAXAS2|ABRO1|FAM175B|KIAA0157	protein	taxon:9606	20151215	UniProt		UniProtKB:Q15018
+UniProtKB	Q9NVJ2	ARL8B	involved_in	GO:0007059	PMID:14871887	IMP		P	ADP-ribosylation factor-like protein 8B	ARL8B|ARL10C|GIE1	protein	taxon:9606	20060410	UniProt		UniProtKB:Q9NVJ2
+UniProtKB	Q9NWD9	BEX4	involved_in	GO:0007059	PMID:27512957	IMP		P	Protein BEX4	BEX4|BEXL1|NADE3	protein	taxon:9606	20170810	UniProt		UniProtKB:Q9NWD9
+UniProtKB	Q9H6F5	CCDC86	involved_in	GO:0007059	PMID:36695333	IMP		P	Coiled-coil domain-containing protein 86	CCDC86|CYCLON	protein	taxon:9606	20250326	UniProt		UniProtKB:Q9H6F5
+UniProtKB	Q96SN8	CDK5RAP2	involved_in	GO:0007059	PMID:19282672	IMP		P	CDK5 regulatory subunit-associated protein 2	CDK5RAP2|CEP215|KIAA1633	protein	taxon:9606	20101005	UniProt		UniProtKB:Q96SN8
+UniProtKB	Q5EE01	CENPW	involved_in	GO:0007059	PMID:19533040	TAS		P	Centromere protein W	CENPW|C6orf173|CUG2	protein	taxon:9606	20111206	UniProt		UniProtKB:Q5EE01
+UniProtKB	Q494V2	CFAP100	involved_in	GO:0007059	PMID:40593606	IMP		P	Cilia- and flagella-associated protein 100	CFAP100|CCDC37	protein	taxon:9606	20251209	UniProt		UniProtKB:Q494V2
+UniProtKB	Q9Y3D0	CIAO2B	involved_in	GO:0007059	PMID:20797633	IMP		P	Cytosolic iron-sulfur assembly component 2B	CIAO2B|CIAB|FAM96B|MIP18|CGI-128|HSPC118	protein	taxon:9606	20100916	UniProt		UniProtKB:Q9Y3D0
+UniProtKB	Q8NCD3	HJURP	involved_in	GO:0007059	PMID:19410544	IMP		P	Holliday junction recognition protein	HJURP|FAKTS|FLEG1|URLC9	protein	taxon:9606	20090729	UniProt		UniProtKB:Q8NCD3
+UniProtKB	Q9Y448	KNSTRN	involved_in	GO:0007059	PMID:21402792	IMP		P	Small kinetochore-associated protein	KNSTRN|C15orf23|SKAP|TRAF4AF1|HSD11	protein	taxon:9606	20120105	UniProt		UniProtKB:Q9Y448
+UniProtKB	P46013	MKI67	involved_in	GO:0007059	PMID:27362226	IDA		P	Proliferation marker protein Ki-67	MKI67	protein	taxon:9606	20240926	UniProt		UniProtKB:P46013
+UniProtKB	Q9Y4B5	MTCL1	involved_in	GO:0007059	PMID:33587225	IMP		P	Microtubule cross-linking factor 1	MTCL1|CCDC165|KIAA0802|SOGA2	protein	taxon:9606	20230828	UniProt		UniProtKB:Q9Y4B5
+UniProtKB	Q96BM9	ARL8A	involved_in	GO:0007059	PMID:14871887	ISS	UniProtKB:Q9NVJ2	P	ADP-ribosylation factor-like protein 8A	ARL8A|ARL10B|GIE2	protein	taxon:9606	20060410	UniProt		UniProtKB:Q96BM9
+UniProtKB	O15392	BIRC5	involved_in	GO:0007059	GO_REF:0000033	IBA	PANTHER:PTN005319859|UniProtKB:Q8JGN5|SGD:S000003849|WB:WBGene00000249|FB:FBgn0264291	P	Baculoviral IAP repeat-containing protein 5	BIRC5|API4|IAP4	protein	taxon:9606	20250904	GO_Central		
+UniProtKB	Q69YH5	CDCA2	involved_in	GO:0007059	GO_REF:0000033	IBA	PANTHER:PTN001091477|UniProtKB:P46013|MGI:MGI:1919787	P	Cell division cycle-associated protein 2	CDCA2	protein	taxon:9606	20250415	GO_Central		
+UniProtKB	P48960	ADGRE5	involved_in	GO:0006955	PMID:7636245	TAS		P	Adhesion G protein-coupled receptor E5	ADGRE5|CD97	protein	taxon:9606	20030904	PINC		UniProtKB:P48960
+UniProtKB	Q07021	C1QBP	involved_in	GO:0006955	PMID:8195709	TAS		P	Complement component 1 Q subcomponent-binding protein, mitochondrial	C1QBP|GC1QBP|HABP1|SF2P32	protein	taxon:9606	20030904	PINC		UniProtKB:Q07021
+UniProtKB	P01024	C3	involved_in	GO:0006955	PMID:4097977	TAS		P	Complement C3	C3|CPAMD1	protein	taxon:9606	20030904	PINC		UniProtKB:P01024
+UniProtKB	P21730	C5AR1	involved_in	GO:0006955	PMID:9590258	TAS		P	C5a anaphylatoxin chemotactic receptor 1	C5AR1|C5AR|C5R1	protein	taxon:9606	20030904	PINC		UniProtKB:P21730
+UniProtKB	P31997	CEACAM8	involved_in	GO:0006955	PMID:2208113	TAS		P	Cell adhesion molecule CEACAM8	CEACAM8|CGM6	protein	taxon:9606	20030904	PINC		UniProtKB:P31997
+UniProtKB	P17676	CEBPB	involved_in	GO:0006955	PMID:2112087	TAS		P	CCAAT/enhancer-binding protein beta	CEBPB|TCF5|PP9092	protein	taxon:9606	20030904	PINC		UniProtKB:P17676
+UniProtKB	P27918	CFP	involved_in	GO:0006955	PMID:8530058	TAS		P	Properdin	CFP|PFC	protein	taxon:9606	20030904	PINC		UniProtKB:P27918
+UniProtKB	O15111	CHUK	involved_in	GO:0006955	PMID:9346484	TAS		P	Inhibitor of nuclear factor kappa-B kinase subunit alpha	CHUK|IKKA|TCF16	protein	taxon:9606	20030904	PINC		UniProtKB:O15111
+UniProtKB	P33076	CIITA	involved_in	GO:0006955	PMID:8402893	TAS		P	MHC class II transactivator	CIITA|MHC2TA	protein	taxon:9606	20030904	PINC		UniProtKB:P33076
+UniProtKB	P01034	CST3	involved_in	GO:0006955	PMID:18256700	TAS		P	Cystatin-C	CST3	protein	taxon:9606	20241127	ARUK-UCL		UniProtKB:P01034
+UniProtKB	P53634	CTSC	involved_in	GO:0006955	PMID:9092576	TAS		P	Dipeptidyl peptidase 1	CTSC|CPPI	protein	taxon:9606	20030904	PINC		UniProtKB:P53634
+UniProtKB	P08311	CTSG	involved_in	GO:0006955	PMID:2569462	TAS		P	Cathepsin G	CTSG	protein	taxon:9606	20030904	PINC		UniProtKB:P08311
+UniProtKB	P25774	CTSS	involved_in	GO:0006955	PMID:8157683	TAS		P	Cathepsin S	CTSS	protein	taxon:9606	20030904	PINC		UniProtKB:P25774
+UniProtKB	P59665	DEFA1	involved_in	GO:0006955	PMID:10914484	TAS		P	Neutrophil defensin 1	DEFA1|DEFA1B|DEF1|DEFA2|MRS	protein	taxon:9606	20061108	PINC		UniProtKB:P59665
+UniProtKB	P14921	ETS1	involved_in	GO:0006955	PMID:2187191	TAS		P	Protein C-ets-1	ETS1|EWSR2	protein	taxon:9606	20030904	PINC		UniProtKB:P14921
+UniProtKB	P24071	FCAR	involved_in	GO:0006955	PMID:10835685	TAS		P	Immunoglobulin alpha Fc receptor	FCAR|CD89	protein	taxon:9606	20030904	PINC		UniProtKB:P24071
+UniProtKB	P12314	FCGR1A	involved_in	GO:0006955	PMID:10879688	TAS		P	High affinity immunoglobulin gamma Fc receptor I	FCGR1A|FCG1|FCGR1|IGFR1	protein	taxon:9606	20030904	PINC		UniProtKB:P12314
+UniProtKB	O75015	FCGR3B	involved_in	GO:0006955	PMID:2139735	TAS		P	Low affinity immunoglobulin gamma Fc region receptor III-B	FCGR3B|CD16B|FCG3|FCGR3|IGFR3	protein	taxon:9606	20030904	PINC		UniProtKB:O75015
+UniProtKB	P32456	GBP2	involved_in	GO:0006955	PMID:1715024	TAS		P	Guanylate-binding protein 2	GBP2	protein	taxon:9606	20030904	PINC		UniProtKB:P32456
+UniProtKB	P04439	HLA-A	involved_in	GO:0006955	PMID:22321387	IMP		P	HLA class I histocompatibility antigen, A alpha chain	HLA-A|HLAA	protein	taxon:9606	20191219	UniProt		UniProtKB:P04439
+UniProtKB	P01889	HLA-B	involved_in	GO:0006955	PMID:22321387	IMP		P	HLA class I histocompatibility antigen, B alpha chain	HLA-B|HLAB	protein	taxon:9606	20120308	UniProt		UniProtKB:P01889
+UniProtKB	P01911	HLA-DRB1	involved_in	GO:0006955	PMID:10609818	TAS		P	HLA class II histocompatibility antigen, DRB1 beta chain	HLA-DRB1	protein	taxon:9606	20191219	UniProt		UniProtKB:P01911
+UniProtKB	P09912	IFI6	involved_in	GO:0006955	PMID:3017706	TAS		P	Interferon alpha-inducible protein 6	IFI6|G1P3	protein	taxon:9606	20030904	PINC		UniProtKB:P09912
+UniProtKB	Q01629	IFITM2	involved_in	GO:0006955	PMID:1906403	TAS		P	Interferon-induced transmembrane protein 2	IFITM2	protein	taxon:9606	20030904	PINC		UniProtKB:Q01629
+UniProtKB	Q01628	IFITM3	involved_in	GO:0006955	PMID:1906403	TAS		P	Interferon-induced transmembrane protein 3	IFITM3	protein	taxon:9606	20030904	PINC		UniProtKB:Q01628
+UniProtKB	P01579	IFNG	involved_in	GO:0006955	PMID:20209097	IDA		P	Interferon gamma	IFNG	protein	taxon:9606	20260109	GO_Central		UniProtKB:P01579
+UniProtKB	Q9Y6K9	IKBKG	involved_in	GO:0006955	PMID:9751060	TAS		P	NF-kappa-B essential modulator	IKBKG|FIP3|NEMO	protein	taxon:9606	20030904	PINC		UniProtKB:Q9Y6K9
+UniProtKB	Q02556	IRF8	involved_in	GO:0006955	PMID:8861914	TAS		P	Interferon regulatory factor 8	IRF8|ICSBP1	protein	taxon:9606	20030904	PINC		UniProtKB:Q02556
+UniProtKB	Q8N423	LILRB2	involved_in	GO:0006955	PMID:9079806	TAS		P	Leukocyte immunoglobulin-like receptor subfamily B member 2	LILRB2|ILT4|LIR2|MIR10	protein	taxon:9606	20050308	PINC		UniProtKB:Q8N423
+UniProtKB	P00491	PNP	involved_in	GO:0006955	PMID:16930574	IMP		P	Purine nucleoside phosphorylase	PNP|NP	protein	taxon:9606	20090205	UniProt		UniProtKB:P00491
+UniProtKB	A0A0G2JRQ6	A0A0G2JRQ6	involved_in	GO:0006955	GO_REF:0000033	IBA	PANTHER:PTN000587099|UniProtKB:P01619|MGI:MGI:98936	P	Ig-like domain-containing protein		protein	taxon:9606	20200809	GO_Central		
+UniProtKB	O00590	ACKR2	involved_in	GO:0006955	GO_REF:0000033	IBA	PANTHER:PTN001628461|MGI:MGI:1333797|RGD:2906|UniProtKB:P49238|RGD:620596|MGI:MGI:1333815|MGI:MGI:106185|RGD:620876|UniProtKB:P32246|ZFIN:ZDB-GENE-041114-186|MGI:MGI:103011	P	Atypical chemokine receptor 2	ACKR2|CCBP2|CCR10|CMKBR9|D6	protein	taxon:9606	20241119	GO_Central		
+UniProtKB	P25106	ACKR3	involved_in	GO:0006955	GO_REF:0000033	IBA	PANTHER:PTN001628461|MGI:MGI:1333797|RGD:2906|UniProtKB:P49238|RGD:620596|MGI:MGI:1333815|MGI:MGI:106185|RGD:620876|UniProtKB:P32246|ZFIN:ZDB-GENE-041114-186|MGI:MGI:103011	P	Atypical chemokine receptor 3	ACKR3|CMKOR1|CXCR7|GPR159|RDC1	protein	taxon:9606	20241119	GO_Central		
+UniProtKB	P05161	ISG15	involved_in	GO:0034340	PMID:22859821	IDA		P	Ubiquitin-like protein ISG15	ISG15|G1P2|UCRP	protein	taxon:9606	20130605	UniProt		UniProtKB:P05161
+UniProtKB	P20591	MX1	involved_in	GO:0034340	PMID:21859714	TAS		P	Interferon-induced GTP-binding protein Mx1	MX1	protein	taxon:9606	20120830	UniProt		UniProtKB:P20591
+UniProtKB	P23497	SP100	involved_in	GO:0034340	PMID:15247905	IDA		P	Nuclear autoantigen Sp-100	SP100	protein	taxon:9606	20081024	BHF-UCL		UniProtKB:P23497
+UniProtKB	O95992	CH25H	involved_in	GO:0034340	PMID:33239446	IDA		P	Cholesterol 25-hydroxylase	CH25H	protein	taxon:9606	20210616	UniProt		UniProtKB:O95992
+UniProtKB	Q9BYW2	SETD2	involved_in	GO:0034340	PMID:28753426	IDA		P	Histone-lysine N-methyltransferase SETD2	SETD2|HIF1|HYPB|KIAA1732|KMT3A|SET2|HSPC069	protein	taxon:9606	20170824	UniProt		UniProtKB:Q9BYW2
+UniProtKB	Q9NUL5	SHFL	involved_in	GO:0034340	PMID:26735137	IDA		P	Shiftless antiviral inhibitor of ribosomal frameshifting protein	SHFL|C19orf66|FLJ11286|IRAV|RYDEN|SFL	protein	taxon:9606	20160201	UniProt		UniProtKB:Q9NUL5
+UniProtKB	P34897	SHMT2	involved_in	GO:0034340	PMID:24075985	IDA		P	Serine hydroxymethyltransferase, mitochondrial	SHMT2	protein	taxon:9606	20151215	UniProt		UniProtKB:P34897
+UniProtKB	P17405	SMPD1	involved_in	GO:0034340	PMID:20807762	IDA		P	Sphingomyelin phosphodiesterase	SMPD1|ASM	protein	taxon:9606	20201127	UniProt		UniProtKB:P17405
+UniProtKB	Q14164	IKBKE	involved_in	GO:0034340	GO_REF:0000107	IEA	UniProtKB:Q9R0T8|ensembl:ENSMUSP00000054126	P	Inhibitor of nuclear factor kappa-B kinase subunit epsilon	IKBKE|IKKE|IKKI|KIAA0151	protein	taxon:9606	20260422	Ensembl		UniProtKB:Q14164
+UniProtKB	Q9BRZ2	TRIM56	involved_in	GO:0034340	GO_REF:0000024	ISS	UniProtKB:Q80VI1	P	E3 ubiquitin-protein ligase TRIM56	TRIM56|RNF109	protein	taxon:9606	20101217	UniProt		UniProtKB:Q9BRZ2
+UniProtKB	P33076	CIITA	involved_in	GO:0034341	PMID:32855215	IDA		P	MHC class II transactivator	CIITA|MHC2TA	protein	taxon:9606	20201109	UniProt		UniProtKB:P33076
+UniProtKB	P13164	IFITM1	involved_in	GO:0034341	PMID:21253575	IDA		P	Interferon-induced transmembrane protein 1	IFITM1|CD225|IFI17	protein	taxon:9606	20120731	UniProt		UniProtKB:P13164
+UniProtKB	Q01629	IFITM2	involved_in	GO:0034341	PMID:21253575	IDA		P	Interferon-induced transmembrane protein 2	IFITM2	protein	taxon:9606	20120731	UniProt		UniProtKB:Q01629
+UniProtKB	Q01628	IFITM3	involved_in	GO:0034341	PMID:21253575	IDA		P	Interferon-induced transmembrane protein 3	IFITM3	protein	taxon:9606	20120731	UniProt		UniProtKB:Q01628
+UniProtKB	P37840	SNCA	involved_in	GO:0034341	PMID:19157893	IDA		P	Alpha-synuclein	SNCA|NACP|PARK1	protein	taxon:9606	20090514	UniProt		UniProtKB:P37840
+UniProtKB	P23497	SP100	involved_in	GO:0034341	PMID:8810287	IMP		P	Nuclear autoantigen Sp-100	SP100	protein	taxon:9606	20081021	BHF-UCL		UniProtKB:P23497
+UniProtKB	P42224	STAT1	involved_in	GO:0034341	PMID:11972023	IDA		P	Signal transducer and activator of transcription 1-alpha/beta	STAT1	protein	taxon:9606	20220708	UniProt		UniProtKB:P42224
+UniProtKB	P19474	TRIM21	involved_in	GO:0034341	PMID:26347139	IDA		P	E3 ubiquitin-protein ligase TRIM21	TRIM21|RNF81|RO52|SSA1	protein	taxon:9606	20151029	UniProt		UniProtKB:P19474
+UniProtKB	Q13137	CALCOCO2	involved_in	GO:0034341	PMID:9230084	IDA		P	Calcium-binding and coiled-coil domain-containing protein 2	CALCOCO2|NDP52	protein	taxon:9606	20081021	BHF-UCL		UniProtKB:Q13137
+UniProtKB	P04233	CD74	involved_in	GO:0034341	PMID:32855215	IDA		P	HLA class II histocompatibility antigen gamma chain	CD74|DHLAG	protein	taxon:9606	20201109	UniProt		UniProtKB:P04233
+UniProtKB	Q9H2A7	CXCL16	involved_in	GO:0034341	PMID:18373975	IDA		P	C-X-C motif chemokine 16	CXCL16|SCYB16|SRPSOX|UNQ2759/PRO6714	protein	taxon:9606	20081119	BHF-UCL		UniProtKB:Q9H2A7
+UniProtKB	O15528	CYP27B1	involved_in	GO:0034341	PMID:9282826	IDA		P	25-hydroxyvitamin D-1 alpha hydroxylase, mitochondrial	CYP27B1|CYP1ALPHA|CYP27B	protein	taxon:9606	20090402	BHF-UCL		UniProtKB:O15528
+UniProtKB	Q96EY1	DNAJA3	involved_in	GO:0034341	PMID:11679576	IDA		P	DnaJ homolog subfamily A member 3, mitochondrial	DNAJA3|HCA57|TID1	protein	taxon:9606	20090401	UniProt		UniProtKB:Q96EY1-1
+UniProtKB	P30793	GCH1	involved_in	GO:0034341	PMID:12607127	IDA		P	GTP cyclohydrolase 1	GCH1|DYT5|GCH	protein	taxon:9606	20080718	UniProt		UniProtKB:P30793
+UniProtKB	Q5VWK5	IL23R	involved_in	GO:0034341	PMID:12023369	IDA		P	Interleukin-23 receptor	IL23R	protein	taxon:9606	20110110	BHF-UCL		UniProtKB:Q5VWK5
+UniProtKB	Q16719	KYNU	involved_in	GO:0034341	PMID:9291104	IDA		P	Kynureninase	KYNU	protein	taxon:9606	20080623	UniProt		UniProtKB:Q16719
+UniProtKB	O15553	MEFV	involved_in	GO:0034341	PMID:26347139	IDA		P	Pyrin	MEFV|MEF|TRIM20	protein	taxon:9606	20151029	UniProt		UniProtKB:O15553
+UniProtKB	Q9Y5A7	NUB1	involved_in	GO:0034341	PMID:16707496	IEP		P	NEDD8 ultimate buster 1	NUB1|NYREN18	protein	taxon:9606	20100326	UniProt		UniProtKB:Q9Y5A7
+UniProtKB	Q9NUL5	SHFL	involved_in	GO:0034341	PMID:26735137	IDA		P	Shiftless antiviral inhibitor of ribosomal frameshifting protein	SHFL|C19orf66|FLJ11286|IRAV|RYDEN|SFL	protein	taxon:9606	20160201	UniProt		UniProtKB:Q9NUL5
+UniProtKB	O76082	SLC22A5	involved_in	GO:0034341	PMID:20722056	IDA		P	Organic cation/carnitine transporter 2	SLC22A5|OCTN2	protein	taxon:9606	20221221	UniProt	occurs_in(GO:0016324),occurs_in(CL:0011108)	UniProtKB:O76082
+UniProtKB	O15205	UBD	involved_in	GO:0034341	PMID:17889673	IEP		P	Ubiquitin D	UBD|FAT10	protein	taxon:9606	20100325	UniProt		UniProtKB:O15205
+ComplexPortal	CPX-9003	20si_human	involved_in	GO:0034341	PMID:30104634	NAS		P	20S immunoproteasome complex	Immunoproteasome|20Si Proteasome - LMP2, MECL1, LMP7 complex|20Si Proteasome - b1i, b2i, b5i complex|2xPSMA1:2xPSMA2:2xPSMA3:2xPSMA4:2xPSMA5:2xPSMA6:2xPSMA7:2xPSMB1:2xPSMB2:2xPSMB3:2xPSMB4:2xPSMB8:2xPSMB9:2xPSMB10	protein_complex	taxon:9606	20251230	ComplexPortal		
+UniProtKB	Q76LX8	ADAMTS13	involved_in	GO:0034341	GO_REF:0000107	IEA	UniProtKB:D4A0T9|ensembl:ENSRNOP00000007640	P	A disintegrin and metalloproteinase with thrombospondin motifs 13	ADAMTS13|C9orf8|UNQ6102/PRO20085	protein	taxon:9606	20260422	Ensembl		UniProtKB:Q76LX8
+UniProtKB	Q10589	BST2	involved_in	GO:0034341	GO_REF:0000024	ISS	UniProtKB:Q8R2Q8	P	Bone marrow stromal antigen 2	BST2	protein	taxon:9606	20120813	UniProt		UniProtKB:Q10589
+UniProtKB	P40305	IFI27	involved_in	GO:0060337	PMID:27777077	IMP		P	Interferon alpha-inducible protein 27, mitochondrial	IFI27	protein	taxon:9606	20180828	UniProt		UniProtKB:P40305
+UniProtKB	P01563	IFNA2	involved_in	GO:0060337	PMID:22783022	IDA		P	Interferon alpha-2	IFNA2|IFNA2A|IFNA2B|IFNA2C	protein	taxon:9606	20230530	BHF-UCL		UniProtKB:P01563
+UniProtKB	P17181	IFNAR1	involved_in	GO:0060337	PMID:21854986	IDA		P	Interferon alpha/beta receptor 1	IFNAR1|IFNAR	protein	taxon:9606	20220701	UniProt		UniProtKB:P17181
+UniProtKB	P48551	IFNAR2	involved_in	GO:0060337	PMID:21854986	IDA		P	Interferon alpha/beta receptor 2	IFNAR2|IFNABR|IFNARB	protein	taxon:9606	20220701	UniProt		UniProtKB:P48551
+UniProtKB	P01574	IFNB1	involved_in	GO:0060337	PMID:18035482	IDA		P	Interferon beta	IFNB1|IFB|IFNB	protein	taxon:9606	20140704	BHF-UCL		UniProtKB:P01574
+UniProtKB	P51617	IRAK1	involved_in	GO:0060337	PMID:23633945	IMP		P	Interleukin-1 receptor-associated kinase 1	IRAK1|IRAK	protein	taxon:9606	20170315	BHF-UCL		UniProtKB:P51617
+UniProtKB	P23458	JAK1	involved_in	GO:0060337	PMID:7532278	IDA		P	Tyrosine-protein kinase JAK1	JAK1|JAK1A|JAK1B	protein	taxon:9606	20220705	UniProt		UniProtKB:P23458
+UniProtKB	Q99836	MYD88	involved_in	GO:0060337	PMID:23633945	IMP		P	Myeloid differentiation primary response protein MyD88	MYD88	protein	taxon:9606	20170315	BHF-UCL		UniProtKB:Q99836
+UniProtKB	P00973	OAS1	involved_in	GO:0060337	PMID:28640813	IMP		P	2'-5'-oligoadenylate synthase 1	OAS1|OIAS	protein	taxon:9606	20210203	ARUK-UCL		UniProtKB:P00973-1
+UniProtKB	P23497	SP100	involved_in	GO:0060337	PMID:8810287	IC	GO:0034340	P	Nuclear autoantigen Sp-100	SP100	protein	taxon:9606	20081021	BHF-UCL		UniProtKB:P23497
+UniProtKB	P42224	STAT1	involved_in	GO:0060337	PMID:23386060	IDA		P	Signal transducer and activator of transcription 1-alpha/beta	STAT1	protein	taxon:9606	20170510	UniProt		UniProtKB:P42224
+UniProtKB	P52630	STAT2	involved_in	GO:0060337	PMID:23391734	IMP		P	Signal transducer and activator of transcription 2	STAT2	protein	taxon:9606	20160613	UniProt		UniProtKB:P52630
+UniProtKB	P29597	TYK2	involved_in	GO:0060337	PMID:8232552	IDA		P	Non-receptor tyrosine-protein kinase TYK2	TYK2	protein	taxon:9606	20220706	UniProt		UniProtKB:P29597
+UniProtKB	P20023	CR2	involved_in	GO:0060337	PMID:1849076	IDA		P	Complement receptor type 2	CR2|C3DR	protein	taxon:9606	20240425	UniProt		UniProtKB:P20023
+UniProtKB	P56524	HDAC4	involved_in	GO:0060337	PMID:31127039	IDA		P	Histone deacetylase 4	HDAC4|KIAA0288	protein	taxon:9606	20220705	UniProt		UniProtKB:P56524
+UniProtKB	Q96ST3	SIN3A	involved_in	GO:0060337	PMID:22783022	IMP		P	Paired amphipathic helix protein Sin3a	SIN3A	protein	taxon:9606	20230530	BHF-UCL		UniProtKB:Q96ST3
+UniProtKB	Q6PJ69	TRIM65	acts_upstream_of_or_within	GO:0060337	PMID:28031478	IMP		P	E3 ubiquitin-protein ligase TRIM65	TRIM65	protein	taxon:9606	20230118	MGI		UniProtKB:Q6PJ69
+UniProtKB	Q9H6S1	AZI2	involved_in	GO:0060337	PMID:17142768	NAS		P	5-azacytidine-induced protein 2	AZI2|NAP1|TBKBP2	protein	taxon:9606	20251007	ComplexPortal		UniProtKB:Q9H6S1
+UniProtKB	C9JQL5	C9JQL5	involved_in	GO:0060337	GO_REF:0000033	IBA	PANTHER:PTN000360680|MGI:MGI:1913391	P	Putative dispanin subfamily A member 2d		protein	taxon:9606	20170502	GO_Central		
+UniProtKB	P13164	IFITM1	involved_in	GO:0060337	GO_REF:0000033	IBA	PANTHER:PTN000360680|MGI:MGI:1913391	P	Interferon-induced transmembrane protein 1	IFITM1|CD225|IFI17	protein	taxon:9606	20170502	GO_Central		
+UniProtKB	P31749	AKT1	acts_upstream_of_or_within	GO:0006468	PMID:14749367	IDA		P	RAC-alpha serine/threonine-protein kinase	AKT1|PKB|RAC	protein	taxon:9606	20070601	MGI		UniProtKB:P31749
+UniProtKB	O14965	AURKA	acts_upstream_of_or_within	GO:0006468	PMID:21600873	IDA		P	Aurora kinase A	AURKA|AIK|AIRK1|ARK1|AURA|AYK1|BTAK|IAK1|STK15|STK6	protein	taxon:9606	20130920	MGI		UniProtKB:O14965
+UniProtKB	P51813	BMX	involved_in	GO:0006468	PMID:7970727	TAS		P	Cytoplasmic tyrosine-protein kinase BMX	BMX	protein	taxon:9606	20030904	PINC		UniProtKB:P51813
+UniProtKB	Q13554	CAMK2B	involved_in	GO:0006468	PMID:9060999	TAS		P	Calcium/calmodulin-dependent protein kinase type II subunit beta	CAMK2B|CAM2|CAMK2|CAMKB	protein	taxon:9606	20030904	PINC		UniProtKB:Q13554
+UniProtKB	Q13557	CAMK2D	involved_in	GO:0006468	PMID:17179159	IDA		P	Calcium/calmodulin-dependent protein kinase type II subunit delta	CAMK2D|CAMKD	protein	taxon:9606	20110914	UniProt		UniProtKB:Q13557
+UniProtKB	P24864	CCNE1	acts_upstream_of_or_within	GO:0006468	PMID:10500095	IMP		P	G1/S-specific cyclin-E1	CCNE1|CCNE	protein	taxon:9606	20120418	MGI		UniProtKB:P24864
+UniProtKB	P24941	CDK2	involved_in	GO:0006468	PMID:12944431	IDA		P	Cyclin-dependent kinase 2	CDK2|CDKN2	protein	taxon:9606	20170227	UniProt		UniProtKB:P24941
+UniProtKB	P50750	CDK9	acts_upstream_of_or_within	GO:0006468	PMID:16109376	IDA		P	Cyclin-dependent kinase 9	CDK9|CDC2L4|TAK	protein	taxon:9606	20061106	MGI		UniProtKB:P50750
+UniProtKB	O14757	CHEK1	involved_in	GO:0006468	PMID:33108758	IDA		P	Serine/threonine-protein kinase Chk1	CHEK1|CHK1	protein	taxon:9606	20201105	UniProt		UniProtKB:O14757
+UniProtKB	O96017	CHEK2	involved_in	GO:0006468	PMID:12717439	IDA		P	Serine/threonine-protein kinase Chk2	CHEK2|CDS1|CHK2|RAD53	protein	taxon:9606	20130430	UniProt		UniProtKB:O96017
+UniProtKB	P61201	COPS2	involved_in	GO:0006468	PMID:9535219	IDA		P	COP9 signalosome complex subunit 2	COPS2|CSN2|TRIP15	protein	taxon:9606	20180618	UniProt	has_input(UniProtKB:P05412)	UniProtKB:P61201
+UniProtKB	Q99627	COPS8	involved_in	GO:0006468	PMID:9535219	IDA		P	COP9 signalosome complex subunit 8	COPS8|CSN8	protein	taxon:9606	20180618	UniProt	has_input(UniProtKB:P05412)	UniProtKB:Q99627
+UniProtKB	P16220	CREB1	acts_upstream_of_or_within	GO:0006468	PMID:8798441	IDA		P	Cyclic AMP-responsive element-binding protein 1	CREB1	protein	taxon:9606	20090324	MGI		UniProtKB:P16220
+UniProtKB	P48729	CSNK1A1	involved_in	GO:0006468	PMID:10777483	TAS		P	Casein kinase I isoform alpha	CSNK1A1	protein	taxon:9606	20030904	PINC		UniProtKB:P48729
+UniProtKB	P48730	CSNK1D	involved_in	GO:0006468	PMID:16618118	IDA		P	Casein kinase I isoform delta	CSNK1D|HCKID	protein	taxon:9606	20100127	UniProt		UniProtKB:P48730
+UniProtKB	P49674	CSNK1E	involved_in	GO:0006468	PMID:15917222	IDA		P	Casein kinase I isoform epsilon	CSNK1E	protein	taxon:9606	20140428	UniProt		UniProtKB:P49674
+UniProtKB	P78368	CSNK1G2	involved_in	GO:0006468	PMID:9403068	TAS		P	Casein kinase I isoform gamma-2	CSNK1G2|CK1G2	protein	taxon:9606	20030904	PINC		UniProtKB:P78368
+UniProtKB	Q13363	CTBP1	involved_in	GO:0006468	PMID:8440238	TAS		P	C-terminal-binding protein 1	CTBP1|CTBP	protein	taxon:9606	20030904	PINC		UniProtKB:Q13363
+UniProtKB	P53355	DAPK1	involved_in	GO:0006468	PMID:10629061	IDA		P	Death-associated protein kinase 1	DAPK1|DAPK	protein	taxon:9606	20031125	UniProt		UniProtKB:P53355
+UniProtKB	Q9UIK4	DAPK2	involved_in	GO:0006468	PMID:10376525	IDA		P	Death-associated protein kinase 2	DAPK2	protein	taxon:9606	20031125	UniProt		UniProtKB:Q9UIK4
+UniProtKB	O43293	DAPK3	involved_in	GO:0006468	PMID:10356987	IDA		P	Death-associated protein kinase 3	DAPK3|ZIPK	protein	taxon:9606	20031125	UniProt		UniProtKB:O43293
+UniProtKB	Q92630	DYRK2	involved_in	GO:0006468	PMID:11311121	IDA		P	Dual specificity tyrosine-phosphorylation-regulated kinase 2	DYRK2	protein	taxon:9606	20070523	UniProt		UniProtKB:Q92630
+UniProtKB	P09769	FGR	involved_in	GO:0006468	PMID:2995972	TAS		P	Tyrosine-protein kinase Fgr	FGR|SRC2	protein	taxon:9606	20030904	PINC		UniProtKB:P09769
+UniProtKB	O60234	GMFG	involved_in	GO:0006468	PMID:7598724	TAS		P	Glia maturation factor gamma	GMFG	protein	taxon:9606	20030904	PINC		UniProtKB:O60234
+UniProtKB	P49841	GSK3B	involved_in	GO:0006468	PMID:16981698	IMP		P	Glycogen synthase kinase-3 beta	GSK3B	protein	taxon:9606	20180705	UniProt	has_input(UniProtKB:Q9P0R6)	UniProtKB:P49841
+UniProtKB	Q86Z02	HIPK1	involved_in	GO:0006468	PMID:24559171	IDA		P	Homeodomain-interacting protein kinase 1	HIPK1|KIAA0630|MYAK|NBAK2	protein	taxon:9606	20190703	UniProt		UniProtKB:Q86Z02
+UniProtKB	Q9H2X6	HIPK2	involved_in	GO:0006468	PMID:19448668	IDA		P	Homeodomain-interacting protein kinase 2	HIPK2	protein	taxon:9606	20130715	UniProt		UniProtKB:Q9H2X6
+UniProtKB	O14920	IKBKB	involved_in	GO:0006468	PMID:15084260	IDA		P	Inhibitor of nuclear factor kappa-B kinase subunit beta	IKBKB|IKKB	protein	taxon:9606	20151001	UniProt		UniProtKB:O14920
+UniProtKB	Q12906	ILF3	involved_in	GO:0006468	PMID:21123651	IDA		P	Interleukin enhancer-binding factor 3	ILF3|DRBF|MPHOSPH4|NF90	protein	taxon:9606	20130418	UniProt		UniProtKB:Q12906
+UniProtKB	O43187	IRAK2	involved_in	GO:0006468	PMID:9374458	TAS		P	Interleukin-1 receptor-associated kinase-like 2	IRAK2	protein	taxon:9606	20030904	PINC		UniProtKB:O43187
+UniProtKB	Q9Y5S2	CDC42BPB	involved_in	GO:0006468	GO_REF:0000024	ISS	UniProtKB:Q5VT25	P	Serine/threonine-protein kinase MRCK beta	CDC42BPB|KIAA1124	protein	taxon:9606	20051004	UniProt		UniProtKB:Q9Y5S2
+UniProtKB	Q6DT37	CDC42BPG	involved_in	GO:0006468	PMID:9341881	NAS		P	Serine/threonine-protein kinase MRCK gamma	CDC42BPG|DMPK2	protein	taxon:9606	20061106	UniProt		UniProtKB:Q6DT37
+UniProtKB	P49674	CSNK1E	involved_in	GO:0006468	GO_REF:0000024	ISS	UniProtKB:Q9JMK2	P	Casein kinase I isoform epsilon	CSNK1E	protein	taxon:9606	20100127	UniProt		UniProtKB:P49674
+UniProtKB	P34925	RYK	NOT|involved_in	GO:0006468	PMID:10454588	IDA		P	Inactive tyrosine-protein kinase RYK	RYK|JTK5A	protein	taxon:9606	20110406	UniProt		UniProtKB:P34925
+UniProtKB	Q92905	COPS5	involved_in	GO:0006412	PMID:9341143	TAS		P	COP9 signalosome complex subunit 5	COPS5|CSN5|JAB1	protein	taxon:9606	20030904	PINC		UniProtKB:Q92905
+UniProtKB	Q04637	EIF4G1	involved_in	GO:0006412	PMID:18426977	IMP		P	Eukaryotic translation initiation factor 4 gamma 1	EIF4G1|EIF4F|EIF4G|EIF4GI	protein	taxon:9606	20161025	ParkinsonsUK-UCL	has_input(UniProtKB:Q13309),positively_regulates(GO:0008283)	UniProtKB:Q04637
+UniProtKB	P62861	FAU	involved_in	GO:0006412	PMID:15883184	IC	GO:0015935	P	Ubiquitin-like FUBI-ribosomal protein eS30 fusion protein	FAU	protein	taxon:9606	20060306	UniProt		UniProtKB:P62861
+UniProtKB	P27635	RPL10	acts_upstream_of_or_within	GO:0006412	PMID:9443083	IC	GO:0022625	P	Large ribosomal subunit protein uL16	RPL10|DXS648E|QM	protein	taxon:9606	20100201	MGI		UniProtKB:P27635
+UniProtKB	P62913	RPL11	involved_in	GO:0006412	PMID:7748210	TAS		P	Large ribosomal subunit protein uL5	RPL11	protein	taxon:9606	20061115	PINC		UniProtKB:P62913
+UniProtKB	P26373	RPL13	involved_in	GO:0006412	PMID:9582194	TAS		P	Large ribosomal subunit protein eL13	RPL13|BBC1|OK/SW-cl.46	protein	taxon:9606	20030904	PINC		UniProtKB:P26373
+UniProtKB	P50914	RPL14	involved_in	GO:0006412	PMID:9480843	TAS		P	Large ribosomal subunit protein eL14	RPL14	protein	taxon:9606	20030904	PINC		UniProtKB:P50914
+UniProtKB	P61313	RPL15	involved_in	GO:0006412	PMID:9582194	TAS		P	Large ribosomal subunit protein eL15	RPL15|EC45|TCBAP0781	protein	taxon:9606	20061115	PINC		UniProtKB:P61313
+UniProtKB	Q07020	RPL18	involved_in	GO:0006412	PMID:8218404	TAS		P	Large ribosomal subunit protein eL18	RPL18	protein	taxon:9606	20030904	PINC		UniProtKB:Q07020
+UniProtKB	Q02543	RPL18A	involved_in	GO:0006412	PMID:9582194	TAS		P	Large ribosomal subunit protein eL20	RPL18A	protein	taxon:9606	20030904	PINC		UniProtKB:Q02543
+UniProtKB	P84098	RPL19	involved_in	GO:0006412	PMID:1577483	TAS		P	Large ribosomal subunit protein eL19	RPL19	protein	taxon:9606	20061109	UniProt		UniProtKB:P84098
+UniProtKB	P46778	RPL21	involved_in	GO:0006412	PMID:7772601	TAS		P	Large ribosomal subunit protein eL21	RPL21	protein	taxon:9606	20030904	PINC		UniProtKB:P46778
+UniProtKB	P35268	RPL22	involved_in	GO:0006412	PMID:8135813	TAS		P	Large ribosomal subunit protein eL22	RPL22	protein	taxon:9606	20030904	PINC		UniProtKB:P35268
+UniProtKB	P83731	RPL24	involved_in	GO:0006412	PMID:9582194	TAS		P	Large ribosomal subunit protein eL24	RPL24	protein	taxon:9606	20061115	PINC		UniProtKB:P83731
+UniProtKB	P61254	RPL26	involved_in	GO:0006412	PMID:8479925	TAS		P	Large ribosomal subunit protein uL24	RPL26	protein	taxon:9606	20061116	PINC		UniProtKB:P61254
+UniProtKB	P46776	RPL27A	involved_in	GO:0006412	PMID:7772601	TAS		P	Large ribosomal subunit protein uL15	RPL27A	protein	taxon:9606	20030904	PINC		UniProtKB:P46776
+UniProtKB	P46779	RPL28	involved_in	GO:0006412	PMID:7772601	TAS		P	Large ribosomal subunit protein eL28	RPL28	protein	taxon:9606	20030904	PINC		UniProtKB:P46779
+UniProtKB	P47914	RPL29	involved_in	GO:0006412	PMID:8597591	TAS		P	Large ribosomal subunit protein eL29	RPL29	protein	taxon:9606	20030904	PINC		UniProtKB:P47914
+UniProtKB	P39023	RPL3	involved_in	GO:0006412	PMID:2891103	TAS		P	Large ribosomal subunit protein uL3	RPL3|OK/SW-cl.32	protein	taxon:9606	20030904	PINC		UniProtKB:P39023
+UniProtKB	P62888	RPL30	involved_in	GO:0006412	PMID:1577483	TAS		P	Large ribosomal subunit protein eL30	RPL30	protein	taxon:9606	20061108	UniProt		UniProtKB:P62888
+UniProtKB	P62899	RPL31	involved_in	GO:0006412	PMID:2780320	TAS		P	Large ribosomal subunit protein eL31	RPL31	protein	taxon:9606	20061108	PINC		UniProtKB:P62899
+UniProtKB	P49207	RPL34	involved_in	GO:0006412	PMID:7490091	TAS		P	Large ribosomal subunit protein eL34	RPL34	protein	taxon:9606	20030904	PINC		UniProtKB:P49207
+UniProtKB	P42766	RPL35	involved_in	GO:0006412	PMID:2891103	TAS		P	Large ribosomal subunit protein uL29	RPL35	protein	taxon:9606	20030904	PINC		UniProtKB:P42766
+UniProtKB	P61927	RPL37	involved_in	GO:0006412	PMID:7545944	TAS		P	Large ribosomal subunit protein eL37	RPL37	protein	taxon:9606	20061108	UniProt		UniProtKB:P61927
+UniProtKB	P63173	RPL38	involved_in	GO:0006412	PMID:9375793	TAS		P	Large ribosomal subunit protein eL38	RPL38	protein	taxon:9606	20061109	PINC		UniProtKB:P63173
+UniProtKB	P62891	RPL39	involved_in	GO:0006412	PMID:8764829	TAS		P	Large ribosomal subunit protein eL39	RPL39	protein	taxon:9606	20061108	UniProt		UniProtKB:P62891
+UniProtKB	Q92901	RPL3L	involved_in	GO:0006412	PMID:8921388	TAS		P	Ribosomal protein uL3-like	RPL3L	protein	taxon:9606	20030904	PINC		UniProtKB:Q92901
+UniProtKB	P36578	RPL4	involved_in	GO:0006412	PMID:8268230	TAS		P	Large ribosomal subunit protein uL4	RPL4|RPL1	protein	taxon:9606	20030904	PINC		UniProtKB:P36578
+UniProtKB	P62945	RPL41	involved_in	GO:0006412	PMID:1326959	TAS		P	Small ribosomal subunit protein eS32	RPL41	protein	taxon:9606	20061115	PINC		UniProtKB:P62945
+UniProtKB	P46777	RPL5	involved_in	GO:0006412	PMID:7772601	TAS		P	Large ribosomal subunit protein uL18	RPL5|MSTP030	protein	taxon:9606	20030904	PINC		UniProtKB:P46777
+UniProtKB	A0AAG2SUK6	A0AAG2SUK6	involved_in	GO:0006412	GO_REF:0000002	IEA	InterPro:IPR012678|InterPro:IPR013025	P	Large ribosomal subunit protein uL23m		protein	taxon:9606	20260428	InterPro		UniProtKB:A0AAG2SUK6
+UniProtKB	A0ABB0MV19	A0ABB0MV19	involved_in	GO:0006412	GO_REF:0000002	IEA	InterPro:IPR000529|InterPro:IPR035980	P	Small ribosomal subunit protein bS6m		protein	taxon:9606	20260428	InterPro		UniProtKB:A0ABB0MV19
+UniProtKB	P61221	ABCE1	involved_in	GO:0006412	GO_REF:0000117	IEA	ARBA:ARBA00027100	P	ATP-binding cassette sub-family E member 1	ABCE1|RLI|RNASEL1|RNASELI|RNS4I|OK/SW-cl.40	protein	taxon:9606	20260428	UniProt		UniProtKB:P61221
+UniProtKB	Q02078	MEF2A	involved_in	GO:0006351	PMID:16043483	IDA		P	Myocyte-specific enhancer factor 2A	MEF2A|MEF2	protein	taxon:9606	20110503	UniProt		UniProtKB:Q02078
+UniProtKB	Q15653	NFKBIB	involved_in	GO:0006351	PMID:7776974	TAS		P	NF-kappa-B inhibitor beta	NFKBIB|IKBB|TRIP9	protein	taxon:9606	20030904	PINC		UniProtKB:Q15653
+UniProtKB	P53041	PPP5C	involved_in	GO:0006351	PMID:7925273	TAS		P	Serine/threonine-protein phosphatase 5	PPP5C|PPP5	protein	taxon:9606	20030904	PINC		UniProtKB:P53041
+UniProtKB	Q15287	RNPS1	involved_in	GO:0006351	PMID:9580558	TAS		P	RNA-binding protein with serine-rich domain 1	RNPS1|LDC2	protein	taxon:9606	20030904	PINC		UniProtKB:Q15287
+UniProtKB	Q9HCS7	XAB2	involved_in	GO:0006351	PMID:10944529	IDA		P	Pre-mRNA-splicing factor SYF1	XAB2|HCNP|KIAA1177|SYF1|PP3898	protein	taxon:9606	20030428	UniProt		UniProtKB:Q9HCS7
+UniProtKB	O43889	CREB3	involved_in	GO:0006351	PMID:9271389	IDA		P	Cyclic AMP-responsive element-binding protein 3	CREB3|LZIP	protein	taxon:9606	20060523	UniProt		UniProtKB:O43889-2
+UniProtKB	O60519	CREBL2	involved_in	GO:0006351	PMID:9693048	TAS		P	cAMP-responsive element-binding protein-like 2	CREBL2	protein	taxon:9606	20030904	PINC		UniProtKB:O60519
+UniProtKB	Q9H2F5	EPC1	involved_in	GO:0006351	PMID:10976108	TAS		P	Enhancer of polycomb homolog 1	EPC1	protein	taxon:9606	20011002	UniProt		UniProtKB:Q9H2F5
+UniProtKB	Q96I24	FUBP3	involved_in	GO:0006351	PMID:8940189	IDA		P	Far upstream element-binding protein 3	FUBP3|FBP3	protein	taxon:9606	20050308	UniProt		UniProtKB:Q96I24
+UniProtKB	P31249	HOXD3	involved_in	GO:0006351	PMID:12836255	IMP		P	Homeobox protein Hox-D3	HOXD3|HOX1D|HOX4A	protein	taxon:9606	20100111	UniProt		UniProtKB:P31249
+UniProtKB	A8K010	LINC00473	involved_in	GO:0006351	PMID:22108211	IMP		P	Putative transcriptional regulator encoded by LINC00473	LINC00473|C6orf176	protein	taxon:9606	20120229	UniProt		UniProtKB:A8K010
+UniProtKB	O15522	NKX2-8	involved_in	GO:0006351	PMID:9446603	IDA		P	Homeobox protein Nkx-2.8	NKX2-8|NKX-2.8|NKX2G|NKX2H	protein	taxon:9606	20110930	UniProt		UniProtKB:O15522
+UniProtKB	P43354	NR4A2	involved_in	GO:0006351	PMID:17184956	IDA		P	Nuclear receptor subfamily 4 group A member 2	NR4A2|NOT|NURR1|TINUR	protein	taxon:9606	20110112	UniProt		UniProtKB:P43354
+UniProtKB	Q06710	PAX8	involved_in	GO:0006351	PMID:9590296	IDA		P	Paired box protein Pax-8	PAX8	protein	taxon:9606	20110419	UniProt		UniProtKB:Q06710
+UniProtKB	P06454	PTMA	involved_in	GO:0006351	PMID:10854063	TAS		P	Prothymosin alpha	PTMA|TMSA	protein	taxon:9606	20030904	PINC		UniProtKB:P06454
+UniProtKB	Q13610	PWP1	involved_in	GO:0006351	PMID:7828893	TAS		P	Periodic tryptophan protein 1 homolog	PWP1	protein	taxon:9606	20030904	PINC		UniProtKB:Q13610
+UniProtKB	Q15797	SMAD1	involved_in	GO:0006351	PMID:11779505	IDA		P	SMAD family member 1	SMAD1|BSP1|MADH1|MADR1	protein	taxon:9606	20250731	ComplexPortal		UniProtKB:Q15797
+UniProtKB	Q13485	SMAD4	involved_in	GO:0006351	PMID:11779505	IDA		P	SMAD family member 4	SMAD4|DPC4|MADH4	protein	taxon:9606	20250731	ComplexPortal		UniProtKB:Q13485
+UniProtKB	Q9NVV9	THAP1	involved_in	GO:0006351	PMID:17003378	IMP		P	THAP domain-containing protein 1	THAP1	protein	taxon:9606	20090312	UniProt		UniProtKB:Q9NVV9
+UniProtKB	P10828	THRB	involved_in	GO:0006351	PMID:1618799	TAS		P	Thyroid hormone receptor beta	THRB|ERBA2|NR1A2|THR1	protein	taxon:9606	20030904	PINC		UniProtKB:P10828
+ComplexPortal	CPX-54	smad1-smad4_human	involved_in	GO:0006351	PMID:11779505	IDA		P	SMAD1-SMAD4 complex	2xSMAD1:SMAD4|SMAD1/SMAD4 transcription factor complex	protein_complex	taxon:9606	20250731	ComplexPortal		
+UniProtKB	Q9UIF9	BAZ2A	involved_in	GO:0006351	PMID:10662543	NAS		P	Bromodomain adjacent to zinc finger domain protein 2A	BAZ2A|KIAA0314|TIP5	protein	taxon:9606	20021017	UniProt		UniProtKB:Q9UIF9
+UniProtKB	O43439	CBFA2T2	involved_in	GO:0006351	GO_REF:0000002	IEA	InterPro:IPR003894|InterPro:IPR037249	P	Protein CBFA2T2	CBFA2T2|EHT|MTGR1	protein	taxon:9606	20260428	InterPro		UniProtKB:O43439
+UniProtKB	O75081	CBFA2T3	involved_in	GO:0006351	GO_REF:0000002	IEA	InterPro:IPR003894|InterPro:IPR037249	P	Transcriptional corepressor CBFA2T3	CBFA2T3|MTG16|MTGR2|ZMYND4	protein	taxon:9606	20260428	InterPro		UniProtKB:O75081
+UniProtKB	P04075	ALDOA	involved_in	GO:0006096	PMID:14615364	IMP		P	Fructose-bisphosphate aldolase A	ALDOA|ALDA	protein	taxon:9606	20081006	BHF-UCL		UniProtKB:P04075
+UniProtKB	P05062	ALDOB	involved_in	GO:0006096	PMID:10625657	IDA		P	Fructose-bisphosphate aldolase B	ALDOB|ALDB	protein	taxon:9606	20081006	BHF-UCL		UniProtKB:P05062
+UniProtKB	P19367	HK1	involved_in	GO:0006096	PMID:3207429	TAS		P	Hexokinase-1	HK1	protein	taxon:9606	20030904	PINC		UniProtKB:P19367
+UniProtKB	P52789	HK2	involved_in	GO:0006096	PMID:23962723	TAS		P	Hexokinase-2	HK2	protein	taxon:9606	20160229	ParkinsonsUK-UCL		UniProtKB:P52789
+UniProtKB	P16118	PFKFB1	involved_in	GO:0006096	PMID:12379646	TAS		P	6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase 1	PFKFB1|F6PK|PFRX	protein	taxon:9606	20060223	UniProt		UniProtKB:P16118
+UniProtKB	O60825	PFKFB2	involved_in	GO:0006096	PMID:11069105	IDA		P	6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase 2	PFKFB2	protein	taxon:9606	20110728	UniProt		UniProtKB:O60825
+UniProtKB	P17858	PFKL	involved_in	GO:0006096	PMID:22923583	IDA		P	ATP-dependent 6-phosphofructokinase, liver type	PFKL	protein	taxon:9606	20120920	UniProt		UniProtKB:P17858
+UniProtKB	P08237	PFKM	involved_in	GO:0006096	PMID:6444532	IMP		P	ATP-dependent 6-phosphofructokinase, muscle type	PFKM|PFKX	protein	taxon:9606	20090206	UniProt		UniProtKB:P08237
+UniProtKB	P15259	PGAM2	involved_in	GO:0006096	PMID:6262916	IMP		P	Phosphoglycerate mutase 2	PGAM2|PGAMM	protein	taxon:9606	20080916	UniProt		UniProtKB:P15259
+UniProtKB	P00558	PGK1	involved_in	GO:0006096	PMID:7391028	IMP		P	Phosphoglycerate kinase 1	PGK1|PGKA|MIG10|OK/SW-cl.110	protein	taxon:9606	20160610	CAFA		UniProtKB:P00558
+UniProtKB	P36871	PGM1	involved_in	GO:0006096	PMID:8257433	TAS		P	Phosphoglucomutase-1	PGM1	protein	taxon:9606	20010830	UniProt		UniProtKB:P36871
+UniProtKB	P14618	PKM	involved_in	GO:0006096	PMID:20847263	IDA		P	Pyruvate kinase PKM	PKM|OIP3|PK2|PK3|PKM2	protein	taxon:9606	20220209	UniProt		UniProtKB:P14618-1
+UniProtKB	Q8N0Y7	PGAM4	involved_in	GO:0006096	PMID:22590500	IMP		P	Probable phosphoglycerate mutase 4	PGAM4|PGAM3	protein	taxon:9606	20131209	UniProt		UniProtKB:Q8N0Y7
+UniProtKB	P55851	UCP2	involved_in	GO:0006096	PMID:24395786	IMP		P	Dicarboxylate carrier SLC25A8	UCP2|SLC25A8	protein	taxon:9606	20221021	UniProt		UniProtKB:P55851
+UniProtKB	Q9BRR6	ADPGK	involved_in	GO:0006096	GO_REF:0000041	IEA	UniPathway:UPA00109	P	ADP-dependent glucokinase	ADPGK|PSEC0260	protein	taxon:9606	20260227	UniProt		UniProtKB:Q9BRR6
+UniProtKB	P04075	ALDOA	involved_in	GO:0006096	GO_REF:0000002	IEA	InterPro:IPR000741	P	Fructose-bisphosphate aldolase A	ALDOA|ALDA	protein	taxon:9606	20260428	InterPro		UniProtKB:P04075
+UniProtKB	P04075	ALDOA	involved_in	GO:0006096	GO_REF:0000041	IEA	UniPathway:UPA00109	P	Fructose-bisphosphate aldolase A	ALDOA|ALDA	protein	taxon:9606	20260227	UniProt		UniProtKB:P04075
+UniProtKB	Q99798	ACO2	acts_upstream_of_or_within	GO:0006099	PMID:9630632	IDA		P	Aconitate hydratase, mitochondrial	ACO2	protein	taxon:9606	20060110	MGI		UniProtKB:Q99798
+UniProtKB	A8MUP2	CSKMT	involved_in	GO:0006099	Reactome:R-HSA-71403	TAS		P	Citrate synthase-lysine N-methyltransferase CSKMT, mitochondrial	CSKMT|METTL12	protein	taxon:9606	20251115	Reactome		UniProtKB:A8MUP2
+UniProtKB	P36957	DLST	involved_in	GO:0006099	PMID:30929736	IMP		P	Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex, mitochondrial	DLST|DLTS	protein	taxon:9606	20191113	UniProt		UniProtKB:P36957
+UniProtKB	P50213	IDH3A	involved_in	GO:0006099	PMID:14555658	IDA		P	Isocitrate dehydrogenase [NAD] subunit alpha, mitochondrial	IDH3A	protein	taxon:9606	20241013	ComplexPortal		UniProtKB:P50213
+UniProtKB	O43837	IDH3B	involved_in	GO:0006099	PMID:14555658	IDA		P	Isocitrate dehydrogenase [NAD] subunit beta, mitochondrial	IDH3B	protein	taxon:9606	20241013	ComplexPortal		UniProtKB:O43837
+UniProtKB	P51553	IDH3G	involved_in	GO:0006099	PMID:14555658	IDA		P	Isocitrate dehydrogenase [NAD] subunit gamma, mitochondrial	IDH3G	protein	taxon:9606	20241013	ComplexPortal		UniProtKB:P51553
+UniProtKB	P40926	MDH2	involved_in	GO:0006099	PMID:37647199	IMP		P	Malate dehydrogenase, mitochondrial	MDH2	protein	taxon:9606	20240816	FlyBase		UniProtKB:P40926
+UniProtKB	Q13423	NNT	involved_in	GO:0006099	PMID:10673423	TAS		P	NAD(P) transhydrogenase, mitochondrial	NNT	protein	taxon:9606	20060425	UniProt		UniProtKB:Q13423
+UniProtKB	P31040	SDHA	involved_in	GO:0006099	PMID:7550341	TAS		P	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial	SDHA|SDH2|SDHF	protein	taxon:9606	20060419	UniProt		UniProtKB:P31040
+UniProtKB	Q5VUM1	SDHAF4	involved_in	GO:0006099	Reactome:R-HSA-71403	TAS		P	Succinate dehydrogenase assembly factor 4, mitochondrial	SDHAF4|C6orf57	protein	taxon:9606	20251115	Reactome		UniProtKB:Q5VUM1
+UniProtKB	P21912	SDHB	involved_in	GO:0006099	PMID:2302193	TAS		P	Succinate dehydrogenase [ubiquinone] iron-sulfur subunit, mitochondrial	SDHB|SDH|SDH1	protein	taxon:9606	20030904	PINC		UniProtKB:P21912
+UniProtKB	Q99643	SDHC	involved_in	GO:0006099	PMID:9533030	TAS		P	Succinate dehydrogenase cytochrome b560 subunit, mitochondrial	SDHC|CYB560|SDH3	protein	taxon:9606	20060426	UniProt		UniProtKB:Q99643
+UniProtKB	O14521	SDHD	involved_in	GO:0006099	PMID:9533030	IDA		P	Succinate dehydrogenase [ubiquinone] cytochrome b small subunit, mitochondrial	SDHD|SDH4	protein	taxon:9606	20040823	UniProt		UniProtKB:O14521
+UniProtKB	P11177	PDHB	involved_in	GO:0006099	PMID:2376596	TAS		P	Pyruvate dehydrogenase E1 component subunit beta, mitochondrial	PDHB|PHE1B	protein	taxon:9606	20030904	PINC		UniProtKB:P11177
+ComplexPortal	CPX-553	isocit_dh_human	involved_in	GO:0006099	PMID:14555658	IDA		P	Mitochondrial isocitrate dehydrogenase complex (NAD+)	Isocitrate dehydrogenase (NAD+) holoenzyme|NAD-dependent isocitrate dehydrogenase|Isocitrate dehydrogenase holoenzyme|threo-Ds-isocitrate:NAD+ oxidoreductase (decarboxylating)|IDH3 complex|beta-ketoglutaric-isocitric carboxylase|nicotinamide adenine dinucleotide isocitrate dehydrogenase|NAD isocitrate dehydrogenase|NAD isocitric dehydrogenase|NAD-linked isocitrate dehydrogenase|NAD-specific isocitrate dehydrogenase|isocitric acid dehydrogenase|isocitric dehydrogenase|4xIDH3A:2xIDH3B:2xIDH3G	protein_complex	taxon:9606	20241013	ComplexPortal		
+UniProtKB	Q99798	ACO2	involved_in	GO:0006099	GO_REF:0000002	IEA	InterPro:IPR006248	P	Aconitate hydratase, mitochondrial	ACO2	protein	taxon:9606	20260428	InterPro		UniProtKB:Q99798
+UniProtKB	Q99798	ACO2	involved_in	GO:0006099	GO_REF:0000041	IEA	UniPathway:UPA00223	P	Aconitate hydratase, mitochondrial	ACO2	protein	taxon:9606	20260227	UniProt		UniProtKB:Q99798
+UniProtKB	Q99798	ACO2	involved_in	GO:0006099	GO_REF:0000107	IEA	UniProtKB:Q99KI0|ensembl:ENSMUSP00000023116	P	Aconitate hydratase, mitochondrial	ACO2	protein	taxon:9606	20260422	Ensembl		UniProtKB:Q99798
+UniProtKB	P43353	ALDH3B1	involved_in	GO:0006629	PMID:7828891	TAS		P	Aldehyde dehydrogenase family 3 member B1	ALDH3B1|ALDH7	protein	taxon:9606	20030904	PINC		UniProtKB:P43353
+UniProtKB	P15291	B4GALT1	involved_in	GO:0006629	PMID:34855475	IMP		P	Beta-1,4-galactosyltransferase 1	B4GALT1|GGTB2	protein	taxon:9606	20231003	UniProt		UniProtKB:P15291
+UniProtKB	Q99829	CPNE1	involved_in	GO:0006629	PMID:9430674	TAS		P	Copine-1	CPNE1|CPN1	protein	taxon:9606	20030904	PINC		UniProtKB:Q99829
+UniProtKB	Q01469	FABP5	involved_in	GO:0006629	PMID:8092987	TAS		P	Fatty acid-binding protein 5	FABP5	protein	taxon:9606	20030904	PINC		UniProtKB:Q01469
+UniProtKB	P68402	PAFAH1B2	involved_in	GO:0006629	PMID:9144386	TAS		P	Platelet-activating factor acetylhydrolase IB subunit alpha2	PAFAH1B2|PAFAHB	protein	taxon:9606	20061117	PINC		UniProtKB:P68402
+UniProtKB	Q9H7Z7	PTGES2	involved_in	GO:0006629	PMID:17585783	IDA		P	Prostaglandin E synthase 2	PTGES2|C9orf15|PGES2	protein	taxon:9606	20201002	UniProt		UniProtKB:Q9H7Z7
+UniProtKB	P21439	ABCB4	involved_in	GO:0006629	PMID:7912658	TAS		P	Phosphatidylcholine translocator ABCB4	ABCB4|MDR3|PGY3	protein	taxon:9606	20040806	PINC		UniProtKB:P21439
+UniProtKB	Q9UKU7	ACAD8	involved_in	GO:0006629	PMID:10524212	TAS		P	Isobutyryl-CoA dehydrogenase, mitochondrial	ACAD8|ARC42|IBD	protein	taxon:9606	20030904	PINC		UniProtKB:Q9UKU7
+UniProtKB	Q9BWD1	ACAT2	involved_in	GO:0006629	PMID:7911016	IC	GO:0003985	P	Acetyl-CoA acetyltransferase, cytosolic	ACAT2|ACTL	protein	taxon:9606	20090209	BHF-UCL		UniProtKB:Q9BWD1
+UniProtKB	Q15067	ACOX1	involved_in	GO:0006629	PMID:8117268	IDA		P	Peroxisomal acyl-coenzyme A oxidase 1	ACOX1|ACOX	protein	taxon:9606	20080919	UniProt		UniProtKB:Q15067
+UniProtKB	O60488	ACSL4	involved_in	GO:0006629	PMID:9598324	IDA		P	Long-chain-fatty-acid--CoA ligase 4	ACSL4|ACS4|FACL4|LACS4	protein	taxon:9606	20120207	UniProt		UniProtKB:O60488
+UniProtKB	Q6ZNB7	AGMO	involved_in	GO:0006629	PMID:20643956	IDA		P	Alkylglycerol monooxygenase	AGMO|TMEM195	protein	taxon:9606	20100819	UniProt		UniProtKB:Q6ZNB7
+UniProtKB	P48448	ALDH3B2	involved_in	GO:0006629	PMID:8890755	TAS		P	Aldehyde dehydrogenase family 3 member B2	ALDH3B2|ALDH8	protein	taxon:9606	20030904	PINC		UniProtKB:P48448
+UniProtKB	P18054	ALOX12	involved_in	GO:0006629	PMID:17493578	IDA		P	Polyunsaturated fatty acid lipoxygenase ALOX12	ALOX12|12LO|LOG12	protein	taxon:9606	20190702	UniProt		UniProtKB:P18054
+UniProtKB	P16050	ALOX15	involved_in	GO:0006629	PMID:23242647	IDA		P	Polyunsaturated fatty acid lipoxygenase ALOX15	ALOX15|LOG15	protein	taxon:9606	20200213	UniProt		UniProtKB:P16050
+UniProtKB	O15296	ALOX15B	involved_in	GO:0006629	PMID:11839751	TAS		P	Polyunsaturated fatty acid lipoxygenase ALOX15B	ALOX15B	protein	taxon:9606	20041203	UniProt		UniProtKB:O15296
+UniProtKB	P41238	APOBEC1	involved_in	GO:0006629	PMID:8078915	TAS		P	C->U-editing enzyme APOBEC-1	APOBEC1	protein	taxon:9606	20030904	PINC		UniProtKB:P41238
+UniProtKB	P02654	APOC1	involved_in	GO:0006629	PMID:2897845	TAS		P	Apolipoprotein C-I	APOC1	protein	taxon:9606	20030904	PINC		UniProtKB:P02654
+UniProtKB	P55056	APOC4	involved_in	GO:0006629	PMID:8530039	TAS		P	Apolipoprotein C-IV	APOC4	protein	taxon:9606	20030904	PINC		UniProtKB:P55056
+UniProtKB	P05090	APOD	involved_in	GO:0006629	PMID:19176353	IDA		P	Apolipoprotein D	APOD	protein	taxon:9606	20120110	UniProt		UniProtKB:P05090
+UniProtKB	Q13790	APOF	involved_in	GO:0006629	PMID:8093033	TAS		P	Apolipoprotein F	APOF	protein	taxon:9606	20030904	PINC		UniProtKB:Q13790
+UniProtKB	O60513	B4GALT4	involved_in	GO:0006629	PMID:9792633	TAS		P	Beta-1,4-galactosyltransferase 4	B4GALT4|UNQ552/PRO1109	protein	taxon:9606	20030904	PINC		UniProtKB:O60513
+UniProtKB	Q7KYR7	BTN2A1	involved_in	GO:0006629	PMID:9382921	TAS		P	Butyrophilin subfamily 2 member A1	BTN2A1|BT2.1|BTF1	protein	taxon:9606	20050308	PINC		UniProtKB:Q7KYR7
+UniProtKB	Q9NSK7	C19orf12	involved_in	GO:0006629	PMID:38565923	IMP		P	Protein C19orf12	C19orf12	protein	taxon:9606	20260119	UniProt		UniProtKB:Q9NSK7
+UniProtKB	Q9Y6K0	CEPT1	involved_in	GO:0006629	PMID:10191259	TAS		P	Choline/ethanolaminephosphotransferase 1	CEPT1|PRO1101	protein	taxon:9606	20030904	PINC		UniProtKB:Q9Y6K0
+UniProtKB	O95992	CH25H	involved_in	GO:0006629	PMID:9852097	TAS		P	Cholesterol 25-hydroxylase	CH25H	protein	taxon:9606	20030904	PINC		UniProtKB:O95992
+UniProtKB	P35790	CHKA	involved_in	GO:0006629	PMID:10363580	TAS		P	Choline kinase alpha	CHKA|CHK|CKI	protein	taxon:9606	20030904	PINC		UniProtKB:P35790
+UniProtKB	Q8WUD6	CHPT1	involved_in	GO:0006629	PMID:10893425	TAS		P	Cholinephosphotransferase 1	CHPT1|CPT1|MSTP022	protein	taxon:9606	20070906	PINC		UniProtKB:Q8WUD6
+UniProtKB	Q9UBL6	CPNE7	involved_in	GO:0006629	PMID:10534407	TAS		P	Copine-7	CPNE7	protein	taxon:9606	20030904	PINC		UniProtKB:Q9UBL6
+UniProtKB	P08684	CYP3A4	involved_in	GO:0006629	PMID:2492107	TAS		P	Cytochrome P450 3A4	CYP3A4|CYP3A3	protein	taxon:9606	20030904	PINC		UniProtKB:P08684
+UniProtKB	Q86V21	AACS	involved_in	GO:0006629	GO_REF:0000002	IEA	InterPro:IPR005914	P	Acetoacetyl-CoA synthetase	AACS|ACSF1	protein	taxon:9606	20260428	InterPro		UniProtKB:Q86V21
+UniProtKB	Q9BZC7	ABCA2	involved_in	GO:0006629	PMID:11178988	NAS		P	ATP-binding cassette sub-family A member 2	ABCA2|ABC2|KIAA1062	protein	taxon:9606	20010921	UniProt		UniProtKB:Q9BZC7
+UniProtKB	Q8NFV4	ABHD11	involved_in	GO:0006629	GO_REF:0000033	IBA	PANTHER:PTN002919262|SGD:S000003263	P	sn-1-specific diacylglycerol lipase ABHD11	ABHD11|WBSCR21|PP1226	protein	taxon:9606	20241121	GO_Central		
+UniProtKB	P48729	CSNK1A1	involved_in	GO:0016055	Reactome:R-HSA-195721	TAS		P	Casein kinase I isoform alpha	CSNK1A1	protein	taxon:9606	20251115	Reactome		UniProtKB:P48729
+UniProtKB	O00571	DDX3X	involved_in	GO:0016055	PMID:26235985	IMP		P	ATP-dependent RNA helicase DDX3X	DDX3X|DBX|DDX3	protein	taxon:9606	20151123	UniProt		UniProtKB:O00571
+UniProtKB	Q14332	FZD2	involved_in	GO:0016055	PMID:29276006	IMP		P	Frizzled-2	FZD2	protein	taxon:9606	20200120	UniProt		UniProtKB:Q14332
+UniProtKB	P49841	GSK3B	involved_in	GO:0016055	PMID:18156211	IMP		P	Glycogen synthase kinase-3 beta	GSK3B	protein	taxon:9606	20241215	BHF-UCL		UniProtKB:P49841
+UniProtKB	Q53G59	KLHL12	involved_in	GO:0016055	PMID:20970343	IMP		P	Kelch-like protein 12	KLHL12|C3IP1	protein	taxon:9606	20120329	UniProt		UniProtKB:Q53G59
+UniProtKB	O75581	LRP6	involved_in	GO:0016055	PMID:11357136	IDA		P	Low-density lipoprotein receptor-related protein 6	LRP6	protein	taxon:9606	20151112	ParkinsonsUK-UCL		UniProtKB:O75581
+UniProtKB	P16885	PLCG2	involved_in	GO:0016055	PMID:18784435	TAS		P	1-phosphatidylinositol 4,5-bisphosphate phosphodiesterase gamma-2	PLCG2	protein	taxon:9606	20120210	UniProt		UniProtKB:P16885
+UniProtKB	P60763	RAC3	involved_in	GO:0016055	PMID:29276006	IMP		P	Ras-related C3 botulinum toxin substrate 3	RAC3	protein	taxon:9606	20200120	UniProt		UniProtKB:P60763
+UniProtKB	Q70CQ2	USP34	involved_in	GO:0016055	Reactome:R-HSA-195721	TAS		P	Ubiquitin carboxyl-terminal hydrolase 34	USP34|KIAA0570|KIAA0729	protein	taxon:9606	20251115	Reactome		UniProtKB:Q70CQ2
+UniProtKB	Q9UBV4	WNT16	involved_in	GO:0016055	PMID:19951988	IMP		P	Protein Wnt-16	WNT16	protein	taxon:9606	20230718	BHF-UCL		UniProtKB:Q9UBV4
+UniProtKB	P41221	WNT5A	involved_in	GO:0016055	PMID:20034610	IDA		P	Protein Wnt-5a	WNT5A	protein	taxon:9606	20100714	BHF-UCL		UniProtKB:P41221
+UniProtKB	Q9H0F7	ARL6	involved_in	GO:0016055	PMID:20207729	IMP		P	ADP-ribosylation factor-like protein 6	ARL6|BBS3	protein	taxon:9606	20110622	UniProt		UniProtKB:Q9H0F7
+UniProtKB	P16870	CPE	involved_in	GO:0016055	PMID:22824791	IDA		P	Carboxypeptidase E	CPE	protein	taxon:9606	20121002	CACAO		UniProtKB:P16870
+UniProtKB	Q96AC1	FERMT2	involved_in	GO:0016055	PMID:22699938	IMP		P	Fermitin family homolog 2	FERMT2|KIND2|MIG2|PLEKHC1	protein	taxon:9606	20130403	UniProt		UniProtKB:Q96AC1
+UniProtKB	O75487	GPC4	involved_in	GO:0016055	PMID:29276006	IMP		P	Glypican-4	GPC4|UNQ474/PRO937	protein	taxon:9606	20200120	UniProt		UniProtKB:O75487
+UniProtKB	Q6DKJ4	NXN	involved_in	GO:0016055	PMID:29276006	IMP		P	Nucleoredoxin	NXN|NRX	protein	taxon:9606	20200120	UniProt		UniProtKB:Q6DKJ4
+UniProtKB	P98161	PKD1	involved_in	GO:0016055	PMID:27214281	IDA		P	Polycystin-1	PKD1	protein	taxon:9606	20250227	ComplexPortal		UniProtKB:P98161
+UniProtKB	Q13563	PKD2	involved_in	GO:0016055	PMID:27214281	IDA		P	Polycystin-2	PKD2|TRPP1|TRPP2	protein	taxon:9606	20250227	ComplexPortal		UniProtKB:Q13563
+UniProtKB	O43815	STRN	involved_in	GO:0016055	PMID:18502210	IMP		P	Striatin	STRN	protein	taxon:9606	20090806	UniProt		UniProtKB:O43815
+ComplexPortal	CPX-4001	pkd1-pkd2_human	involved_in	GO:0016055	PMID:27214281	IDA		P	PKD1-PKD2 Polycystin complex	PKD1:3xPKD2|PKD1/2 complex|Polycystin-1/Polycystin-2 complex	protein_complex	taxon:9606	20250227	ComplexPortal		
+UniProtKB	P25054	APC	involved_in	GO:0016055	GO_REF:0000002	IEA	InterPro:IPR009223|InterPro:IPR009224|InterPro:IPR009232|InterPro:IPR009234|InterPro:IPR009240	P	Adenomatous polyposis coli protein	APC|DP2.5	protein	taxon:9606	20260428	InterPro		UniProtKB:P25054
+UniProtKB	O95996	APC2	involved_in	GO:0016055	GO_REF:0000002	IEA	InterPro:IPR009223|InterPro:IPR009224|InterPro:IPR009234	P	Adenomatous polyposis coli protein 2	APC2|APCL	protein	taxon:9606	20260428	InterPro		UniProtKB:O95996
+UniProtKB	P48745	CCN3	involved_in	GO:0016055	GO_REF:0000107	IEA	UniProtKB:Q64299|ensembl:ENSMUSP00000054389	P	CCN family member 3	CCN3|IGFBP9|NOV|NOVH	protein	taxon:9606	20260422	Ensembl		UniProtKB:P48745
+UniProtKB	P25774	CTSS	involved_in	GO:0002224	Reactome:R-HSA-168898	TAS		P	Cathepsin S	CTSS	protein	taxon:9606	20251115	Reactome		UniProtKB:P25774
+UniProtKB	P51617	IRAK1	involved_in	GO:0002224	Reactome:R-HSA-168181	TAS		P	Interleukin-1 receptor-associated kinase 1	IRAK1|IRAK	protein	taxon:9606	20230308	Reactome		UniProtKB:P51617
+UniProtKB	Q9NWZ3	IRAK4	involved_in	GO:0002224	PMID:21269878	TAS		P	Interleukin-1 receptor-associated kinase 4	IRAK4	protein	taxon:9606	20110913	UniProt		UniProtKB:Q9NWZ3
+UniProtKB	Q9Y6Y9	LY96	involved_in	GO:0002224	PMID:14607928	IDA		P	Lymphocyte antigen 96	LY96|ESOP1|MD2	protein	taxon:9606	20240827	ComplexPortal		UniProtKB:Q9Y6Y9
+UniProtKB	Q8IUC6	TICAM1	involved_in	GO:0002224	PMID:12471095	IDA		P	TIR domain-containing adapter molecule 1	TICAM1|PRVTIRB|TRIF	protein	taxon:9606	20230110	UniProt		UniProtKB:Q8IUC6
+UniProtKB	Q15399	TLR1	involved_in	GO:0002224	PMID:16893894	IDA		P	Toll-like receptor 1	TLR1|KIAA0012	protein	taxon:9606	20241105	ComplexPortal		UniProtKB:Q15399
+UniProtKB	O60603	TLR2	involved_in	GO:0002224	PMID:16893894	IDA		P	Toll-like receptor 2	TLR2|TIL4	protein	taxon:9606	20241105	ComplexPortal		UniProtKB:O60603
+UniProtKB	O15455	TLR3	involved_in	GO:0002224	PMID:18172197	IDA		P	Toll-like receptor 3	TLR3	protein	taxon:9606	20230110	UniProt		UniProtKB:O15455
+UniProtKB	O00206	TLR4	involved_in	GO:0002224	PMID:14607928	IDA		P	Toll-like receptor 4	TLR4	protein	taxon:9606	20240827	ComplexPortal		UniProtKB:O00206
+UniProtKB	Q9NR96	TLR9	involved_in	GO:0002224	PMID:17128265	IDA		P	Toll-like receptor 9	TLR9|UNQ5798/PRO19605	protein	taxon:9606	20230429	BHF-UCL	occurs_in(CL:0002563),occurs_in(GO:0016323)|occurs_in(CL:0002563),occurs_in(GO:0016324)	UniProtKB:Q9NR96
+UniProtKB	Q12933	TRAF2	acts_upstream_of_or_within	GO:0002224	PMID:26458771	IDA		P	TNF receptor-associated factor 2	TRAF2|TRAP3	protein	taxon:9606	20221025	MGI		UniProtKB:Q12933
+UniProtKB	Q13114	TRAF3	involved_in	GO:0002224	PMID:18222170	IDA		P	TNF receptor-associated factor 3	TRAF3|CAP-1|CRAF1|TRAFAMN	protein	taxon:9606	20240910	UniProt		UniProtKB:Q13114
+UniProtKB	O95999	BCL10	involved_in	GO:0002224	PMID:16831874	IDA		P	B-cell lymphoma/leukemia 10	BCL10|CIPER|CLAP	protein	taxon:9606	20180801	UniProt		UniProtKB:O95999
+UniProtKB	Q6ZNK6	TIFAB	acts_upstream_of_or_within	GO:0002224	PMID:26458771	IDA		P	TRAF-interacting protein with FHA domain-containing protein B	TIFAB	protein	taxon:9606	20221025	MGI	has_input(UniProtKB:Q9Y4K3)	UniProtKB:Q6ZNK6
+ComplexPortal	CPX-2545	nlgn1-nlgn1	involved_in	GO:0002224	PMID:14607928	IDA		P	LY96-TLR4 toll-like receptor complex	2XLY96:2XTLR4|TLR4/MD-2 complex	protein_complex	taxon:9606	20240827	ComplexPortal		
+ComplexPortal	CPX-893	tlr1_tlr2_human	involved_in	GO:0002224	PMID:16893894	IDA		P	TLR1-TLR2 toll-like receptor complex	TLR2/1 complex|TLR1:TLR2	protein_complex	taxon:9606	20241105	ComplexPortal		
+UniProtKB	P51617	IRAK1	involved_in	GO:0002224	PMID:38961291	NAS		P	Interleukin-1 receptor-associated kinase 1	IRAK1|IRAK	protein	taxon:9606	20250804	ComplexPortal		UniProtKB:P51617
+UniProtKB	O43187	IRAK2	involved_in	GO:0002224	PMID:38961291	NAS		P	Interleukin-1 receptor-associated kinase-like 2	IRAK2	protein	taxon:9606	20250804	ComplexPortal		UniProtKB:O43187
+UniProtKB	Q9NWZ3	IRAK4	involved_in	GO:0002224	PMID:38961291	NAS		P	Interleukin-1 receptor-associated kinase 4	IRAK4	protein	taxon:9606	20250804	ComplexPortal		UniProtKB:Q9NWZ3
+UniProtKB	Q9HCK8	CHD8	involved_in	GO:0006397	PMID:36537238	IMP		P	ATP-dependent chromatin remodeler CHD8	CHD8|HELSNF1|KIAA1564	protein	taxon:9606	20230519	UniProt		UniProtKB:Q9HCK8
+UniProtKB	O43143	DHX15	involved_in	GO:0006397	PMID:7935475	TAS		P	ATP-dependent RNA helicase DHX15	DHX15|DBP1|DDX15	protein	taxon:9606	20030904	PINC		UniProtKB:O43143
+UniProtKB	P0C5Y9	H2AB1	involved_in	GO:0006397	PMID:22795134	IMP		P	Histone H2A-Bbd type 1	H2AB1|H2AFB1	protein	taxon:9606	20120824	UniProt		UniProtKB:P0C5Y9
+UniProtKB	P22626	HNRNPA2B1	involved_in	GO:0006397	PMID:2557628	IDA		P	Heterogeneous nuclear ribonucleoproteins A2/B1	HNRNPA2B1|HNRPA2B1	protein	taxon:9606	20070404	HGNC-UCL		UniProtKB:P22626
+UniProtKB	P62310	LSM3	involved_in	GO:0006397	PMID:10369684	TAS		P	U6 snRNA-associated Sm-like protein LSm3	LSM3|MDS017	protein	taxon:9606	20051108	UniProt		UniProtKB:P62310
+UniProtKB	Q9Y4Y9	LSM5	involved_in	GO:0006397	PMID:10369684	TAS		P	U6 snRNA-associated Sm-like protein LSm5	LSM5	protein	taxon:9606	20030904	PINC		UniProtKB:Q9Y4Y9
+UniProtKB	P17612	PRKACA	involved_in	GO:0006397	PMID:17594903	IDA		P	cAMP-dependent protein kinase catalytic subunit alpha	PRKACA|PKACA	protein	taxon:9606	20160303	UniProt		UniProtKB:P17612
+UniProtKB	Q99633	PRPF18	involved_in	GO:0006397	PMID:9000057	TAS		P	Pre-mRNA-splicing factor 18	PRPF18|HPRP18	protein	taxon:9606	20030904	PINC		UniProtKB:Q99633
+UniProtKB	O43395	PRPF3	involved_in	GO:0006397	PMID:9328476	TAS		P	U4/U6 small nuclear ribonucleoprotein Prp3	PRPF3|HPRP3|PRP3	protein	taxon:9606	20050308	PINC		UniProtKB:O43395
+UniProtKB	Q6P2Q9	PRPF8	involved_in	GO:0006397	PMID:9774689	TAS		P	Pre-mRNA-processing-splicing factor 8	PRPF8|PRPC8	protein	taxon:9606	20061106	PINC		UniProtKB:Q6P2Q9
+UniProtKB	P26599	PTBP1	involved_in	GO:0006397	PMID:1906036	TAS		P	Polypyrimidine tract-binding protein 1	PTBP1|PTB	protein	taxon:9606	20030904	PINC		UniProtKB:P26599
+UniProtKB	Q15459	SF3A1	involved_in	GO:0006397	PMID:15647371	IMP		P	Splicing factor 3A subunit 1	SF3A1|SAP114	protein	taxon:9606	20060301	HGNC-UCL		UniProtKB:Q15459
+UniProtKB	Q15428	SF3A2	involved_in	GO:0006397	PMID:15647371	IMP		P	Splicing factor 3A subunit 2	SF3A2|SAP62	protein	taxon:9606	20060301	HGNC-UCL		UniProtKB:Q15428
+UniProtKB	Q12874	SF3A3	involved_in	GO:0006397	PMID:15647371	IMP		P	Splicing factor 3A subunit 3	SF3A3|SAP61	protein	taxon:9606	20060301	HGNC-UCL		UniProtKB:Q12874
+UniProtKB	Q13435	SF3B2	involved_in	GO:0006397	PMID:8566756	TAS		P	Splicing factor 3B subunit 2	SF3B2|SAP145	protein	taxon:9606	20030904	PINC		UniProtKB:Q13435
+UniProtKB	Q15427	SF3B4	involved_in	GO:0006397	PMID:7958871	TAS		P	Splicing factor 3B subunit 4	SF3B4|SAP49	protein	taxon:9606	20030904	PINC		UniProtKB:Q15427
+UniProtKB	Q07955	SRSF1	involved_in	GO:0006397	PMID:1830244	TAS		P	Serine/arginine-rich splicing factor 1	SRSF1|ASF|SF2|SF2P33|SFRS1|OK/SW-cl.3	protein	taxon:9606	20030904	PINC		UniProtKB:Q07955
+UniProtKB	Q05519	SRSF11	involved_in	GO:0006397	PMID:1896467	TAS		P	Serine/arginine-rich splicing factor 11	SRSF11|SFRS11	protein	taxon:9606	20030904	PINC		UniProtKB:Q05519
+UniProtKB	Q01130	SRSF2	involved_in	GO:0006397	PMID:8530103	TAS		P	Serine/arginine-rich splicing factor 2	SRSF2|SFRS2	protein	taxon:9606	20030904	PINC		UniProtKB:Q01130
+UniProtKB	Q08170	SRSF4	involved_in	GO:0006397	PMID:8321209	TAS		P	Serine/arginine-rich splicing factor 4	SRSF4|SFRS4|SRP75	protein	taxon:9606	20030904	PINC		UniProtKB:Q08170
+UniProtKB	Q13243	SRSF5	involved_in	GO:0006397	PMID:7556075	TAS		P	Serine/arginine-rich splicing factor 5	SRSF5|HRS|SFRS5|SRP40	protein	taxon:9606	20030904	PINC		UniProtKB:Q13243
+UniProtKB	Q16629	SRSF7	involved_in	GO:0006397	PMID:8013463	TAS		P	Serine/arginine-rich splicing factor 7	SRSF7|SFRS7	protein	taxon:9606	20030904	PINC		UniProtKB:Q16629
+UniProtKB	Q13242	SRSF9	involved_in	GO:0006397	PMID:7556075	TAS		P	Serine/arginine-rich splicing factor 9	SRSF9|SFRS9|SRP30C	protein	taxon:9606	20030904	PINC		UniProtKB:Q13242
+UniProtKB	O14776	TCERG1	involved_in	GO:0006397	PMID:20215116	IDA		P	Transcription elongation regulator 1	TCERG1|CA150|TAF2S	protein	taxon:9606	20200502	ARUK-UCL		UniProtKB:O14776
+UniProtKB	Q01081	U2AF1	involved_in	GO:0006397	PMID:1388271	TAS		P	Splicing factor U2AF 35 kDa subunit	U2AF1|U2AF35|U2AFBP|FP793	protein	taxon:9606	20030904	PINC		UniProtKB:Q01081
+UniProtKB	P26368	U2AF2	involved_in	GO:0006397	PMID:1538748	TAS		P	Splicing factor U2AF 65 kDa subunit	U2AF2|U2AF65	protein	taxon:9606	20030904	PINC		UniProtKB:P26368
+UniProtKB	Q53GS9	USP39	involved_in	GO:0006397	PMID:10022888	TAS		P	Ubiquitin carboxyl-terminal hydrolase 39	USP39|CGI-21|HSPC332|PRO2855	protein	taxon:9606	20061107	PINC		UniProtKB:Q53GS9
+UniProtKB	Q9ULX6	AKAP8L	involved_in	GO:0006397	PMID:17594903	IDA		P	A-kinase anchor protein 8-like	AKAP8L|NAKAP|NAKAP95|HRIHFB2018	protein	taxon:9606	20160303	UniProt		UniProtKB:Q9ULX6
+UniProtKB	Q75N03	CBLL1	involved_in	GO:0006397	PMID:29507755	IMP		P	E3 ubiquitin-protein ligase Hakai	CBLL1|HAKAI|RNF188	protein	taxon:9606	20240305	UniProt		UniProtKB:Q75N03
+UniProtKB	Q92879	CELF1	involved_in	GO:0006397	PMID:8948631	TAS		P	CUGBP Elav-like family member 1	CELF1|BRUNOL2|CUGBP|CUGBP1|NAB50	protein	taxon:9606	20030904	PINC		UniProtKB:Q92879
+UniProtKB	P78563	ADARB1	involved_in	GO:0006397	GO_REF:0000107	IEA	UniProtKB:Q91ZS8|ensembl:ENSMUSP00000020496	P	Double-stranded RNA-specific editase 1	ADARB1|ADAR2|DRADA2|RED1	protein	taxon:9606	20260422	Ensembl		UniProtKB:P78563
+UniProtKB	Q6P6C2	ALKBH5	involved_in	GO:0006397	GO_REF:0000002	IEA	InterPro:IPR032860	P	RNA demethylase ALKBH5	ALKBH5|ABH5|OFOXD1	protein	taxon:9606	20260428	InterPro		UniProtKB:Q6P6C2
+UniProtKB	O75934	BCAS2	involved_in	GO:0006397	GO_REF:0000002	IEA	InterPro:IPR008409	P	Pre-mRNA-splicing factor SPF27	BCAS2|DAM1	protein	taxon:9606	20260428	InterPro		UniProtKB:O75934
+UniProtKB	O75934	BCAS2	involved_in	GO:0008380	PMID:9731529	TAS		P	Pre-mRNA-splicing factor SPF27	BCAS2|DAM1	protein	taxon:9606	20050302	UniProt		UniProtKB:O75934
+UniProtKB	Q9BUQ8	DDX23	involved_in	GO:0008380	PMID:9409622	TAS		P	Probable ATP-dependent RNA helicase DDX23	DDX23	protein	taxon:9606	20061106	PINC		UniProtKB:Q9BUQ8
+UniProtKB	Q13838	DDX39B	involved_in	GO:0008380	PMID:18593880	IDA		P	Spliceosome RNA helicase DDX39B	DDX39B|BAT1|UAP56	protein	taxon:9606	20100107	BHF-UCL		UniProtKB:Q13838
+UniProtKB	Q9H0S4	DDX47	involved_in	GO:0008380	PMID:16963496	IMP		P	Probable ATP-dependent RNA helicase DDX47	DDX47	protein	taxon:9606	20110916	UniProt		UniProtKB:Q9H0S4
+UniProtKB	O43143	DHX15	involved_in	GO:0008380	PMID:15146077	IC	GO:0005689	P	ATP-dependent RNA helicase DHX15	DHX15|DBP1|DDX15	protein	taxon:9606	20070328	HGNC-UCL		UniProtKB:O43143
+UniProtKB	O60231	DHX16	involved_in	GO:0008380	PMID:9547260	TAS		P	Pre-mRNA-splicing factor ATP-dependent RNA helicase DHX16	DHX16|DBP2|DDX16|KIAA0577|PRP2	protein	taxon:9606	20030904	PINC		UniProtKB:O60231
+UniProtKB	Q14562	DHX8	involved_in	GO:0008380	PMID:7935475	TAS		P	ATP-dependent RNA helicase DHX8	DHX8|DDX8	protein	taxon:9606	20030904	PINC		UniProtKB:Q14562
+UniProtKB	P35637	FUS	involved_in	GO:0008380	PMID:26124092	IDA		P	RNA-binding protein FUS	FUS|TLS	protein	taxon:9606	20181108	UniProt		UniProtKB:P35637
+UniProtKB	P07910	HNRNPC	involved_in	GO:0008380	PMID:3110598	TAS		P	Heterogeneous nuclear ribonucleoproteins C1/C2	HNRNPC|HNRPC	protein	taxon:9606	20031119	PINC		UniProtKB:P07910
+UniProtKB	Q9Y4Z0	LSM4	involved_in	GO:0008380	PMID:10523320	TAS		P	U6 snRNA-associated Sm-like protein LSm4	LSM4	protein	taxon:9606	20031120	PINC		UniProtKB:Q9Y4Z0
+UniProtKB	P62312	LSM6	involved_in	GO:0008380	PMID:10523320	TAS		P	U6 snRNA-associated Sm-like protein LSm6	LSM6	protein	taxon:9606	20051108	UniProt		UniProtKB:P62312
+UniProtKB	O95232	LUC7L3	involved_in	GO:0008380	PMID:10631324	IMP		P	Luc7-like protein 3	LUC7L3|CREAP1|CROP|O48	protein	taxon:9606	20080312	UniProt		UniProtKB:O95232
+UniProtKB	Q09161	NCBP1	involved_in	GO:0008380	PMID:8069914	TAS		P	Nuclear cap-binding protein subunit 1	NCBP1|CBP80|NCBP	protein	taxon:9606	20031119	PINC		UniProtKB:Q09161
+UniProtKB	Q13427	PPIG	involved_in	GO:0008380	PMID:9153302	TAS		P	Peptidyl-prolyl cis-trans isomerase G	PPIG	protein	taxon:9606	20031119	PINC		UniProtKB:Q13427
+UniProtKB	Q99633	PRPF18	involved_in	GO:0008380	PMID:9000057	TAS		P	Pre-mRNA-splicing factor 18	PRPF18|HPRP18	protein	taxon:9606	20031120	PINC		UniProtKB:Q99633
+UniProtKB	O43395	PRPF3	involved_in	GO:0008380	PMID:9328476	TAS		P	U4/U6 small nuclear ribonucleoprotein Prp3	PRPF3|HPRP3|PRP3	protein	taxon:9606	20050308	PINC		UniProtKB:O43395
+UniProtKB	O43172	PRPF4	involved_in	GO:0008380	PMID:9328476	TAS		P	U4/U6 small nuclear ribonucleoprotein Prp4	PRPF4|PRP4	protein	taxon:9606	20031120	PINC		UniProtKB:O43172
+UniProtKB	Q6P2Q9	PRPF8	involved_in	GO:0008380	PMID:9774689	TAS		P	Pre-mRNA-processing-splicing factor 8	PRPF8|PRPC8	protein	taxon:9606	20061106	UniProt		UniProtKB:Q6P2Q9
+UniProtKB	P26599	PTBP1	involved_in	GO:0008380	PMID:1906036	TAS		P	Polypyrimidine tract-binding protein 1	PTBP1|PTB	protein	taxon:9606	20031119	PINC		UniProtKB:P26599
+UniProtKB	Q15287	RNPS1	involved_in	GO:0008380	PMID:9580558	TAS		P	RNA-binding protein with serine-rich domain 1	RNPS1|LDC2	protein	taxon:9606	20030904	PINC		UniProtKB:Q15287
+UniProtKB	O75533	SF3B1	involved_in	GO:0008380	PMID:27720643	IC	GO:1990935	P	Splicing factor 3B subunit 1	SF3B1|SAP155	protein	taxon:9606	20190910	UniProt		UniProtKB:O75533
+UniProtKB	Q13435	SF3B2	involved_in	GO:0008380	PMID:8566756	TAS		P	Splicing factor 3B subunit 2	SF3B2|SAP145	protein	taxon:9606	20031120	PINC		UniProtKB:Q13435
+UniProtKB	Q15393	SF3B3	involved_in	GO:0008380	PMID:27720643	IC	GO:0005515	P	Splicing factor 3B subunit 3	SF3B3|KIAA0017|SAP130	protein	taxon:9606	20190823	UniProt		UniProtKB:Q15393
+UniProtKB	Q15427	SF3B4	involved_in	GO:0008380	PMID:7958871	TAS		P	Splicing factor 3B subunit 4	SF3B4|SAP49	protein	taxon:9606	20031120	PINC		UniProtKB:Q15427
+UniProtKB	Q96DI7	SNRNP40	involved_in	GO:0008380	PMID:9774689	TAS		P	U5 small nuclear ribonucleoprotein 40 kDa protein	SNRNP40|PRP8BP|SFP38|WDR57	protein	taxon:9606	20061106	PINC		UniProtKB:Q96DI7
+UniProtKB	P09661	SNRPA1	involved_in	GO:0008380	PMID:2928112	TAS		P	U2 small nuclear ribonucleoprotein A'	SNRPA1	protein	taxon:9606	20031120	PINC		UniProtKB:P09661
+UniProtKB	P14678	SNRPB	involved_in	GO:0008380	PMID:2531083	TAS		P	Small nuclear ribonucleoprotein-associated proteins B and B'	SNRPB|COD|SNRPB1	protein	taxon:9606	20031120	PINC		UniProtKB:P14678
+UniProtKB	P62314	SNRPD1	involved_in	GO:0008380	PMID:1701240	TAS		P	Small nuclear ribonucleoprotein Sm D1	SNRPD1	protein	taxon:9606	20061109	PINC		UniProtKB:P62314
+UniProtKB	P62316	SNRPD2	involved_in	GO:0008380	PMID:1701240	TAS		P	Small nuclear ribonucleoprotein Sm D2	SNRPD2|SNRPD1	protein	taxon:9606	20061115	PINC		UniProtKB:P62316
+UniProtKB	P62318	SNRPD3	involved_in	GO:0008380	PMID:1701240	TAS		P	Small nuclear ribonucleoprotein Sm D3	SNRPD3	protein	taxon:9606	20061115	PINC		UniProtKB:P62318
+UniProtKB	Q9UKV3	ACIN1	involved_in	GO:0008380	GO_REF:0000033	IBA	PANTHER:PTN005311338|FB:FBgn0263198	P	Apoptotic chromatin condensation inducer in the nucleus	ACIN1|ACINUS|KIAA0670	protein	taxon:9606	20220330	GO_Central		
+UniProtKB	Q9NYV4	CDK12	involved_in	GO:0008380	GO_REF:0000024	ISS	UniProtKB:Q3MJK5	P	Cyclin-dependent kinase 12	CDK12|CRK7|CRKRS|KIAA0904	protein	taxon:9606	20110222	UniProt		UniProtKB:Q9NYV4
+UniProtKB	P35637	FUS	involved_in	GO:0008380	GO_REF:0000117	IEA	ARBA:ARBA00026834	P	RNA-binding protein FUS	FUS|TLS	protein	taxon:9606	20260428	UniProt		UniProtKB:P35637
+UniProtKB	Q9H0S4	DDX47	involved_in	GO:0006364	PMID:16963496	IMP		P	Probable ATP-dependent RNA helicase DDX47	DDX47	protein	taxon:9606	20110916	UniProt		UniProtKB:Q9H0S4
+UniProtKB	Q9Y2L1	DIS3	involved_in	GO:0006364	PMID:9562621	TAS		P	Exosome complex exonuclease RRP44	DIS3|KIAA1008|RRP44	protein	taxon:9606	20010831	UniProt		UniProtKB:Q9Y2L1
+UniProtKB	Q01780	EXOSC10	involved_in	GO:0006364	Reactome:R-HSA-6791226	TAS		P	Exosome complex component 10	EXOSC10|PMSCL|PMSCL2|RRP6	protein	taxon:9606	20251115	Reactome		UniProtKB:Q01780
+UniProtKB	Q13868	EXOSC2	involved_in	GO:0006364	PMID:8600032	TAS		P	Exosome complex component RRP4	EXOSC2|RRP4	protein	taxon:9606	20030904	PINC		UniProtKB:Q13868
+UniProtKB	Q9NQT5	EXOSC3	involved_in	GO:0006364	PMID:11110791	IDA		P	Exosome complex component RRP40	EXOSC3|RRP40|CGI-102	protein	taxon:9606	20020606	UniProt		UniProtKB:Q9NQT5
+UniProtKB	Q15024	EXOSC7	involved_in	GO:0006364	PMID:11849973	TAS		P	Exosome complex component RRP42	EXOSC7|KIAA0116|RRP42	protein	taxon:9606	20021030	UniProt		UniProtKB:Q15024
+UniProtKB	P22087	FBL	involved_in	GO:0006364	PMID:1846968	TAS		P	rRNA 2'-O-methyltransferase fibrillarin	FBL|FIB1|FLRN	protein	taxon:9606	20030904	PINC		UniProtKB:P22087
+UniProtKB	Q9Y4W2	LAS1L	involved_in	GO:0006364	PMID:22083961	IDA		P	Ribosomal biogenesis protein LAS1L	LAS1L|MSTP060	protein	taxon:9606	20230807	UniProt		UniProtKB:Q9Y4W2
+UniProtKB	P42285	MTREX	involved_in	GO:0006364	PMID:29107693	IMP		P	Exosome RNA helicase MTR4	MTREX|DOB1|KIAA0052|MTR4|SKIV2L2	protein	taxon:9606	20180607	UniProt		UniProtKB:P42285
+UniProtKB	Q9ULX3	NOB1	involved_in	GO:0006364	Reactome:R-HSA-6791226	TAS		P	RNA-binding protein NOB1	NOB1|ART4|NOB1P|PSMD8BP1|MSTP158	protein	taxon:9606	20251115	Reactome		UniProtKB:Q9ULX3
+UniProtKB	O00567	NOP56	involved_in	GO:0006364	PMID:9372940	TAS		P	Nucleolar protein 56	NOP56|NOL5A	protein	taxon:9606	20030904	PINC		UniProtKB:O00567
+UniProtKB	Q9Y2X3	NOP58	involved_in	GO:0006364	PMID:10925205	TAS		P	Nucleolar protein 58	NOP58|NOL5|NOP5|HSPC120	protein	taxon:9606	20020123	UniProt		UniProtKB:Q9Y2X3
+UniProtKB	O00541	PES1	acts_upstream_of_or_within	GO:0006364	PMID:16738141	IMP		P	Pescadillo homolog	PES1	protein	taxon:9606	20120109	MGI		UniProtKB:O00541
+UniProtKB	P62913	RPL11	involved_in	GO:0006364	PMID:18697920	IMP		P	Large ribosomal subunit protein uL5	RPL11	protein	taxon:9606	20081013	UniProt		UniProtKB:P62913
+UniProtKB	P50914	RPL14	involved_in	GO:0006364	PMID:18697920	IMP		P	Large ribosomal subunit protein eL14	RPL14	protein	taxon:9606	20081013	UniProt		UniProtKB:P50914
+UniProtKB	P61254	RPL26	involved_in	GO:0006364	PMID:18697920	IMP		P	Large ribosomal subunit protein uL24	RPL26	protein	taxon:9606	20081013	UniProt		UniProtKB:P61254
+UniProtKB	P61353	RPL27	involved_in	GO:0006364	PMID:25424902	IMP		P	Large ribosomal subunit protein eL27	RPL27	protein	taxon:9606	20170421	UniProt		UniProtKB:P61353
+UniProtKB	P18077	RPL35A	involved_in	GO:0006364	PMID:18697920	IMP		P	Large ribosomal subunit protein eL33	RPL35A|GIG33	protein	taxon:9606	20081013	UniProt		UniProtKB:P18077
+UniProtKB	P46777	RPL5	involved_in	GO:0006364	PMID:18697920	IMP		P	Large ribosomal subunit protein uL18	RPL5|MSTP030	protein	taxon:9606	20081013	UniProt		UniProtKB:P46777
+UniProtKB	P18124	RPL7	involved_in	GO:0006364	PMID:18697920	IMP		P	Large ribosomal subunit protein uL30	RPL7	protein	taxon:9606	20081013	UniProt		UniProtKB:P18124
+UniProtKB	P62841	RPS15	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein uS19	RPS15|RIG	protein	taxon:9606	20081013	UniProt		UniProtKB:P62841
+UniProtKB	P62249	RPS16	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein uS9	RPS16	protein	taxon:9606	20081013	UniProt		UniProtKB:P62249
+UniProtKB	P08708	RPS17	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein eS17	RPS17|RPS17L	protein	taxon:9606	20081013	UniProt		UniProtKB:P08708
+UniProtKB	P39019	RPS19	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein eS19	RPS19	protein	taxon:9606	20081013	UniProt		UniProtKB:P39019
+UniProtKB	P62847	RPS24	involved_in	GO:0006364	PMID:18230666	IMP		P	Small ribosomal subunit protein eS24	RPS24	protein	taxon:9606	20080902	UniProt		UniProtKB:P62847
+UniProtKB	P62851	RPS25	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein eS25	RPS25	protein	taxon:9606	20201126	FlyBase		UniProtKB:P62851
+UniProtKB	P42677	RPS27	involved_in	GO:0006364	PMID:25424902	IMP		P	Small ribosomal subunit protein eS27	RPS27|MPS1	protein	taxon:9606	20170421	UniProt		UniProtKB:P42677
+UniProtKB	P62857	RPS28	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein eS28	RPS28	protein	taxon:9606	20081013	UniProt		UniProtKB:P62857
+UniProtKB	P62753	RPS6	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein eS6	RPS6|OK/SW-cl.2	protein	taxon:9606	20081013	UniProt		UniProtKB:P62753
+UniProtKB	P62081	RPS7	involved_in	GO:0006364	PMID:18697920	IMP		P	Small ribosomal subunit protein eS7	RPS7	protein	taxon:9606	20081013	UniProt		UniProtKB:P62081
+UniProtKB	Q14137	BOP1	involved_in	GO:0006364	GO_REF:0000002	IEA	InterPro:IPR012953	P	Ribosome biogenesis protein BOP1	BOP1|KIAA0124	protein	taxon:9606	20260428	InterPro		UniProtKB:Q14137
+UniProtKB	Q14137	BOP1	involved_in	GO:0006364	PMID:24120868	NAS		P	Ribosome biogenesis protein BOP1	BOP1|KIAA0124	protein	taxon:9606	20240823	ComplexPortal		UniProtKB:Q14137
+UniProtKB	Q8TDN6	BRIX1	involved_in	GO:0006364	GO_REF:0000002	IEA	InterPro:IPR007109	P	Ribosome biogenesis protein BRX1 homolog	BRIX1|BRIX|BXDC2	protein	taxon:9606	20260428	InterPro		UniProtKB:Q8TDN6
+UniProtKB	O14727	APAF1	involved_in	GO:0042981	PMID:10441496	TAS		P	Apoptotic protease-activating factor 1	APAF1|KIAA0413	protein	taxon:9606	20040129	UniProt		UniProtKB:O14727
+UniProtKB	P27695	APEX1	involved_in	GO:0042981	PMID:19934257	IDA		P	DNA repair nuclease/redox regulator APEX1	APEX1|APE|APE1|APEX|APX|HAP1|REF1	protein	taxon:9606	20170516	UniProt		UniProtKB:P27695
+UniProtKB	Q13315	ATM	involved_in	GO:0042981	Reactome:R-HSA-5633008	TAS		P	Serine-protein kinase ATM	ATM	protein	taxon:9606	20251115	Reactome		UniProtKB:Q13315
+UniProtKB	Q07812	BAX	involved_in	GO:0042981	PMID:25609812	IDA		P	Apoptosis regulator BAX	BAX|BCL2L4	protein	taxon:9606	20201103	UniProt		UniProtKB:Q07812
+UniProtKB	O43521	BCL2L11	involved_in	GO:0042981	PMID:18209102	IDA		P	Bcl-2-like protein 11	BCL2L11|BIM	protein	taxon:9606	20250731	ComplexPortal		UniProtKB:O43521
+UniProtKB	Q13490	BIRC2	involved_in	GO:0042981	PMID:21737330	IMP		P	Baculoviral IAP repeat-containing protein 2	BIRC2|API1|MIHB|RNF48	protein	taxon:9606	20131015	UniProt		UniProtKB:Q13490
+UniProtKB	Q13489	BIRC3	involved_in	GO:0042981	PMID:21737330	IMP		P	Baculoviral IAP repeat-containing protein 3	BIRC3|API2|MIHC|RNF49	protein	taxon:9606	20131015	UniProt		UniProtKB:Q13489
+UniProtKB	Q00535	CDK5	involved_in	GO:0042981	PMID:21473899	TAS		P	Cyclin-dependent kinase 5	CDK5|CDKN5|PSSALRE	protein	taxon:9606	20110913	UniProt		UniProtKB:Q00535
+UniProtKB	P07858	CTSB	involved_in	GO:0042981	PMID:16130169	TAS		P	Cathepsin B	CTSB|CPSB	protein	taxon:9606	20051221	UniProt		UniProtKB:P07858
+UniProtKB	P53355	DAPK1	involved_in	GO:0042981	PMID:16756490	TAS		P	Death-associated protein kinase 1	DAPK1|DAPK	protein	taxon:9606	20110926	UniProt		UniProtKB:P53355
+UniProtKB	Q9UIK4	DAPK2	involved_in	GO:0042981	PMID:16756490	TAS		P	Death-associated protein kinase 2	DAPK2	protein	taxon:9606	20110926	UniProt		UniProtKB:Q9UIK4
+UniProtKB	O43293	DAPK3	involved_in	GO:0042981	PMID:16756490	TAS		P	Death-associated protein kinase 3	DAPK3|ZIPK	protein	taxon:9606	20110926	UniProt		UniProtKB:O43293
+UniProtKB	Q86XP3	DDX42	involved_in	GO:0042981	PMID:19377511	IMP		P	ATP-dependent RNA helicase DDX42	DDX42	protein	taxon:9606	20170516	UniProt		UniProtKB:Q86XP3
+UniProtKB	P14921	ETS1	involved_in	GO:0042981	PMID:9266972	IDA		P	Protein C-ets-1	ETS1|EWSR2	protein	taxon:9606	20140429	UniProt		UniProtKB:P14921-2
+UniProtKB	P07900	HSP90AA1	involved_in	GO:0042981	PMID:25609812	IDA		P	Heat shock protein HSP 90-alpha	HSP90AA1|HSP90A|HSPC1|HSPCA	protein	taxon:9606	20201103	UniProt		UniProtKB:P07900
+UniProtKB	Q14653	IRF3	involved_in	GO:0042981	PMID:25609812	IDA		P	Interferon regulatory factor 3	IRF3	protein	taxon:9606	20201103	UniProt		UniProtKB:Q14653
+UniProtKB	Q9Y5V3	MAGED1	involved_in	GO:0042981	PMID:15930293	TAS		P	Melanoma-associated antigen D1	MAGED1|NRAGE|PP2250|PRO2292	protein	taxon:9606	20070807	UniProt		UniProtKB:Q9Y5V3
+UniProtKB	P04049	RAF1	involved_in	GO:0042981	PMID:21779496	TAS		P	RAF proto-oncogene serine/threonine-protein kinase	RAF1|RAF	protein	taxon:9606	20111107	UniProt		UniProtKB:P04049
+UniProtKB	P49756	RBM25	involved_in	GO:0042981	PMID:18663000	IDA		P	RNA-binding protein 25	RBM25|RNPC7	protein	taxon:9606	20131114	UniProt		UniProtKB:P49756
+UniProtKB	P23396	RPS3	involved_in	GO:0042981	PMID:20605787	IMP		P	Small ribosomal subunit protein uS3	RPS3|OK/SW-cl.26	protein	taxon:9606	20150925	UniProt	has_input(UniProtKB:Q9JHK1),has_input(UniProtKB:P55213)	UniProtKB:P23396
+UniProtKB	Q13309	SKP2	acts_upstream_of_or_within	GO:0042981	PMID:23277542	IDA		P	S-phase kinase-associated protein 2	SKP2|FBXL1	protein	taxon:9606	20141104	MGI		UniProtKB:Q13309
+UniProtKB	P42224	STAT1	involved_in	GO:0042981	PMID:12108949	TAS		P	Signal transducer and activator of transcription 1-alpha/beta	STAT1	protein	taxon:9606	20111130	UniProt		UniProtKB:P42224
+UniProtKB	Q9P289	STK26	involved_in	GO:0042981	PMID:11741893	IDA		P	Serine/threonine-protein kinase 26	STK26|MASK|MST4	protein	taxon:9606	20050721	UniProt		UniProtKB:Q9P289
+UniProtKB	P04637	TP53	acts_upstream_of_or_within	GO:0042981	PMID:14744935	IDA		P	Cellular tumor antigen p53	TP53|P53	protein	taxon:9606	20101109	MGI		UniProtKB:P04637
+UniProtKB	Q12933	TRAF2	involved_in	GO:0042981	PMID:11907583	IDA		P	TNF receptor-associated factor 2	TRAF2|TRAP3	protein	taxon:9606	20100705	UniProt		UniProtKB:Q12933
+UniProtKB	P55072	VCP	involved_in	GO:0042981	PMID:16130169	TAS		P	Transitional endoplasmic reticulum ATPase	VCP|HEL-220|HEL-S-70	protein	taxon:9606	20051221	UniProt		UniProtKB:P55072
+UniProtKB	P98170	XIAP	acts_upstream_of_negative_effect	GO:0042981	PMID:11865055	IDA		P	E3 ubiquitin-protein ligase XIAP	XIAP|API3|BIRC4|IAP3	protein	taxon:9606	20210722	UniProt		UniProtKB:P98170
+UniProtKB	Q5QJU3	ACER2	involved_in	GO:0042981	PMID:26943039	IMP		P	Alkaline ceramidase 2	ACER2|ASAH3L|PP11646	protein	taxon:9606	20181128	UniProt		UniProtKB:Q5QJU3
+UniProtKB	Q9UM73	ALK	involved_in	GO:0042981	PMID:19459784	TAS		P	ALK tyrosine kinase receptor	ALK	protein	taxon:9606	20110909	UniProt		UniProtKB:Q9UM73
+UniProtKB	Q86TB3	ALPK2	involved_in	GO:0042981	PMID:22641666	IMP		P	Alpha-protein kinase 2	ALPK2|HAK	protein	taxon:9606	20190528	UniProt		UniProtKB:Q86TB3
+UniProtKB	P60709	ACTB	involved_in	GO:0042981	PMID:14966270	NAS		P	Actin, cytoplasmic 1	ACTB	protein	taxon:9606	20260105	ComplexPortal		UniProtKB:P60709
+UniProtKB	O96019	ACTL6A	involved_in	GO:0042981	PMID:14966270	NAS		P	Actin-like protein 6A	ACTL6A|BAF53|BAF53A|INO80K	protein	taxon:9606	20260105	ComplexPortal		UniProtKB:O96019
+UniProtKB	P12814	ACTN1	involved_in	GO:0042981	PMID:16807302	NAS		P	Alpha-actinin-1	ACTN1	protein	taxon:9606	20060717	UniProt		UniProtKB:P12814
+UniProtKB	P04637	TP53	involved_in	GO:0072331	PMID:15314173	IDA		P	Cellular tumor antigen p53	TP53|P53	protein	taxon:9606	20170125	CAFA		UniProtKB:P04637
+UniProtKB	P43356	MAGEA2	involved_in	GO:0072331	PMID:16847267	IDA		P	Melanoma-associated antigen 2	MAGEA2|MAGEA2B|MAGE2|MAGE2|MAGEA2|MAGEA2A	protein	taxon:9606	20120220	UniProt		UniProtKB:P43356
+UniProtKB	P38936	CDKN1A	involved_in	GO:0072331	GO_REF:0000002	IEA	InterPro:IPR029841	P	Cyclin-dependent kinase inhibitor 1	CDKN1A|CAP20|CDKN1|CIP1|MDA6|PIC1|SDI1|WAF1	protein	taxon:9606	20260428	InterPro		UniProtKB:P38936
+UniProtKB	O60565	GREM1	NOT|involved_in	GO:0072331	PMID:9660951	ISS	UniProtKB:O70326	P	Gremlin-1	GREM1|CKTSF1B1|DAND2|DRM|PIG2	protein	taxon:9606	20120308	BHF-UCL		UniProtKB:O60565
+UniProtKB	Q13315	ATM	involved_in	GO:0030330	Reactome:R-HSA-69563	TAS		P	Serine-protein kinase ATM	ATM	protein	taxon:9606	20251115	Reactome		UniProtKB:Q13315
+UniProtKB	P38936	CDKN1A	involved_in	GO:0030330	Reactome:R-HSA-6791312	TAS		P	Cyclin-dependent kinase inhibitor 1	CDKN1A|CAP20|CDKN1|CIP1|MDA6|PIC1|SDI1|WAF1	protein	taxon:9606	20251115	Reactome		UniProtKB:P38936
+UniProtKB	P46527	CDKN1B	involved_in	GO:0030330	Reactome:R-HSA-6791312	TAS		P	Cyclin-dependent kinase inhibitor 1B	CDKN1B|KIP1|p27	protein	taxon:9606	20251115	Reactome		UniProtKB:P46527
+UniProtKB	O96017	CHEK2	involved_in	GO:0030330	Reactome:R-HSA-69563	TAS		P	Serine/threonine-protein kinase Chk2	CHEK2|CDS1|CHK2|RAD53	protein	taxon:9606	20251115	Reactome		UniProtKB:O96017
+UniProtKB	Q9H2X6	HIPK2	involved_in	GO:0030330	PMID:14647468	IDA		P	Homeodomain-interacting protein kinase 2	HIPK2	protein	taxon:9606	20231018	BHF-UCL		UniProtKB:Q9H2X6
+UniProtKB	Q92993	KAT5	involved_in	GO:0030330	PMID:14966270	IDA		P	Histone acetyltransferase KAT5	KAT5|HTATIP|TIP60	protein	taxon:9606	20090529	UniProt		UniProtKB:Q92993
+UniProtKB	Q00987	MDM2	involved_in	GO:0030330	PMID:21726810	IMP		P	E3 ubiquitin-protein ligase Mdm2	MDM2	protein	taxon:9606	20141021	UniProt		UniProtKB:Q00987
+UniProtKB	O15151	MDM4	involved_in	GO:0030330	PMID:14660608	IEP		P	Protein Mdm4	MDM4|MDMX	protein	taxon:9606	20130507	UniProt		UniProtKB:O15151
+UniProtKB	O60934	NBN	involved_in	GO:0030330	PMID:9590181	TAS		P	Nibrin	NBN|NBS|NBS1|P95	protein	taxon:9606	20060117	UniProt		UniProtKB:O60934
+UniProtKB	Q6ZW49	PAXIP1	involved_in	GO:0030330	PMID:15456759	IMP		P	PAX-interacting protein 1	PAXIP1|PAXIP1L|PTIP|CAGF28	protein	taxon:9606	20101101	UniProt		UniProtKB:Q6ZW49
+UniProtKB	Q9H4B4	PLK3	involved_in	GO:0030330	Reactome:R-HSA-6791312	TAS		P	Serine/threonine-protein kinase PLK3	PLK3|CNK|FNK|PRK	protein	taxon:9606	20251115	Reactome		UniProtKB:Q9H4B4
+UniProtKB	Q13362	PPP2R5C	involved_in	GO:0030330	PMID:17245430	IDA		P	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit gamma isoform	PPP2R5C|KIAA0044	protein	taxon:9606	20091202	UniProt		UniProtKB:Q13362-1
+UniProtKB	P61254	RPL26	involved_in	GO:0030330	PMID:16213212	IMP		P	Large ribosomal subunit protein uL24	RPL26	protein	taxon:9606	20170125	CAFA		UniProtKB:P61254
+UniProtKB	Q71UM5	RPS27L	involved_in	GO:0030330	PMID:18056458	IDA		P	Ribosomal protein eS27-like	RPS27L	protein	taxon:9606	20170616	UniProt		UniProtKB:Q71UM5
+UniProtKB	P23497	SP100	involved_in	GO:0030330	PMID:14647468	IDA		P	Nuclear autoantigen Sp-100	SP100	protein	taxon:9606	20231018	BHF-UCL		UniProtKB:P23497
+UniProtKB	P04637	TP53	involved_in	GO:0030330	PMID:15149599	IDA		P	Cellular tumor antigen p53	TP53|P53	protein	taxon:9606	20241126	BHF-UCL	causally_upstream_of(GO:0031571)	UniProtKB:P04637
+UniProtKB	Q14694	USP10	involved_in	GO:0030330	PMID:20096447	IMP		P	Ubiquitin carboxyl-terminal hydrolase 10	USP10|KIAA0190	protein	taxon:9606	20100219	UniProt		UniProtKB:Q14694
+UniProtKB	Q5QJU3	ACER2	involved_in	GO:0030330	PMID:28294157	IMP		P	Alkaline ceramidase 2	ACER2|ASAH3L|PP11646	protein	taxon:9606	20181128	UniProt		UniProtKB:Q5QJU3
+UniProtKB	P20749	BCL3	involved_in	GO:0030330	PMID:16384933	IMP		P	B-cell lymphoma 3 protein	BCL3|BCL4|D19S37	protein	taxon:9606	20070405	UniProt		UniProtKB:P20749
+UniProtKB	P42575	CASP2	involved_in	GO:0030330	PMID:21726810	IMP		P	Caspase-2	CASP2|ICH1|NEDD2	protein	taxon:9606	20140317	UniProt	has_participant(UniProtKB:P78560)|has_input(UniProtKB:Q00987)	UniProtKB:P42575
+UniProtKB	P78560	CRADD	involved_in	GO:0030330	PMID:21726810	IMP		P	Death domain-containing protein CRADD	CRADD|RAIDD	protein	taxon:9606	20140317	UniProt	has_input(UniProtKB:P42575)|has_input(UniProtKB:Q00987)|has_participant(UniProtKB:Q9HB75)	UniProtKB:P78560
+UniProtKB	Q96AV8	E2F7	involved_in	GO:0030330	PMID:22802528	IDA		P	Transcription factor E2F7	E2F7	protein	taxon:9606	20230911	UniProt		UniProtKB:Q96AV8
+UniProtKB	Q08050	FOXM1	involved_in	GO:0030330	PMID:17101782	IMP		P	Forkhead box protein M1	FOXM1|FKHL16|HFH11|MPP2|WIN	protein	taxon:9606	20110928	UniProt		UniProtKB:Q08050
+UniProtKB	Q99445	GML	involved_in	GO:0030330	PMID:8934543	TAS		P	Glycosyl-phosphatidylinositol-anchored molecule-like protein	GML|LY6DL	protein	taxon:9606	20030904	PINC		UniProtKB:Q99445
+UniProtKB	P15941	MUC1	involved_in	GO:0030330	PMID:15710329	IDA		P	Mucin-1	MUC1|PUM	protein	taxon:9606	20241126	BHF-UCL	causally_upstream_of(GO:0031571)	UniProtKB:P15941
+UniProtKB	Q9UM54	MYO6	involved_in	GO:0030330	PMID:16507995	IDA		P	Unconventional myosin-VI	MYO6|KIAA0389	protein	taxon:9606	20061013	UniProt		UniProtKB:Q9UM54
+UniProtKB	Q92597	NDRG1	involved_in	GO:0030330	PMID:9766676	IEP		P	Protein NDRG1	NDRG1|CAP43|DRG1|RTP	protein	taxon:9606	20110912	UniProt		UniProtKB:Q92597
+UniProtKB	Q9HB75	PIDD1	involved_in	GO:0030330	PMID:21726810	IMP		P	p53-induced death domain-containing protein 1	PIDD1|LRDD|PIDD	protein	taxon:9606	20141021	UniProt		UniProtKB:Q9HB75
+UniProtKB	Q9NYY3	PLK2	involved_in	GO:0030330	Reactome:R-HSA-6791312	TAS		P	Serine/threonine-protein kinase PLK2	PLK2|SNK	protein	taxon:9606	20251115	Reactome		UniProtKB:Q9NYY3
+UniProtKB	Q96NZ9	PRAP1	involved_in	GO:0030330	PMID:23235459	IMP		P	Proline-rich acidic protein 1	PRAP1|UPA|UNQ608/PRO1195	protein	taxon:9606	20210308	UniProt		UniProtKB:Q96NZ9
+UniProtKB	P46100	ATRX	involved_in	GO:0030330	GO_REF:0000024	ISS	UniProtKB:Q61687	P	Chromatin remodeler ATRX	ATRX|RAD54L|XH2	protein	taxon:9606	20140502	UniProt		UniProtKB:P46100
+UniProtKB	P46100	ATRX	involved_in	GO:0030330	GO_REF:0000107	IEA	UniProtKB:Q61687|ensembl:ENSMUSP00000109203	P	Chromatin remodeler ATRX	ATRX|RAD54L|XH2	protein	taxon:9606	20260422	Ensembl		UniProtKB:P46100
+UniProtKB	Q16520	BATF	involved_in	GO:0030330	GO_REF:0000024	ISS	UniProtKB:O35284	P	Basic leucine zipper transcriptional factor ATF-like	BATF	protein	taxon:9606	20121102	UniProt		UniProtKB:Q16520
+UniProtKB	P31749	AKT1	involved_in	GO:0043066	PMID:19203586	IDA		P	RAC-alpha serine/threonine-protein kinase	AKT1|PKB|RAC	protein	taxon:9606	20090312	UniProt		UniProtKB:P31749
+UniProtKB	Q96GX9	APIP	involved_in	GO:0043066	PMID:22837397	IMP		P	Methylthioribulose-1-phosphate dehydratase	APIP|CGI-29	protein	taxon:9606	20130117	UniProt		UniProtKB:Q96GX9
+UniProtKB	Q9NQS1	AVEN	involved_in	GO:0043066	PMID:10949025	IDA		P	Cell death regulator Aven	AVEN	protein	taxon:9606	20040128	UniProt		UniProtKB:Q9NQS1
+UniProtKB	Q9NXR7	BABAM2	involved_in	GO:0043066	PMID:15465831	IDA		P	BRISC and BRCA1-A complex member 2	BABAM2|BRCC45|BRE	protein	taxon:9606	20170303	UniProt		UniProtKB:Q9NXR7
+UniProtKB	Q92934	BAD	involved_in	GO:0043066	PMID:18402937	IDA		P	Bcl2-associated agonist of cell death	BAD|BBC6|BCL2L8	protein	taxon:9606	20240715	UniProt		UniProtKB:Q92934
+UniProtKB	Q99728	BARD1	involved_in	GO:0043066	PMID:15265711	IMP		P	BRCA1-associated RING domain protein 1	BARD1	protein	taxon:9606	20050603	UniProt		UniProtKB:Q99728
+UniProtKB	P10415	BCL2	acts_upstream_of_or_within	GO:0043066	PMID:1373874	IDA		P	Apoptosis regulator Bcl-2	BCL2	protein	taxon:9606	20090324	MGI		UniProtKB:P10415
+UniProtKB	Q07817	BCL2L1	acts_upstream_of_or_within	GO:0043066	PMID:7650367	IDA		P	Bcl-2-like protein 1	BCL2L1|BCL2L|BCLX	protein	taxon:9606	20090324	MGI		UniProtKB:Q07817
+UniProtKB	Q14457	BECN1	involved_in	GO:0043066	PMID:9765397	TAS		P	Beclin-1	BECN1|GT197	protein	taxon:9606	20030904	PINC		UniProtKB:Q14457
+UniProtKB	Q13490	BIRC2	involved_in	GO:0043066	PMID:20651737	TAS		P	Baculoviral IAP repeat-containing protein 2	BIRC2|API1|MIHB|RNF48	protein	taxon:9606	20120126	UniProt		UniProtKB:Q13490
+UniProtKB	Q13489	BIRC3	involved_in	GO:0043066	PMID:8552191	TAS		P	Baculoviral IAP repeat-containing protein 3	BIRC3|API2|MIHC|RNF49	protein	taxon:9606	20030904	PINC		UniProtKB:Q13489
+UniProtKB	O15392	BIRC5	involved_in	GO:0043066	PMID:10626797	IDA		P	Baculoviral IAP repeat-containing protein 5	BIRC5|API4|IAP4	protein	taxon:9606	20060731	UniProt		UniProtKB:O15392-1
+UniProtKB	P04040	CAT	involved_in	GO:0043066	PMID:16644728	IMP		P	Catalase	CAT	protein	taxon:9606	20080508	UniProt		UniProtKB:P04040
+UniProtKB	O00257	CBX4	involved_in	GO:0043066	PMID:9315667	TAS		P	E3 SUMO-protein ligase CBX4	CBX4	protein	taxon:9606	20040129	PINC		UniProtKB:O00257
+UniProtKB	P16070	CD44	involved_in	GO:0043066	PMID:19047049	IMP		P	CD44 antigen	CD44|LHR|MDU2|MDU3|MIC4	protein	taxon:9606	20111011	UniProt		UniProtKB:P16070
+UniProtKB	P06493	CDK1	involved_in	GO:0043066	PMID:11069302	IDA		P	Cyclin-dependent kinase 1	CDK1|CDC2|CDC28A|CDKN1|P34CDC2	protein	taxon:9606	20060731	UniProt		UniProtKB:P06493
+UniProtKB	O15519	CFLAR	involved_in	GO:0043066	PMID:9217161	TAS		P	CASP8 and FADD-like apoptosis regulator	CFLAR|CASH|CASP8AP1|CLARP|MRIT	protein	taxon:9606	20040128	PINC		UniProtKB:O15519
+UniProtKB	Q92905	COPS5	involved_in	GO:0043066	PMID:20978819	IMP		P	COP9 signalosome complex subunit 5	COPS5|CSN5|JAB1	protein	taxon:9606	20170706	UniProt		UniProtKB:Q92905
+UniProtKB	P35222	CTNNB1	acts_upstream_of	GO:0043066	PMID:23164821	TAS		P	Catenin beta-1	CTNNB1|CTNNB|OK/SW-cl.35|PRO2286	protein	taxon:9606	20230824	ARUK-UCL		UniProtKB:P35222
+UniProtKB	O00571	DDX3X	involved_in	GO:0043066	PMID:18846110	IMP		P	ATP-dependent RNA helicase DDX3X	DDX3X|DBX|DDX3	protein	taxon:9606	20120810	UniProt		UniProtKB:O00571
+UniProtKB	Q13217	DNAJC3	involved_in	GO:0043066	PMID:22064321	IMP		P	DnaJ homolog subfamily C member 3	DNAJC3|P58IPK|PRKRI	protein	taxon:9606	20141209	ParkinsonsUK-UCL		UniProtKB:Q13217
+UniProtKB	Q14126	DSG2	involved_in	GO:0043066	PMID:38395410	IMP		P	Desmoglein-2	DSG2|CDHF5	protein	taxon:9606	20241113	UniProt		UniProtKB:Q14126
+UniProtKB	P28715	ERCC5	involved_in	GO:0043066	PMID:16167068	IMP		P	DNA excision repair protein ERCC-5	ERCC5|ERCM2|XPG|XPGC	protein	taxon:9606	20071126	UniProt		UniProtKB:P28715
+UniProtKB	P25445	FAS	involved_in	GO:0043066	PMID:7510905	TAS		P	Tumor necrosis factor receptor superfamily member 6	FAS|APT1|FAS1|TNFRSF6	protein	taxon:9606	20030904	PINC		UniProtKB:P25445
+UniProtKB	P21333	FLNA	involved_in	GO:0043066	PMID:18177638	IMP		P	Filamin-A	FLNA|FLN|FLN1	protein	taxon:9606	20130326	CACAO		UniProtKB:P21333
+UniProtKB	Q16595	FXN	involved_in	GO:0043066	PMID:16608849	IMP		P	Frataxin, mitochondrial	FXN|FRDA|X25	protein	taxon:9606	20100809	UniProt		UniProtKB:Q16595
+UniProtKB	P49841	GSK3B	acts_upstream_of_or_within	GO:0043066	PMID:14744935	IDA		P	Glycogen synthase kinase-3 beta	GSK3B	protein	taxon:9606	20101102	MGI		UniProtKB:P49841
+UniProtKB	P09211	GSTP1	involved_in	GO:0043066	PMID:16130169	TAS		P	Glutathione S-transferase P	GSTP1|FAEES3|GST3	protein	taxon:9606	20051220	UniProt		UniProtKB:P09211
+UniProtKB	Q13547	HDAC1	acts_upstream_of	GO:0043066	PMID:10777477	TAS		P	Histone deacetylase 1	HDAC1|RPD3L1	protein	taxon:9606	20181130	UniProt		UniProtKB:Q13547
+UniProtKB	P52926	HMGA2	involved_in	GO:0043066	PMID:19465398	IDA		P	High mobility group protein HMGI-C	HMGA2|HMGIC	protein	taxon:9606	20110823	UniProt		UniProtKB:P52926
+UniProtKB	P30542	ADORA1	involved_in	GO:0043066	GO_REF:0000107	IEA	UniProtKB:P25099|ensembl:ENSRNOP00000104393	P	Adenosine receptor A1	ADORA1	protein	taxon:9606	20260422	Ensembl		UniProtKB:P30542
+UniProtKB	Q99490	AGAP2	involved_in	GO:0043066	GO_REF:0000117	IEA	ARBA:ARBA00027746	P	Arf-GAP with GTPase, ANK repeat and PH domain-containing protein 2	AGAP2|CENTG1|KIAA0167	protein	taxon:9606	20260428	UniProt		UniProtKB:Q99490
+UniProtKB	Q8N157	AHI1	involved_in	GO:0043066	GO_REF:0000024	ISS	UniProtKB:Q8K3E5	P	Jouberin	AHI1	protein	taxon:9606	20111130	UniProt		UniProtKB:Q8N157
+UniProtKB	P31749	AKT1	involved_in	GO:0008283	PMID:21432781	TAS		P	RAC-alpha serine/threonine-protein kinase	AKT1|PKB|RAC	protein	taxon:9606	20110913	UniProt		UniProtKB:P31749
+UniProtKB	Q96Q83	ALKBH3	involved_in	GO:0008283	PMID:22055184	IMP		P	Alpha-ketoglutarate-dependent dioxygenase alkB homolog 3	ALKBH3|ABH3|DEPC1	protein	taxon:9606	20120228	UniProt		UniProtKB:Q96Q83
+UniProtKB	P30304	CDC25A	involved_in	GO:0008283	PMID:11139144	TAS		P	M-phase inducer phosphatase 1	CDC25A	protein	taxon:9606	20021105	UniProt		UniProtKB:P30304
+UniProtKB	P30307	CDC25C	involved_in	GO:0008283	PMID:1828290	TAS		P	M-phase inducer phosphatase 3	CDC25C	protein	taxon:9606	20030904	PINC		UniProtKB:P30307
+UniProtKB	P50750	CDK9	involved_in	GO:0008283	PMID:8170997	TAS		P	Cyclin-dependent kinase 9	CDK9|CDC2L4|TAK	protein	taxon:9606	20030904	PINC		UniProtKB:P50750
+UniProtKB	Q9UJV9	DDX41	involved_in	GO:0008283	PMID:25920683	IMP		P	Probable ATP-dependent RNA helicase DDX41	DDX41|ABS	protein	taxon:9606	20160615	UniProt		UniProtKB:Q9UJV9
+UniProtKB	P14316	IRF2	involved_in	GO:0008283	PMID:8438157	TAS		P	Interferon regulatory factor 2	IRF2	protein	taxon:9606	20030904	PINC		UniProtKB:P14316
+UniProtKB	O00541	PES1	acts_upstream_of_or_within	GO:0008283	PMID:16738141	IMP		P	Pescadillo homolog	PES1	protein	taxon:9606	20120109	MGI		UniProtKB:O00541
+UniProtKB	Q01973	ROR1	involved_in	GO:0008283	PMID:36949068	IDA		P	Inactive tyrosine-protein kinase transmembrane receptor ROR1	ROR1|NTRKR1	protein	taxon:9606	20240627	UniProt		UniProtKB:Q01973
+UniProtKB	Q14160	SCRIB	involved_in	GO:0008283	PMID:16965391	IDA		P	Protein scribble homolog	SCRIB|CRIB1|KIAA0147|LAP4|SCRB1|VARTUL	protein	taxon:9606	20090828	UniProt		UniProtKB:Q14160
+UniProtKB	Q5TZF3	ANKRD45	involved_in	GO:0008283	PMID:31208154	IMP		P	Ankyrin repeat domain-containing protein 45	ANKRD45	protein	taxon:9606	20210706	UniProt		UniProtKB:Q5TZF3
+UniProtKB	Q6PJG6	BRAT1	involved_in	GO:0008283	PMID:25070371	IMP		P	Integrator complex assembly factor BRAT1	BRAT1|BAAT1|C7orf27	protein	taxon:9606	20150704	UniProt		UniProtKB:Q6PJG6
+UniProtKB	Q00526	CDK3	involved_in	GO:0008283	PMID:1639063	TAS		P	Cyclin-dependent kinase 3	CDK3|CDKN3	protein	taxon:9606	20030904	PINC		UniProtKB:Q00526
+UniProtKB	Q96JB5	CDK5RAP3	involved_in	GO:0008283	PMID:12054757	IDA		P	CDK5 regulatory subunit-associated protein 3	CDK5RAP3|IC53|LZAP|MSTP016|OK/SW-cl.114|PP1553	protein	taxon:9606	20150126	UniProt		UniProtKB:Q96JB5
+UniProtKB	Q6PRD7	CEMP1	involved_in	GO:0008283	PMID:17509525	IDA		P	Cementoblastoma-derived protein 1	CEMP1	protein	taxon:9606	20170822	UniProt		UniProtKB:Q6PRD7
+UniProtKB	Q99967	CITED2	involved_in	GO:0008283	PMID:15051727	IDA		P	Cbp/p300-interacting transactivator 2	CITED2|MRG1	protein	taxon:9606	20220204	UniProt	occurs_in(CL:0000182)	UniProtKB:Q99967
+UniProtKB	Q9UHC6	CNTNAP2	involved_in	GO:0008283	PMID:29028946	IDA		P	Contactin-associated protein-like 2	CNTNAP2|CASPR2|KIAA0868	protein	taxon:9606	20210901	MGI		UniProtKB:Q9UHC6
+UniProtKB	P07333	CSF1R	involved_in	GO:0008283	PMID:7683918	IMP		P	Macrophage colony-stimulating factor 1 receptor	CSF1R|FMS	protein	taxon:9606	20191105	UniProt	occurs_in(CL:0008001)	UniProtKB:P07333
+UniProtKB	P56178	DLX5	involved_in	GO:0008283	PMID:19497851	IDA		P	Homeobox protein DLX-5	DLX5	protein	taxon:9606	20100212	UniProt		UniProtKB:P56178
+UniProtKB	Q6RFH8	DUX4L9	involved_in	GO:0008283	PMID:19829708	IDA		P	Double homeobox protein 4C	DUX4L9|DUX4C	protein	taxon:9606	20110105	UniProt		UniProtKB:Q6RFH8
+UniProtKB	P25101	EDNRA	involved_in	GO:0008283	PMID:8702836	TAS		P	Endothelin-1 receptor	EDNRA|ETA|ETRA	protein	taxon:9606	20030904	PINC		UniProtKB:P25101
+UniProtKB	Q07075	ENPEP	acts_upstream_of_or_within	GO:0008283	PMID:14998491	IDA		P	Glutamyl aminopeptidase	ENPEP	protein	taxon:9606	20050107	MGI		UniProtKB:Q07075
+UniProtKB	P04626	ERBB2	involved_in	GO:0008283	PMID:36949068	IDA		P	Receptor tyrosine-protein kinase erbB-2	ERBB2|HER2|MLN19|NEU|NGL	protein	taxon:9606	20240627	UniProt		UniProtKB:P04626
+UniProtKB	O95718	ESRRB	involved_in	GO:0008283	PMID:19755138	IDA		P	Steroid hormone receptor ERR2	ESRRB|ERRB2|ESRL2|NR3B2	protein	taxon:9606	20170413	UniProt		UniProtKB:O95718-1
+UniProtKB	Q86UY5	FAM83A	involved_in	GO:0008283	PMID:22886303	IMP		P	Protein FAM83A	FAM83A|TSGP	protein	taxon:9606	20150909	UniProt		UniProtKB:Q86UY5
+UniProtKB	Q5T0W9	FAM83B	involved_in	GO:0008283	PMID:23912460	IMP		P	Protein FAM83B	FAM83B|C6orf143	protein	taxon:9606	20150902	UniProt		UniProtKB:Q5T0W9
+UniProtKB	Q9H4H8	FAM83D	involved_in	GO:0008283	PMID:24344117	IDA		P	Protein FAM83D	FAM83D|C20orf129	protein	taxon:9606	20150911	UniProt		UniProtKB:Q9H4H8
+UniProtKB	Q8N3Y1	FBXW8	involved_in	GO:0008283	PMID:24362026	IDA		P	F-box/WD repeat-containing protein 8	FBXW8|FBW6|FBW8|FBX29|FBXO29|FBXW6	protein	taxon:9606	20140701	UniProt		UniProtKB:Q8N3Y1
+UniProtKB	Q12948	FOXC1	involved_in	GO:0008283	PMID:20406990	IDA		P	Forkhead box protein C1	FOXC1|FKHL7|FREAC3	protein	taxon:9606	20150105	UniProt		UniProtKB:Q12948
+UniProtKB	Q05932	FPGS	involved_in	GO:0008283	PMID:25164808	IMP		P	Folylpolyglutamate synthase, mitochondrial	FPGS	protein	taxon:9606	20150730	BHF-UCL		UniProtKB:Q05932-1
+UniProtKB	Q5TZF3	ANKRD45	involved_in	GO:0008283	GO_REF:0000033	IBA	PANTHER:PTN001193669|UniProtKB:Q5TZF3|ZFIN:ZDB-GENE-050522-311	P	Ankyrin repeat domain-containing protein 45	ANKRD45	protein	taxon:9606	20250620	GO_Central		
+UniProtKB	Q96QE3	ATAD5	involved_in	GO:0008283	GO_REF:0000107	IEA	UniProtKB:Q4QY64|ensembl:ENSMUSP00000017694	P	ATPase family AAA domain-containing protein 5	ATAD5|C17orf41|Elg1|FRAG1	protein	taxon:9606	20260422	Ensembl		UniProtKB:Q96QE3
+UniProtKB	Q92560	BAP1	involved_in	GO:0008283	GO_REF:0000107	IEA	UniProtKB:Q99PU7|ensembl:ENSMUSP00000022458	P	Ubiquitin carboxyl-terminal hydrolase BAP1	BAP1|KIAA0272|hucep-6	protein	taxon:9606	20260422	Ensembl		UniProtKB:Q92560
+UniProtKB	P46013	MKI67	NOT|involved_in	GO:0008283	GO_REF:0000024	ISS	UniProtKB:E9PVX6	P	Proliferation marker protein Ki-67	MKI67	protein	taxon:9606	20160726	UniProt		UniProtKB:P46013
+UniProtKB	P63261	ACTG1	acts_upstream_of_or_within_positive_effect	GO:0001525	PMID:25705373	IMP		P	Actin, cytoplasmic 2	ACTG1|ACTG	protein	taxon:9606	20191015	ARUK-UCL	occurs_in(CL:0000115)	UniProtKB:P63261
+UniProtKB	P07355	ANXA2	involved_in	GO:0001525	PMID:11866539	IEP		P	Annexin A2	ANXA2|ANX2|ANX2L4|CAL1H|LPC2D	protein	taxon:9606	20110330	UniProt		UniProtKB:P07355
+UniProtKB	Q9NPY3	CD93	involved_in	GO:0001525	PMID:28671670	IDA		P	Complement component C1q receptor	CD93|C1QR1|MXRA4	protein	taxon:9606	20240617	UniProt		UniProtKB:Q9NPY3
+UniProtKB	P10145	CXCL8	involved_in	GO:0001525	PMID:11483765	TAS		P	Interleukin-8	CXCL8|IL8	protein	taxon:9606	20020612	UniProt		UniProtKB:P10145
+UniProtKB	Q9NZJ5	EIF2AK3	involved_in	GO:0001525	PMID:22915762	IMP		P	Eukaryotic translation initiation factor 2-alpha kinase 3	EIF2AK3|PEK|PERK	protein	taxon:9606	20141110	ParkinsonsUK-UCL		UniProtKB:Q9NZJ5
+UniProtKB	P41134	ID1	involved_in	GO:0001525	PMID:14522471	TAS		P	DNA-binding protein inhibitor ID-1	ID1|BHLHB24|ID	protein	taxon:9606	20090114	BHF-UCL		UniProtKB:P41134
+UniProtKB	Q16270	IGFBP7	involved_in	GO:0001525	PMID:38218180	IDA		P	Insulin-like growth factor-binding protein 7	IGFBP7|MAC25|PSF	protein	taxon:9606	20240617	UniProt		UniProtKB:Q16270
+UniProtKB	P06756	ITGAV	involved_in	GO:0001525	PMID:11866539	IEP		P	Integrin alpha-V	ITGAV|MSK8|VNRA|VTNR	protein	taxon:9606	20110330	UniProt		UniProtKB:P06756
+UniProtKB	P19338	NCL	involved_in	GO:0001525	PMID:16403913	IDA		P	Nucleolin	NCL	protein	taxon:9606	20061006	UniProt		UniProtKB:P19338
+UniProtKB	Q05397	PTK2	involved_in	GO:0001525	PMID:20552554	TAS		P	Focal adhesion kinase 1	PTK2|FAK|FAK1	protein	taxon:9606	20111208	UniProt		UniProtKB:Q05397
+UniProtKB	P23467	PTPRB	involved_in	GO:0001525	PMID:19136612	IDA		P	Receptor-type tyrosine-protein phosphatase beta	PTPRB|PTPB	protein	taxon:9606	20250606	UniProt		UniProtKB:P23467
+UniProtKB	P37023	ACVRL1	involved_in	GO:0001525	PMID:16752392	IMP		P	Activin receptor type-1-like	ACVRL1|ACVRLK1|ALK1	protein	taxon:9606	20061024	HGNC-UCL		UniProtKB:P37023
+UniProtKB	Q9Y653	ADGRG1	involved_in	GO:0001525	PMID:21724588	IDA		P	Adhesion G protein-coupled receptor G1	ADGRG1|GPR56|TM7LN4|TM7XN1|UNQ540/PRO1083	protein	taxon:9606	20130610	UniProt		UniProtKB:Q9Y653
+UniProtKB	Q7Z4H4	ADM2	involved_in	GO:0001525	PMID:20596610	IDA		P	Protein ADM2	ADM2|AM2	protein	taxon:9606	20111115	UniProt		UniProtKB:Q7Z4H4
+UniProtKB	P03950	ANG	acts_upstream_of_or_within	GO:0001525	PMID:8448182	IDA		P	Angiogenin	ANG|RNASE5	protein	taxon:9606	20071214	MGI		UniProtKB:P03950
+UniProtKB	Q15389	ANGPT1	involved_in	GO:0001525	PMID:22342979	IDA		P	Angiopoietin-1	ANGPT1|KIAA0003	protein	taxon:9606	20250623	UniProt		UniProtKB:Q15389-1
+UniProtKB	O15123	ANGPT2	involved_in	GO:0001525	PMID:17054925	IDA		P	Angiopoietin-2	ANGPT2	protein	taxon:9606	20250605	UniProt		UniProtKB:O15123
+UniProtKB	Q9Y264	ANGPT4	involved_in	GO:0001525	PMID:15284220	IDA		P	Angiopoietin-4	ANGPT4|ANG3|ANG4	protein	taxon:9606	20250627	UniProt		UniProtKB:Q9Y264-1
+UniProtKB	P06576	ATP5F1B	involved_in	GO:0001525	PMID:17510399	IMP		P	ATP synthase F(1) complex subunit beta, mitochondrial	ATP5F1B|ATP5B|ATPMB|ATPSB	protein	taxon:9606	20080414	UniProt		UniProtKB:P06576
+UniProtKB	Q9UII2	ATP5IF1	involved_in	GO:0001525	PMID:15528193	TAS		P	ATPase inhibitor, mitochondrial	ATP5IF1|ATPI|ATPIF1	protein	taxon:9606	20060809	UniProt		UniProtKB:Q9UII2
+UniProtKB	P36894	BMPR1A	involved_in	GO:0001525	PMID:24882581	IMP		P	Bone morphogenetic protein receptor type-1A	BMPR1A|ACVRLK3|ALK3	protein	taxon:9606	20220720	BHF-UCL	occurs_in(CL:2000008)	UniProtKB:P36894
+UniProtKB	Q9NS00	C1GALT1	involved_in	GO:0001525	PMID:17228361	IMP		P	Glycoprotein-N-acetylgalactosamine 3-beta-galactosyltransferase 1	C1GALT1	protein	taxon:9606	20070420	UniProt		UniProtKB:Q9NS00
+UniProtKB	Q16602	CALCRL	involved_in	GO:0001525	PMID:20596610	IDA		P	Calcitonin gene-related peptide type 1 receptor	CALCRL|CGRPR	protein	taxon:9606	20111115	UniProt		UniProtKB:Q16602
+UniProtKB	P13500	CCL2	involved_in	GO:0001525	PMID:18334747	TAS		P	C-C motif chemokine 2	CCL2|MCP1|SCYA2	protein	taxon:9606	20110225	BHF-UCL		UniProtKB:P13500
+UniProtKB	P48745	CCN3	involved_in	GO:0001525	PMID:12695522	IDA		P	CCN family member 3	CCN3|IGFBP9|NOV|NOVH	protein	taxon:9606	20150728	UniProt		UniProtKB:P48745
+UniProtKB	P52799	EFNB2	involved_in	GO:0001525	PMID:12734395	IDA		P	Ephrin-B2	EFNB2|EPLG5|HTKL|LERK5	protein	taxon:9606	20250410	UniProt		UniProtKB:P52799
+UniProtKB	P01133	EGF	involved_in	GO:0001525	PMID:15611079	IDA		P	Pro-epidermal growth factor	EGF	protein	taxon:9606	20070521	HGNC-UCL		UniProtKB:P01133
+UniProtKB	Q6UW88	EPGN	involved_in	GO:0001525	PMID:15611079	IDA		P	Epigen	EPGN|UNQ3072/PRO9904	protein	taxon:9606	20070521	HGNC-UCL		UniProtKB:Q6UW88
+UniProtKB	P54762	EPHB1	involved_in	GO:0001525	PMID:9499402	IDA		P	Ephrin type-B receptor 1	EPHB1|ELK|EPHT2|HEK6|NET	protein	taxon:9606	20110901	UniProt		UniProtKB:P54762
+UniProtKB	P54760	EPHB4	involved_in	GO:0001525	PMID:12734395	IDA		P	Ephrin type-B receptor 4	EPHB4|HTK|MYK1|TYRO11	protein	taxon:9606	20250410	UniProt		UniProtKB:P54760
+UniProtKB	Q13685	AAMP	involved_in	GO:0001525	PMID:10329261	NAS		P	Angio-associated migratory cell protein	AAMP	protein	taxon:9606	20081121	UniProt		UniProtKB:Q13685
+UniProtKB	P25106	ACKR3	involved_in	GO:0001525	GO_REF:0000002	IEA	InterPro:IPR001416	P	Atypical chemokine receptor 3	ACKR3|CMKOR1|CXCR7|GPR159|RDC1	protein	taxon:9606	20260428	InterPro		UniProtKB:P25106
+UniProtKB	P37023	ACVRL1	involved_in	GO:0001525	GO_REF:0000033	IBA	PANTHER:PTN002758234|UniProtKB:P37023|MGI:MGI:1338946	P	Activin receptor type-1-like	ACVRL1|ACVRLK1|ALK1	protein	taxon:9606	20210610	GO_Central		

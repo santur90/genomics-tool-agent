@@ -6,7 +6,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from gta import sandbox
 from gta.sandbox import ToolError
@@ -32,6 +32,16 @@ class FilterVCFInput(BaseModel):
     min_qual: float = Field(0.0, ge=0, description="Minimum QUAL")
     min_dp: int = Field(0, ge=0, description="Minimum INFO/DP")
     gene: str | None = Field(None, description="Keep only records whose INFO/GENE equals this value")
+
+    @field_validator("gene", mode="before")
+    @classmethod
+    def _normalize_gene(cls, v: Any) -> Any:
+        if v is None:
+            return None
+        if isinstance(v, str):
+            v = v.strip()
+            return None if v.lower() in ("", "null", "none") else v
+        return v
 
 
 class SummarizeVCFInput(BaseModel):

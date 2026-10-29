@@ -1,7 +1,7 @@
 nextflow.enable.dsl = 2
 
-params.counts    = "${projectDir}/../../data/rnaseq/counts.tsv"
-params.metadata  = "${projectDir}/../../data/rnaseq/metadata.tsv"
+params.counts    = "${projectDir}/example/counts.tsv"
+params.metadata  = "${projectDir}/example/metadata.tsv"
 params.factor    = 'condition'
 params.ref_level = 'control'
 params.outdir    = 'results'

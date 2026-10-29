@@ -1,0 +1,295 @@
+format-version: 1.2
+data-version: subset-of-go-basic (test fixture)
+default-namespace: gene_ontology
+
+[Term]
+id: GO:0006915
+name: apoptotic process
+namespace: biological_process
+def: "A programmed cell death process which begins when a cell receives an internal (e.g. DNA damage) or external signal (e.g. an extracellular death ligand), and proceeds through a series of biochemical events (signaling pathway phase) which trigger an execution phase. The execution phase is the last step of an apoptotic process, and is typically characterized by rounding-up of the cell, retraction of pseudopodes, reduction of cellular volume (pyknosis), chromatin condensation, nuclear fragmentation (karyorrhexis), plasma membrane blebbing and fragmentation of the cell into apoptotic bodies. When the execution phase is completed, the cell has died." [GOC:cjm, GOC:curators, GOC:dhl, GOC:ecd, GOC:mtg_apoptosis, GOC:tb, ISBN:0198506732, PMID:18846107, PMID:21494263]
+synonym: "activation of apoptosis" NARROW []
+synonym: "apoptosis" NARROW []
+synonym: "apoptosis activator activity" RELATED []
+synonym: "apoptosis signaling" NARROW []
+synonym: "apoptotic cell death" EXACT [GOC:sl]
+synonym: "apoptotic program" NARROW [GOC:add]
+synonym: "apoptotic programmed cell death" EXACT []
+synonym: "caspase-dependent programmed cell death" RELATED []
+synonym: "cell suicide" BROAD []
+synonym: "cellular suicide" BROAD []
+synonym: "commitment to apoptosis" RELATED []
+synonym: "induction of apoptosis" RELATED []
+synonym: "induction of apoptosis by p53" RELATED []
+synonym: "programmed cell death by apoptosis" EXACT []
+synonym: "signaling (initiator) caspase activity" RELATED []
+synonym: "type I programmed cell death" NARROW []
+
+[Term]
+id: GO:0006914
+name: autophagy
+namespace: biological_process
+def: "The cellular catabolic process in which cells digest cellular materials, such as organelles and other macromolecular constituents, or non-self materials such as intracellular pathogens. Autophagy serves to provide essential nutrients under conditions of cellular stress; or can remodel intracellular structures during cell differentiation." [GOC:autophagy, ISBN:0198547684, PMID:11099404, PMID:29455577, PMID:9412464]
+
+[Term]
+id: GO:0006281
+name: DNA repair
+namespace: biological_process
+def: "The process of restoring DNA after damage. Genomes are subject to damage by chemical and physical agents in the environment (e.g. UV and ionizing radiations, chemical mutagens, fungal and bacterial toxins, etc.) and by free radicals or alkylating agents endogenously generated in metabolism. DNA is also damaged because of errors during its replication. A variety of different DNA repair pathways have been reported that include direct reversal, base excision repair, nucleotide excision repair, photoreactivation, bypass, double-strand break repair pathway, and mismatch repair pathway." [PMID:11563486]
+is_a: GO:0006974 ! DNA damage response
+
+[Term]
+id: GO:0006974
+name: DNA damage response
+namespace: biological_process
+def: "Any process that results in a change in state or activity of a cell (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus indicating damage to its DNA from environmental insults or errors during metabolism." [GOC:curators]
+synonym: "cellular DNA damage response" EXACT []
+synonym: "cellular response to DNA damage stimulus" EXACT []
+synonym: "response to DNA damage stimulus" BROAD []
+synonym: "response to genotoxic stress" EXACT []
+
+[Term]
+id: GO:0000724
+name: double-strand break repair via homologous recombination
+namespace: biological_process
+def: "The error-free repair of a double-strand break in DNA in which the broken DNA molecule is repaired using homologous sequences. A strand in the broken DNA searches for a homologous region in an intact chromosome to serve as the template for DNA synthesis. The restoration of two intact DNA molecules results in the exchange, reciprocal or nonreciprocal, of genetic material between the intact DNA molecule and the broken DNA molecule." [GOC:elh, PMID:10357855]
+synonym: "HDR" EXACT [GOC:vk]
+synonym: "homologous recombinational repair" EXACT []
+synonym: "homology-directed repair" EXACT [GOC:vk]
+synonym: "HRR" EXACT []
+synonym: "Rad51-dependent recombinational repair" EXACT [GOC:mah]
+synonym: "Rhp51-dependent recombinational repair" EXACT []
+
+[Term]
+id: GO:0006260
+name: DNA replication
+namespace: biological_process
+def: "The cellular metabolic process in which a cell duplicates one or more molecules of DNA. DNA replication begins when specific sequences, known as origins of replication, are recognized and bound by the origin recognition complex, and ends when the original DNA molecule has been completely duplicated and the copies topologically separated. The unit of replication usually corresponds to the genome of the cell, an organelle, or a virus. The template for replication can either be an existing DNA molecule or RNA." [GOC:mah]
+comment: DNA biosynthesis is only part of this process. See also the biological process terms 'DNA-dependent DNA replication ; GO:0006261' and 'RNA-dependent DNA replication ; GO:0006278'.
+
+[Term]
+id: GO:0007049
+name: cell cycle
+namespace: biological_process
+def: "The progression of biochemical and morphological phases and events that occur in a cell during successive cell replication or nuclear replication events. Canonically, the cell cycle comprises the replication and segregation of genetic material followed by the division of the cell, but in endocycles or syncytial cells nuclear replication or nuclear division may not be followed by cell division." [GOC:curators, GOC:mtg_cell_cycle]
+synonym: "cell-division cycle" EXACT []
+
+[Term]
+id: GO:0051301
+name: cell division
+namespace: biological_process
+def: "The process resulting in division and partitioning of components of a cell to form more cells; may or may not be accompanied by the physical separation of a cell into distinct, individually membrane-bounded daughter cells." [GOC:curators, GOC:di, GOC:pr]
+comment: Note that this term differs from 'cytokinesis ; GO:0000910' in that cytokinesis does not include nuclear division.
+
+[Term]
+id: GO:0000278
+name: mitotic cell cycle
+namespace: biological_process
+def: "Progression through the phases of the mitotic cell cycle, the most common eukaryotic cell cycle, which canonically comprises four successive phases called G1, S, G2, and M and includes replication of the genome and the subsequent segregation of chromosomes into daughter cells. In some variant cell cycles nuclear replication or nuclear division may not be followed by cell division, or G1 and G2 phases may be absent." [GOC:mah, ISBN:0815316194]
+comment: Note that this term should not be confused with 'GO:0140014 ; mitotic nuclear division'. 'GO:0000278 ; mitotic cell cycle represents the entire mitotic cell cycle, while 'GO:0140014 ; mitotic nuclear division' specifically represents the actual nuclear division step of the mitotic cell cycle.
+synonym: "mitosis" RELATED []
+is_a: GO:0007049 ! cell cycle
+
+[Term]
+id: GO:0007059
+name: chromosome segregation
+namespace: biological_process
+def: "The process in which genetic material, in the form of chromosomes, is organized into specific structures and then physically separated and apportioned to two or more sets. In eukaryotes, chromosome segregation begins with the condensation of chromosomes, includes chromosome separation, and ends when chromosomes have completed movement to the spindle poles." [GOC:jl, GOC:mah, GOC:mtg_cell_cycle, GOC:vw]
+synonym: "chromosome division" EXACT []
+synonym: "chromosome transmission" RELATED []
+
+[Term]
+id: GO:0006955
+name: immune response
+namespace: biological_process
+def: "Any immune system process that functions in the calibrated response of an organism to a potential internal or invasive threat." [GO_REF:0000022, GOC:add]
+
+[Term]
+id: GO:0034340
+name: response to type I interferon
+namespace: biological_process
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a type I interferon stimulus. Type I interferons include the interferon-alpha, beta, delta, episilon, zeta, kappa, tau, and omega gene families." [GOC:add, ISBN:0126896631, PMID:15546383, PMID:16681834]
+synonym: "response to type I IFN" EXACT []
+
+[Term]
+id: GO:0034341
+name: response to type II interferon
+namespace: biological_process
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an interferon-gamma stimulus. Interferon-gamma is also known as type II interferon." [GOC:add, ISBN:0126896631, PMID:15546383]
+synonym: "response to gamma-interferon" RELATED []
+synonym: "response to immune interferon" EXACT []
+synonym: "response to interferon-gamma" BROAD []
+synonym: "response to type II IFN" BROAD []
+
+[Term]
+id: GO:0060337
+name: type I interferon-mediated signaling pathway
+namespace: biological_process
+def: "The series of molecular signals initiated by type I interferon binding to its receptor on the surface of a target cell, and ending with the regulation of a downstream cellular process, e.g. transcription. Type I interferons include the interferon-alpha, beta, delta, episilon, zeta, kappa, tau, and omega gene families." [GOC:add, GOC:dph, GOC:signaling, PMID:32464097]
+synonym: "type I interferon signaling pathway" EXACT []
+synonym: "type I interferon-activated signaling pathway" EXACT [GOC:signaling]
+
+[Term]
+id: GO:0006468
+name: protein phosphorylation
+namespace: biological_process
+def: "The process of introducing a phosphate group on to a protein." [GOC:hb]
+synonym: "protein amino acid phosphorylation" EXACT [GOC:bf]
+
+[Term]
+id: GO:0006412
+name: translation
+namespace: biological_process
+def: "The cellular metabolic process in which a protein is formed, using the sequence of a mature mRNA or circRNA molecule to specify the sequence of amino acids in a polypeptide chain. Translation is mediated by the ribosome, and begins with the formation of a ternary complex between aminoacylated initiator methionine tRNA, GTP, and initiation factor 2, which subsequently associates with the small subunit of the ribosome and an mRNA or circRNA. Translation ends with the release of a polypeptide chain from the ribosome." [GOC:curators]
+synonym: "protein translation" EXACT []
+
+[Term]
+id: GO:0006351
+name: DNA-templated transcription
+namespace: biological_process
+def: "The synthesis of an RNA transcript from a DNA template." [GOC:jl, GOC:txnOH]
+synonym: "bacterial transcription" NARROW []
+synonym: "cellular transcription" BROAD []
+synonym: "DNA-dependent transcription" EXACT []
+synonym: "transcription" BROAD []
+synonym: "transcription from bacterial-type RNA polymerase promoter" NARROW []
+synonym: "transcription, DNA-dependent" EXACT [GOC:txnOH]
+synonym: "transcription, DNA-templated" EXACT []
+
+[Term]
+id: GO:0006096
+name: glycolytic process
+namespace: biological_process
+def: "The chemical reactions and pathways resulting in the breakdown of a carbohydrate into pyruvate, with the concomitant production of a small amount of ATP and the reduction of NAD(P) to NAD(P)H. Glycolysis begins with the metabolism of a carbohydrate to generate products that can enter the pathway and ends with the production of pyruvate. Pyruvate may be converted to acetyl-coenzyme A, ethanol, lactate, or other small molecules." [GOC:bf, GOC:dph, ISBN:0201090910, ISBN:0716720094, ISBN:0879010479, Wikipedia:Glycolysis]
+synonym: "anaerobic glycolysis" RELATED []
+synonym: "Embden-Meyerhof pathway" RELATED []
+synonym: "Embden-Meyerhof-Parnas pathway" RELATED []
+synonym: "glycolysis" RELATED [GOC:dph]
+synonym: "modified Embden-Meyerhof pathway" RELATED []
+
+[Term]
+id: GO:0006099
+name: tricarboxylic acid cycle
+namespace: biological_process
+def: "A nearly universal metabolic pathway in which the acetyl group of acetyl coenzyme A is effectively oxidized to two CO2 and four pairs of electrons are transferred to coenzymes. The acetyl group combines with oxaloacetate to form citrate, which undergoes successive transformations to isocitrate, 2-oxoglutarate, succinyl-CoA, succinate, fumarate, malate, and oxaloacetate again, thus completing the cycle. In eukaryotes the tricarboxylic acid is confined to the mitochondria. See also glyoxylate cycle." [ISBN:0198506732]
+synonym: "citric acid cycle" EXACT []
+synonym: "Krebs cycle" EXACT []
+synonym: "oxidative TCA cycle" EXACT []
+synonym: "TCA cycle" EXACT []
+
+[Term]
+id: GO:0006629
+name: lipid metabolic process
+namespace: biological_process
+def: "The chemical reactions and pathways involving lipids, compounds soluble in an organic solvent but not, or sparingly, in an aqueous solvent. Includes fatty acids; neutral fats, other fatty-acid esters, and soaps; long-chain (fatty) alcohols and waxes; sphingoids and other long-chain bases; glycolipids, phospholipids and sphingolipids; and carotenes, polyprenols, sterols, terpenes and other isoprenoids." [GOC:ma]
+synonym: "lipid metabolism" EXACT []
+
+[Term]
+id: GO:0016055
+name: Wnt signaling pathway
+namespace: biological_process
+def: "The series of molecular signals initiated by binding of a Wnt protein to a frizzled family receptor on the surface of a target cell and ending with a change in cell state." [PMID:11532397]
+synonym: "frizzled signaling pathway" EXACT []
+synonym: "frizzled signalling pathway" EXACT []
+synonym: "Wg signaling pathway" EXACT [GOC:sart, PMID:8080429]
+synonym: "Wg signalling pathway" EXACT [GOC:sart, PMID:8080429]
+synonym: "Wingless signaling pathway" EXACT [GOC:sart, PMID:8080429]
+synonym: "Wingless signalling pathway" EXACT [GOC:sart, PMID:8080429]
+synonym: "Wnt receptor signaling pathway" EXACT [GOC:signaling]
+synonym: "Wnt receptor signalling pathway" EXACT []
+synonym: "Wnt-activated signaling pathway" RELATED []
+
+[Term]
+id: GO:0002224
+name: toll-like receptor signaling pathway
+namespace: biological_process
+def: "The series of molecular signals initiated by a ligand binding to a toll-like receptor of a target cell. Toll-like receptors directly bind pattern motifs from a variety of microbial sources to initiate an innate immune response." [GO_REF:0000022, GOC:add, ISBN:0781735149, PMID:12467241, PMID:12524386, PMID:12855817, PMID:15585605, PMID:15728447]
+comment: Note that the vertebrate toll-like receptors, unlike the Drosophila Toll molecule, directly bind their ligands. The Drosophila Toll molecule requires the Sptzle factor to bind microbial ligands and then the receptor in order to initiate innate immune responses.
+synonym: "TLR signaling pathway" EXACT [ISBN:0781735149]
+synonym: "toll-like receptor signalling pathway" EXACT []
+
+[Term]
+id: GO:0006397
+name: mRNA processing
+namespace: biological_process
+def: "Any process involved in the conversion of a primary mRNA transcript into one or more mature mRNA(s) prior to translation into polypeptide." [GOC:mah]
+synonym: "mRNA maturation" RELATED []
+
+[Term]
+id: GO:0008380
+name: RNA splicing
+namespace: biological_process
+def: "The process of removing sections of the primary RNA transcript to remove sequences not present in the mature form of the RNA and joining the remaining sections to form the mature form of the RNA." [GOC:krc, GOC:mah]
+synonym: "pre-mRNA splicing factor activity" RELATED []
+
+[Term]
+id: GO:0006364
+name: rRNA processing
+namespace: biological_process
+def: "Any process involved in the conversion of a primary ribosomal RNA (rRNA) transcript into one or more mature rRNA molecules." [GOC:curators]
+synonym: "35S primary transcript processing" NARROW []
+
+[Term]
+id: GO:0042981
+name: regulation of apoptotic process
+namespace: biological_process
+def: "Any process that modulates the occurrence or rate of cell death by apoptotic process." [GOC:jl, GOC:mtg_apoptosis]
+comment: This term should only be used when it is not possible to determine which phase or subtype of the apoptotic process is regulated by a gene product. Whenever detailed information is available, the more granular children terms should be used.
+synonym: "apoptosis regulator activity" RELATED []
+synonym: "regulation of apoptosis" NARROW []
+
+[Term]
+id: GO:0072331
+name: signal transduction by p53 class mediator
+namespace: biological_process
+def: "An intracellular signaling process that is induced by the cell cycle regulator phosphoprotein p53 or an equivalent protein." [GOC:mah]
+
+[Term]
+id: GO:0006977
+name: obsolete DNA damage response, signal transduction by p53 class mediator resulting in cell cycle arrest
+namespace: biological_process
+def: "OBSOLETE. A cascade of processes induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage and resulting in the stopping or reduction in rate of the cell cycle." [GOC:curators]
+comment: The reason for obsoletion is that this term is about down stream effects, not the signaling pathway itself.
+synonym: "positive regulation of cell cycle arrest by p53-mediated DNA damage response" EXACT [GOC:dph, GOC:mah]
+is_obsolete: true
+
+[Term]
+id: GO:0030330
+name: DNA damage response, signal transduction by p53 class mediator
+namespace: biological_process
+def: "A cascade of processes induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage." [GOC:curators]
+synonym: "DNA damage response, activation of p53" RELATED []
+synonym: "p53 signaling pathway" RELATED [GOC:mah, GOC:vk]
+synonym: "p53-mediated DNA damage response" BROAD []
+synonym: "TP53 signaling pathway" RELATED [GOC:mah, GOC:vk]
+is_a: GO:0072331 ! signal transduction by p53 class mediator
+
+[Term]
+id: GO:0043066
+name: negative regulation of apoptotic process
+namespace: biological_process
+def: "Any process that stops, prevents, or reduces the frequency, rate or extent of cell death by apoptotic process." [GOC:jl, GOC:mtg_apoptosis]
+comment: This term should only be used when it is not possible to determine which phase or subtype of the apoptotic process is negatively regulated by a gene product. Whenever detailed information is available, the more granular children terms should be used.
+synonym: "anti-apoptosis" EXACT []
+synonym: "apoptosis inhibitor activity" RELATED []
+synonym: "down regulation of apoptosis" EXACT []
+synonym: "down-regulation of apoptosis" EXACT []
+synonym: "downregulation of apoptosis" EXACT []
+synonym: "inhibition of apoptosis" NARROW []
+synonym: "negative regulation of apoptosis" NARROW []
+synonym: "pro-survival" RELATED []
+is_a: GO:0042981 ! regulation of apoptotic process
+
+[Term]
+id: GO:0008283
+name: cell population proliferation
+namespace: biological_process
+def: "The multiplication or reproduction of cells, resulting in the expansion of a cell population." [GOC:mah, GOC:mb]
+comment: This term was moved out from being a child of 'cellular process' because it is a cell population-level process, and cellular processes are restricted to those processes that involve individual cells. Also note that this term is intended to be used for the proliferation of cells within a multicellular organism, not for the expansion of a population of single-celled organisms.
+synonym: "cell proliferation" RELATED []
+
+[Term]
+id: GO:0001525
+name: angiogenesis
+namespace: biological_process
+def: "Blood vessel formation when new vessels emerge from the proliferation of pre-existing blood vessels." [ISBN:0878932453]
+synonym: "blood vessel formation from pre-existing blood vessels" EXACT systematic_synonym []

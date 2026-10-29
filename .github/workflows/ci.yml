@@ -16,6 +16,31 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
 
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build sdist and wheel
+        run: |
+          python -m pip install build twine
+          python -m build
+          twine check dist/*
+      - name: Install the wheel into a fresh venv
+        run: |
+          python -m venv /tmp/venv
+          /tmp/venv/bin/pip install dist/*.whl
+      - name: Smoke test (outside the repo, binaries may be missing)
+        working-directory: /tmp
+        run: |
+          /tmp/venv/bin/gta --help
+          /tmp/venv/bin/gta --version
+          # exit code 1 only means external binaries are missing here; the table must still print
+          /tmp/venv/bin/gta doctor | tee doctor.txt || test "${PIPESTATUS[0]}" -eq 1
+          grep -q "gta doctor" doctor.txt
+
   test:
     runs-on: ubuntu-latest
     strategy:

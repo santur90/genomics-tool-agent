@@ -1,0 +1,13 @@
+name: gta
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pip
+  - bcftools
+  - samtools
+  - bwa
+  - wgsim
+  - nextflow
+  - openjdk>=17

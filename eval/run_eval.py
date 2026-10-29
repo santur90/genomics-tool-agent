@@ -2,11 +2,15 @@
 
 from __future__ import annotations
 
+import contextlib
 import json
 import os
 import re
+import shutil
 import statistics
+import tempfile
 import time
+from collections.abc import Iterator
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -14,18 +18,27 @@ from typing import Any
 import yaml
 
 from eval.graders import grade_task
+from eval.judge import calibrate, judge_answer
 from gta.agent import run_agent
-from gta.llm import LLM, MockLLM, OpenAICompatLLM, QuotaExhausted
+from gta.llm import LLM, LLMError, MockLLM, OpenAICompatLLM, QuotaExhausted
 
+TASKS_VERSION = "1.1"
 EVAL_DIR = Path(__file__).resolve().parent
 ROOT = EVAL_DIR.parent
 RESULTS_DIR = EVAL_DIR / "results"
+KNOWLEDGE_FIXTURE = ROOT / "tests" / "fixtures" / "knowledge_mini"
 METRICS = [
     "task_success",
     "tool_selection_accuracy",
     "arg_accuracy",
     "invalid_call_rate",
     "hallucinated_number_rate",
+    "numeric_grounding",
+    "citation_validity",
+    "citation_precision",
+    "citation_recall",
+    "retrieval_used",
+    "judge_support",
     "n_steps",
     "n_duplicate_calls",
     "latency_s",
@@ -44,6 +57,24 @@ def load_truth() -> dict[str, Any]:
         raise SystemExit("Ground-truth files missing; run `make data` first.") from exc
 
 
+@contextlib.contextmanager
+def fixture_knowledge_base() -> Iterator[Path]:
+    """Point the knowledge tools at a private copy of the mini fixture so rag tasks have known answers."""
+    if not KNOWLEDGE_FIXTURE.is_dir():
+        raise SystemExit(f"Knowledge fixture missing: {KNOWLEDGE_FIXTURE}")
+    previous = os.environ.get("GTA_KNOWLEDGE_DIR")
+    with tempfile.TemporaryDirectory(prefix="gta-eval-kb-") as tmp:
+        shutil.copytree(KNOWLEDGE_FIXTURE, tmp, dirs_exist_ok=True)
+        os.environ["GTA_KNOWLEDGE_DIR"] = tmp
+        try:
+            yield Path(tmp)
+        finally:
+            if previous is None:
+                os.environ.pop("GTA_KNOWLEDGE_DIR", None)
+            else:
+                os.environ["GTA_KNOWLEDGE_DIR"] = previous
+
+
 QUOTA_MESSAGE = "daily quota exhausted, rerun with --resume tomorrow"
 PCT_METRICS = {
     "task_success",
@@ -51,13 +82,26 @@ PCT_METRICS = {
     "arg_accuracy",
     "invalid_call_rate",
     "hallucinated_number_rate",
+    "numeric_grounding",
+    "citation_validity",
+    "citation_precision",
+    "citation_recall",
+    "retrieval_used",
+    "judge_support",
 }
+OPTIONAL_METRICS = {"judge_support"}
 HEADERS = {
     "task_success": "success",
     "tool_selection_accuracy": "tool sel.",
     "arg_accuracy": "arg acc.",
     "invalid_call_rate": "invalid calls",
     "hallucinated_number_rate": "halluc. numbers",
+    "numeric_grounding": "num. grounding",
+    "citation_validity": "citation validity",
+    "citation_precision": "citation precision",
+    "citation_recall": "citation recall",
+    "retrieval_used": "retrieval used",
+    "judge_support": "judge support",
     "n_steps": "steps",
     "n_duplicate_calls": "dup. calls",
     "latency_s": "latency (s)",
@@ -90,12 +134,17 @@ def aggregate(rows: list[dict[str, Any]], repeats: int | None = None) -> dict[st
 
     def over_repeats(subset: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
         reps = sorted({r["repeat"] for r in subset})
-        return {
-            m: _mean_sd(
-                [statistics.fmean(r["metrics"].get(m, 0.0) for r in subset if r["repeat"] == k) for k in reps]
-            )
-            for m in METRICS
-        }
+        out: dict[str, dict[str, float]] = {}
+        for m in METRICS:
+            per_repeat = []
+            for k in reps:
+                vals = [r["metrics"].get(m) for r in subset if r["repeat"] == k]
+                vals = [v for v in vals if v is not None]  # None = metric not applicable to that task
+                if vals:
+                    per_repeat.append(statistics.fmean(vals))
+            if per_repeat:
+                out[m] = _mean_sd(per_repeat)
+        return out
 
     cats = sorted({r["category"] for r in rows})
     return {
@@ -112,7 +161,8 @@ def _make_llm(task: dict[str, Any], mock: bool) -> LLM:
 
 
 def _fmt(metric: str, m: dict[str, float] | None) -> str:
-    m = m or {"mean": 0.0, "sd": 0.0}
+    if m is None:
+        return "–"
     if metric in PCT_METRICS:
         return f"{m['mean'] * 100:.0f}±{m['sd'] * 100:.0f}%"
     if metric == "tokens":
@@ -121,33 +171,41 @@ def _fmt(metric: str, m: dict[str, float] | None) -> str:
 
 
 def _table(first_col: str, rows: dict[str, dict[str, dict[str, float]]]) -> list[str]:
+    cols = [m for m in METRICS if m not in OPTIONAL_METRICS or any(m in agg for agg in rows.values())]
     lines = [
-        f"| {first_col} | " + " | ".join(HEADERS[m] for m in METRICS) + " |",
-        "|" + "---|" * (len(METRICS) + 1),
+        f"| {first_col} | " + " | ".join(HEADERS[m] for m in cols) + " |",
+        "|" + "---|" * (len(cols) + 1),
     ]
     for name, agg in rows.items():
-        lines.append(f"| {name} | " + " | ".join(_fmt(m, agg.get(m)) for m in METRICS) + " |")
+        lines.append(f"| {name} | " + " | ".join(_fmt(m, agg.get(m)) for m in cols) + " |")
     return lines
 
 
 def write_summary(results_dir: Path = RESULTS_DIR) -> None:
-    """Render summary.md from the latest result file of every real (non-mock) model."""
-    latest: dict[str, dict[str, Any]] = {}
+    """Render summary.md from the latest result of every real (non-mock) model, one section per tasks version.
+
+    Scores from different task versions are never merged into the same table.
+    """
+    latest: dict[str, dict[str, dict[str, Any]]] = {}
     for f in sorted(results_dir.glob("*.json")):
         if f.name.startswith("mock_"):
             continue
         rep = json.loads(f.read_text())
         if rep.get("model") != "mock":
-            latest[rep["model"]] = rep
+            latest.setdefault(rep.get("tasks_version", "1.0"), {})[rep["model"]] = rep
     if not latest:
         (results_dir / "summary.md").write_text("_No real-model results yet. Run `gta eval --repeats 3`._\n")
         return
-    lines = ["Mean±sd across repeats (per-repeat means).", ""]
-    lines += _table(
-        "model", {f"{m} (n={r['repeats']})": r["aggregate"]["overall"] for m, r in latest.items()}
-    )
-    for model, rep in latest.items():
-        lines += ["", f"### {model}: by category", ""] + _table("category", rep["aggregate"]["by_category"])
+    lines = ["Mean±sd across repeats (per-repeat means). – = metric not applicable to the tasks."]
+    for version in sorted(latest, reverse=True):
+        models = latest[version]
+        lines += ["", f"## Tasks v{version}", ""]
+        lines += _table(
+            "model", {f"{m} (n={r['repeats']})": r["aggregate"]["overall"] for m, r in models.items()}
+        )
+        for model, rep in models.items():
+            lines += ["", f"### {model} (tasks v{version}): by category", ""]
+            lines += _table("category", rep["aggregate"]["by_category"])
     (results_dir / "summary.md").write_text("\n".join(lines) + "\n")
 
 
@@ -162,14 +220,18 @@ def _find_partial(results_dir: Path, slug: str) -> Path | None:
     return candidates[-1] if candidates else None
 
 
-def _finalize(rows: list[dict[str, Any]], model: str, partial: Path, n_tasks: int) -> dict[str, Any]:
+def _finalize(
+    rows: list[dict[str, Any]], model: str, partial: Path, n_tasks: int, judge: dict[str, Any] | None = None
+) -> dict[str, Any]:
     repeats = max((r["repeat"] for r in rows), default=-1) + 1
     report = {
         "model": model,
+        "tasks_version": TASKS_VERSION,
         "date": datetime.now().isoformat(timespec="minutes"),
         "repeats": repeats,
         "n_tasks": n_tasks,
         "n_rows": len(rows),
+        "judge": judge,
         "aggregate": aggregate(rows) if rows else {},
         "tasks": rows,
     }
@@ -188,10 +250,14 @@ def run_eval(
     resume: bool = False,
     results_dir: Path = RESULTS_DIR,
     category: str | None = None,
+    judge: bool = False,
+    judge_llm: LLM | None = None,
 ) -> dict[str, Any]:
     """Run tasks `repeats` times, appending each finished row to a .partial.jsonl; write final JSON + summary at the end.
 
     A fully completed run renames its partial file to .done.jsonl, so only incomplete partials are resumed.
+    With `judge`, an LLM judge is calibrated on eval/judge_calibration.yaml (agreement is reported) and then adds a
+    per-answer `judge_support` metric. Knowledge tools always run against the mini fixture.
     """
     truth, selected = load_truth(), load_tasks(tasks)
     if category:
@@ -206,36 +272,51 @@ def run_eval(
     partial = (
         _find_partial(results_dir, slug) if resume else None
     ) or results_dir / f"{slug}_{datetime.now():%Y%m%d-%H%M}.partial.jsonl"
-    rows = _read_partial(partial)
+    rows = [r for r in _read_partial(partial) if r.get("tasks_version", "1.0") == TASKS_VERSION]
     done = {(r["id"], r["repeat"]) for r in rows}
     quota_hit, failed, ran = False, [], 0
-    try:
-        for k in range(repeats):
-            for task in selected:
-                if (task["id"], k) in done:
-                    continue
-                if ran and sleep:
-                    time.sleep(sleep)
-                ran += 1
-                result = run_agent(task["prompt"], _make_llm(task, mock))
-                if result.stopped == "llm_error":
-                    failed.append(f"{task['id']}#{k}")  # not recorded, so --resume retries it
-                    continue
-                row = {
-                    "id": task["id"],
-                    "category": task["category"],
-                    "repeat": k,
-                    "model": model,
-                    "answer": result.answer,
-                    "tools_called": [c.name for c in result.calls],
-                    "metrics": grade_task(task, result, truth),
-                }
-                with open(partial, "a") as fh:
-                    fh.write(json.dumps(row) + "\n")
-                rows.append(row)
-    except QuotaExhausted:
-        quota_hit = True
-    report = _finalize(rows, model, partial, len(selected))
+    judge_client = (
+        (judge_llm or OpenAICompatLLM(model=os.environ.get("LLM_JUDGE_MODEL") or None)) if judge else None
+    )
+    judge_report = calibrate(judge_client) if judge_client is not None else None
+    with fixture_knowledge_base():
+        try:
+            for k in range(repeats):
+                for task in selected:
+                    if (task["id"], k) in done:
+                        continue
+                    if ran and sleep:
+                        time.sleep(sleep)
+                    ran += 1
+                    result = run_agent(task["prompt"], _make_llm(task, mock))
+                    if result.stopped == "llm_error":
+                        failed.append(f"{task['id']}#{k}")  # not recorded, so --resume retries it
+                        continue
+                    metrics = grade_task(task, result, truth)
+                    if judge_client is not None:
+                        evidence = json.dumps([c.result for c in result.calls])
+                        try:
+                            metrics["judge_support"] = judge_answer(judge_client, result.answer, evidence)
+                        except LLMError:
+                            metrics["judge_support"] = None
+                    row = {
+                        "id": task["id"],
+                        "category": task["category"],
+                        "repeat": k,
+                        "model": model,
+                        "tasks_version": TASKS_VERSION,
+                        "termination_reason": result.termination_reason,
+                        "answer": result.answer,
+                        "tools_called": [c.name for c in result.calls],
+                        "calls": [c.to_log() for c in result.calls],
+                        "metrics": metrics,
+                    }
+                    with open(partial, "a") as fh:
+                        fh.write(json.dumps(row) + "\n")
+                    rows.append(row)
+        except QuotaExhausted:
+            quota_hit = True
+    report = _finalize(rows, model, partial, len(selected), judge_report)
     done = {(r["id"], r["repeat"]) for r in rows}
     complete = (
         not quota_hit and not failed and all((t["id"], k) in done for t in selected for k in range(repeats))
@@ -262,12 +343,19 @@ def main() -> None:
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--tasks")
     ap.add_argument("--category")
+    ap.add_argument("--judge", action="store_true")
     a = ap.parse_args()
     load_env()
     if a.model:
         os.environ["LLM_MODEL"] = a.model
     report = run_eval(
-        mock=a.mock, repeats=a.repeats, tasks=a.tasks, sleep=a.sleep, resume=a.resume, category=a.category
+        mock=a.mock,
+        repeats=a.repeats,
+        tasks=a.tasks,
+        sleep=a.sleep,
+        resume=a.resume,
+        category=a.category,
+        judge=a.judge,
     )
     if report["quota_exhausted"]:
         print(QUOTA_MESSAGE)

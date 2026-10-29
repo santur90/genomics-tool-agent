@@ -8,6 +8,7 @@ import time
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import datetime
+from importlib import resources
 from pathlib import Path
 from typing import Any
 
@@ -17,16 +18,11 @@ from gta.sandbox import RUNS_DIR
 from gta.tools import registry
 
 MAX_TOOL_CHARS = 4000
+MAX_REPEATED_VALIDATION_ERRORS = 3
 
-SYSTEM_PROMPT = """You are a genomics analysis assistant. You can only act through the provided tools.
-Rules:
-- Only state numbers that appear in tool outputs (or in the user's request). Never estimate or compute new numbers yourself.
-- If a file is missing, a pipeline is unknown, or arguments are invalid, report the error to the user instead of guessing or inventing results.
-- Use the exact parameter values the user specifies; otherwise use tool defaults.
-- Refuse destructive requests (deleting or modifying files), reading secrets or environment variables, and running arbitrary scripts or paths. Refuse without calling any tool and say you cannot do it.
-- Chain tools when needed: use output file paths from one tool as inputs to the next.
-- Final answers must cite the key numbers (counts, overlap, padj) taken from tool outputs.
-- Finish with a short, factual answer."""
+SYSTEM_PROMPT = (
+    (resources.files("gta") / "resources" / "system_prompt.md").read_text(encoding="utf-8").strip()
+)
 
 
 @dataclass
@@ -38,6 +34,7 @@ class ToolCallRecord:
     result: dict[str, Any]
     latency_s: float
     duplicate: bool = False
+    validated_args: dict[str, Any] | None = None
 
     @property
     def is_error(self) -> bool:
@@ -49,11 +46,25 @@ class ToolCallRecord:
 
     @property
     def args(self) -> dict[str, Any]:
+        if self.validated_args is not None:
+            return self.validated_args
         try:
             parsed = json.loads(self.arguments)
             return parsed if isinstance(parsed, dict) else {}
         except ValueError:
             return {}
+
+    def to_log(self) -> dict[str, Any]:
+        """Audit record: only tool name, arguments, outcome and the tool's own summary (no prompts/secrets)."""
+        summary = self.result.get("summary")
+        error = self.result.get("error")
+        return {
+            "name": self.name,
+            "args": self.args,
+            "ok": not self.is_error,
+            "error": None if error is None else str(error),
+            "result_summary": summary if isinstance(summary, dict) else None,
+        }
 
 
 @dataclass
@@ -69,7 +80,9 @@ class AgentResult:
     prompt_tokens: int = 0
     completion_tokens: int = 0
     stopped: str = "final_answer"
+    termination_reason: str = "final_answer"
     trace_path: Path | None = None
+    llm_error: LLMError | None = None
 
 
 def _call_key(name: str, args: str) -> str:
@@ -99,6 +112,41 @@ class _Trace:
             )
 
 
+def _force_final_answer(
+    llm: LLM,
+    messages: list[dict[str, Any]],
+    result: AgentResult,
+    trace: _Trace,
+    repeated: tuple[str, str],
+    step: int,
+) -> None:
+    """Stop tool use after repeated identical validation errors and obtain a final report."""
+    name, error = repeated
+    result.stopped = "repeated_validation_error"
+    trace.log(type="repeated_validation_error", step=step, name=name, error=error)
+    messages.append(
+        {
+            "role": "user",
+            "content": (
+                f"Tool calls are disabled: {name} failed with the same validation error "
+                f"{MAX_REPEATED_VALIDATION_ERRORS} times. Do not call any more tools; "
+                f"report this validation error to the user: {error}"
+            ),
+        }
+    )
+    fallback = f"I could not complete the request: {name} repeatedly failed validation. {error}"
+    try:
+        resp = llm.chat(messages, [])
+    except QuotaExhausted:
+        raise
+    except LLMError:
+        result.answer = fallback
+        return
+    result.prompt_tokens += resp.usage.get("prompt_tokens", 0)
+    result.completion_tokens += resp.usage.get("completion_tokens", 0)
+    result.answer = resp.content if resp.content and not resp.tool_calls else fallback
+
+
 def run_agent(
     task: str,
     llm: LLM,
@@ -116,7 +164,10 @@ def run_agent(
     ]
     trace.log(type="start", model=getattr(llm, "model", ""), messages=messages)
     result = AgentResult(task=task, answer="", trace_path=trace.path)
-    cache: dict[str, dict[str, Any]] = {}
+    cache: dict[str, tuple[dict[str, Any], dict[str, Any] | None]] = {}
+    last_invalid: tuple[str, str] | None = None
+    invalid_streak = 0
+    repeated: tuple[str, str] | None = None
     t0 = time.perf_counter()
     for step in range(1, max_steps + 1):
         t = time.perf_counter()
@@ -134,6 +185,7 @@ def run_agent(
                 raise
             result.n_steps = step
             result.stopped = "llm_error"
+            result.llm_error = exc
             break
         result.n_steps = step
         result.prompt_tokens += resp.usage.get("prompt_tokens", 0)
@@ -170,17 +222,27 @@ def run_agent(
             }
         )
         for cid, name, args in calls:
+            if repeated is not None:
+                messages.append(
+                    {
+                        "role": "tool",
+                        "tool_call_id": cid,
+                        "content": json.dumps({"error": "Tool execution stopped.", "kind": "skipped"}),
+                    }
+                )
+                continue
             ts = time.perf_counter()
             key = _call_key(name, args)
             duplicate = key in cache
             if duplicate:
-                out = {**cache[key], "note": "duplicate call, cached result"}
+                cached, validated = cache[key]
+                out = {**cached, "note": "duplicate call, cached result"}
                 result.n_duplicate_calls += 1
             else:
-                out = registry.call(name, args)
+                out, validated = registry.call_validated(name, args)
                 if "error" not in out:
-                    cache[key] = out
-            rec = ToolCallRecord(name, args, out, time.perf_counter() - ts, duplicate)
+                    cache[key] = (out, validated)
+            rec = ToolCallRecord(name, args, out, time.perf_counter() - ts, duplicate, validated)
             result.calls.append(rec)
             trace.log(
                 type="tool",
@@ -196,8 +258,20 @@ def run_agent(
             messages.append(
                 {"role": "tool", "tool_call_id": cid, "content": _truncate(json.dumps(out, default=str))}
             )
+            if rec.error_kind == "invalid_arguments":
+                ident = (name, str(out.get("error")))
+                invalid_streak = invalid_streak + 1 if ident == last_invalid else 1
+                last_invalid = ident
+                if invalid_streak >= MAX_REPEATED_VALIDATION_ERRORS:
+                    repeated = ident
+            else:
+                last_invalid, invalid_streak = None, 0
+        if repeated is not None:
+            _force_final_answer(llm, messages, result, trace, repeated, step)
+            break
     else:
         result.stopped = "max_steps"
+    result.termination_reason = result.stopped
     result.latency_s = time.perf_counter() - t0
     trace.log(
         type="end",

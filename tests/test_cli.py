@@ -5,7 +5,7 @@ from typer.testing import CliRunner
 
 import eval.run_eval as run_eval_mod
 from gta import cli
-from gta.llm import MockLLM
+from gta.llm import LLMError, MockLLM, QuotaExhausted
 
 runner = CliRunner()
 
@@ -90,6 +90,7 @@ def test_eval_forwards_options_and_reports(monkeypatch):
         "sleep": 1.5,
         "resume": True,
         "category": "safety",
+        "judge": False,
     }
     assert os.environ["LLM_MODEL"] == "abc"
     assert "success=0.80" in res.output and "Results written" in res.output
@@ -120,3 +121,49 @@ def test_print_event_styles_errors_and_answers(capsys):
     cli._print_event({"type": "answer", "content": "final words"})
     out = capsys.readouterr().out
     assert "bad" in out and "final words" in out
+
+
+class _FailingLLM:
+    model = "fake"
+
+    def __init__(self, exc):
+        self.exc = exc
+
+    def chat(self, messages, tools):
+        raise self.exc
+
+
+def _fail_with(monkeypatch, exc):
+    monkeypatch.setattr(cli, "OpenAICompatLLM", lambda: _FailingLLM(exc))
+
+
+def test_run_quota_exhausted_exits_2_with_one_line_message(monkeypatch):
+    _fail_with(monkeypatch, QuotaExhausted("4006 daily free allocation"))
+    res = runner.invoke(cli.app, ["run", "task"])
+    assert res.exit_code == 2
+    assert "LLM daily quota exhausted (provider 429)" in res.output
+    assert "Traceback" not in res.output
+
+
+def test_run_other_llm_error_exits_1_without_traceback(monkeypatch):
+    _fail_with(monkeypatch, LLMError("HTTP 503 after retries"))
+    res = runner.invoke(cli.app, ["run", "task"])
+    assert res.exit_code == 1
+    assert "HTTP 503 after retries" in res.output and "Traceback" not in res.output
+
+
+@pytest.mark.parametrize("exc_type", [QuotaExhausted, LLMError])
+def test_run_debug_reraises(monkeypatch, exc_type):
+    _fail_with(monkeypatch, exc_type("boom"))
+    res = runner.invoke(cli.app, ["run", "task", "--debug"])
+    assert isinstance(res.exception, exc_type)
+
+
+def test_eval_judge_flag_reports_calibration_agreement(monkeypatch):
+    got = {}
+    judge = {"agreement": 0.5, "n": 10, "disagreements": ["c02"], "trusted": False}
+    _patch_eval(monkeypatch, _fake_report(judge=judge), got)
+    res = runner.invoke(cli.app, ["eval", "--judge"])
+    assert res.exit_code == 0, res.output
+    assert got["judge"] is True
+    assert "Judge agreement with hand labels: 50% on 10 answers" in res.output and "NOT trusted" in res.output

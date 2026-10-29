@@ -57,9 +57,9 @@ def test_duplicate_successful_call_is_cached(tmp_path, monkeypatch):
 
     def fake_call(name, args):
         executed.append((name, args))
-        return {"summary": {"n": 1}, "outputs": {}}
+        return {"summary": {"n": 1}, "outputs": {}}, {}
 
-    monkeypatch.setattr(agent.registry, "call", fake_call)
+    monkeypatch.setattr(agent.registry, "call_validated", fake_call)
     llm = MockLLM.from_calls(
         [
             {"name": "inspect_file", "arguments": {"path": "a", "x": 1}},

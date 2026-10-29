@@ -4,6 +4,7 @@ PYTHON ?= python
 
 data:
 	$(PYTHON) data/make_test_data.py
+	$(PYTHON) data/make_real_data.py
 	bash data/make_variant_data.sh
 
 test:

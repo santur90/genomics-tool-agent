@@ -8,11 +8,11 @@ from pathlib import Path
 from typing import Any
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 
 from gta import sandbox
 from gta.sandbox import ToolError
-from gta.tools.registry import tool
+from gta.tools.registry import ToolInput, tool
 
 PACKAGE_RESOURCES = Path(str(resources.files("gta") / "resources"))
 PACKAGED_CONFIG = PACKAGE_RESOURCES / "pipelines.yaml"
@@ -20,7 +20,7 @@ PROJECT_CONFIG = sandbox.PROJECT_ROOT / "config" / "pipelines.yaml"
 _PARAM_KEY = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
 
-class NextflowInput(BaseModel):
+class NextflowInput(ToolInput):
     """Arguments for run_nextflow."""
 
     model_config = ConfigDict(extra="forbid")

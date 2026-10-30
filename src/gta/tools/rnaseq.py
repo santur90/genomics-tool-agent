@@ -8,15 +8,15 @@ import warnings
 from typing import Any
 
 import pandas as pd
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 
 from gta import sandbox
 from gta.sandbox import ToolError
 from gta.tools.files import read_table
-from gta.tools.registry import tool
+from gta.tools.registry import ToolInput, tool
 
 
-class DESeq2Input(BaseModel):
+class DESeq2Input(ToolInput):
     """Arguments for run_deseq2."""
 
     model_config = ConfigDict(extra="forbid")

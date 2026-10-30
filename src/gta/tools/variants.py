@@ -6,16 +6,16 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import ConfigDict, Field, field_validator
 
 from gta import sandbox
 from gta.sandbox import ToolError
-from gta.tools.registry import tool
+from gta.tools.registry import ToolInput, tool
 
 _QUERY_FMT = "%CHROM\t%POS\t%REF\t%ALT\t%QUAL\t%INFO/DP\n"
 
 
-class CallVariantsInput(BaseModel):
+class CallVariantsInput(ToolInput):
     """Arguments for call_variants."""
 
     model_config = ConfigDict(extra="forbid")
@@ -24,7 +24,7 @@ class CallVariantsInput(BaseModel):
     min_qual: float = Field(20.0, ge=0, description="Minimum variant QUAL to keep")
 
 
-class FilterVCFInput(BaseModel):
+class FilterVCFInput(ToolInput):
     """Arguments for filter_vcf."""
 
     model_config = ConfigDict(extra="forbid")
@@ -44,7 +44,7 @@ class FilterVCFInput(BaseModel):
         return v
 
 
-class SummarizeVCFInput(BaseModel):
+class SummarizeVCFInput(ToolInput):
     """Arguments for summarize_vcf."""
 
     model_config = ConfigDict(extra="forbid")

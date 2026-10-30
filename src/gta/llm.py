@@ -133,9 +133,10 @@ class OpenAICompatLLM:
         retries: list[dict[str, Any]] = []
         for attempt in range(MAX_RETRIES + 1):
             try:
-                resp = self.client.chat.completions.create(
-                    model=self.model, messages=messages, tools=tools, tool_choice="auto", temperature=0
-                )
+                kwargs: dict[str, Any] = {"model": self.model, "messages": messages, "temperature": 0}
+                if tools:  # some providers reject an empty tools list
+                    kwargs.update(tools=tools, tool_choice="auto")
+                resp = self.client.chat.completions.create(**kwargs)
                 return resp, retries
             except Exception as exc:
                 if is_quota_error(exc):

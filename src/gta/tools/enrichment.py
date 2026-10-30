@@ -7,16 +7,16 @@ import re
 from typing import Any
 
 import numpy as np
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import ConfigDict, Field, field_validator
 from scipy.stats import hypergeom
 
 from gta import sandbox
 from gta.sandbox import ToolError
 from gta.tools.files import read_table
-from gta.tools.registry import tool
+from gta.tools.registry import ToolInput, tool
 
 
-class ORAInput(BaseModel):
+class ORAInput(ToolInput):
     """Arguments for run_ora."""
 
     model_config = ConfigDict(extra="forbid")

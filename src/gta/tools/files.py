@@ -6,14 +6,14 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 
 from gta import sandbox
 from gta.sandbox import ToolError
-from gta.tools.registry import tool
+from gta.tools.registry import ToolInput, tool
 
 
-class InspectFileInput(BaseModel):
+class InspectFileInput(ToolInput):
     """Arguments for inspect_file."""
 
     model_config = ConfigDict(extra="forbid")

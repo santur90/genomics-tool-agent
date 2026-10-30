@@ -3,13 +3,41 @@
 from __future__ import annotations
 
 import json
+import types
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Union, get_args, get_origin
 
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel, ValidationError, model_validator
 
 from gta.sandbox import ToolError
+
+_NULL_STRINGS = {"", "null", "none"}
+
+
+def _is_optional(annotation: Any) -> bool:
+    return get_origin(annotation) in (Union, types.UnionType) and type(None) in get_args(annotation)
+
+
+class ToolInput(BaseModel):
+    """Base for tool input models: null-like strings become None for optional fields."""
+
+    @model_validator(mode="before")
+    @classmethod
+    def _null_strings_to_none(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        out = dict(data)
+        for name, field in cls.model_fields.items():
+            v = out.get(name)
+            if (
+                isinstance(v, str)
+                and not field.is_required()
+                and _is_optional(field.annotation)
+                and v.strip().lower() in _NULL_STRINGS
+            ):
+                out[name] = None
+        return out
 
 
 @dataclass(frozen=True)

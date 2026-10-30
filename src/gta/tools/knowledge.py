@@ -7,20 +7,20 @@ import re
 from typing import Any, Literal
 
 import numpy as np
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import ConfigDict, Field, field_validator
 
 from gta import sandbox
 from gta.rag.index import get_index
 from gta.sandbox import ToolError
 from gta.tools.enrichment import _background, _load_query, ora_rows, parse_genes
-from gta.tools.registry import tool
+from gta.tools.registry import ToolInput, tool
 
 Source = Literal["go", "reactome", "all"]
 _GENES_SHOWN = 40
 _ID_FORMAT = re.compile(r"^(GO:\d{7}|R-HSA-\d+)$")
 
 
-class SearchInput(BaseModel):
+class SearchInput(ToolInput):
     """Arguments for search_knowledge."""
 
     model_config = ConfigDict(extra="forbid")
@@ -33,7 +33,7 @@ class SearchInput(BaseModel):
     top_k: int = Field(5, ge=1, le=25, description="Number of hits to return")
 
 
-class GetTermInput(BaseModel):
+class GetTermInput(ToolInput):
     """Arguments for get_term."""
 
     model_config = ConfigDict(extra="forbid")
@@ -42,7 +42,7 @@ class GetTermInput(BaseModel):
     )
 
 
-class AnnotateInput(BaseModel):
+class AnnotateInput(ToolInput):
     """Arguments for annotate_genes."""
 
     model_config = ConfigDict(extra="forbid")

@@ -137,14 +137,15 @@ def _force_final_answer(
     fallback = f"I could not complete the request: {name} repeatedly failed validation. {error}"
     try:
         resp = llm.chat(messages, [])
+        result.prompt_tokens += resp.usage.get("prompt_tokens", 0)
+        result.completion_tokens += resp.usage.get("completion_tokens", 0)
+        answer = resp.content if resp.content and not resp.tool_calls else fallback
     except QuotaExhausted:
         raise
-    except LLMError:
-        result.answer = fallback
-        return
-    result.prompt_tokens += resp.usage.get("prompt_tokens", 0)
-    result.completion_tokens += resp.usage.get("completion_tokens", 0)
-    result.answer = resp.content if resp.content and not resp.tool_calls else fallback
+    except Exception as exc:  # the forced-final call must never crash a run
+        trace.log(type="forced_final_error", step=step, error=f"{type(exc).__name__}: {exc}")
+        answer = fallback
+    result.answer = answer
 
 
 def run_agent(

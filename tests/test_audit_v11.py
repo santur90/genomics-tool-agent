@@ -203,3 +203,93 @@ def test_summary_never_merges_versions(tmp_path):
     write_summary(tmp_path)
     text = (tmp_path / "summary.md").read_text()
     assert "## Tasks v1.1" in text and "## Tasks v1.0" in text
+
+
+# ---- provider compatibility / robustness ----
+
+
+@pytest.mark.parametrize("tools", [[], None])
+def test_empty_tools_omits_tools_and_tool_choice(monkeypatch, tools):
+    from types import SimpleNamespace
+
+    from gta.llm import OpenAICompatLLM
+
+    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL"):
+        monkeypatch.setenv(k, "x")
+    sent = {}
+
+    def create(**kw):
+        sent.update(kw)
+        msg = SimpleNamespace(content="hi", tool_calls=None)
+        return SimpleNamespace(choices=[SimpleNamespace(message=msg)], usage=None)
+
+    llm = OpenAICompatLLM()
+    llm.client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
+    llm.chat([{"role": "user", "content": "q"}], tools)
+    assert "tools" not in sent and "tool_choice" not in sent
+    llm.chat([{"role": "user", "content": "q"}], [{"type": "function"}])
+    assert sent["tools"] and sent["tool_choice"] == "auto"
+
+
+def test_forced_final_arbitrary_exception_uses_fallback(tmp_path):
+    bad = {"tool_calls": [{"name": "filter_vcf", "arguments": {"min_qual": 1}}]}
+
+    class Flaky(MockLLM):
+        def chat(self, messages, tools):
+            if not tools:
+                raise RuntimeError("provider exploded")
+            return super().chat(messages, tools)
+
+    res = run_agent("p", Flaky([bad] * 5), max_steps=10, trace_dir=tmp_path)
+    assert res.termination_reason == "repeated_validation_error"
+    assert res.answer.startswith("I could not complete the request: filter_vcf repeatedly failed validation.")
+    events = [json.loads(line)["type"] for line in (tmp_path / "trace.jsonl").read_text().splitlines()]
+    assert "forced_final_error" in events
+
+
+def test_forced_final_quota_still_propagates(tmp_path):
+    from gta.llm import QuotaExhausted
+
+    bad = {"tool_calls": [{"name": "filter_vcf", "arguments": {"min_qual": 1}}]}
+
+    class Quota(MockLLM):
+        def chat(self, messages, tools):
+            if not tools:
+                raise QuotaExhausted("q", [])
+            return super().chat(messages, tools)
+
+    with pytest.raises(QuotaExhausted):
+        run_agent("p", Quota([bad] * 5), max_steps=10, trace_dir=tmp_path)
+
+
+# ---- null-like strings for optional fields ----
+
+
+def test_run_ora_null_strings_behave_like_omitted():
+    from gta.tools.enrichment import ORAInput
+
+    nulls = ORAInput.model_validate(
+        {"gmt": "g.gmt", "background_size": "null", "de_results": " None ", "genes": "null", "universe": ""}
+    )
+    assert nulls == ORAInput.model_validate({"gmt": "g.gmt"})
+    assert nulls.genes is None and nulls.de_results is None and nulls.background_size is None
+
+
+def test_null_strings_not_applied_to_required_or_plain_string_fields():
+    from gta.tools.enrichment import ORAInput
+
+    with pytest.raises(ValidationError):
+        ORAInput.model_validate({})
+    assert ORAInput.model_validate({"gmt": "null"}).gmt == "null"  # required str untouched
+    from gta.tools.rnaseq import DESeq2Input
+
+    assert DESeq2Input.model_validate(
+        {"counts": "c", "metadata": "m", "design_factor": "none", "ref_level": ""}
+    ).design_factor == "none"
+
+
+def test_run_ora_null_strings_via_registry():
+    from gta.tools import registry
+
+    out = registry.call("run_ora", {"gmt": "nope.gmt", "background_size": "null", "genes": "null"})
+    assert out["kind"] == "tool_error"  # validated; failed later on the missing file, not on arguments

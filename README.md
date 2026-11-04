@@ -101,8 +101,8 @@ Any OpenAI-compatible endpoint that supports **tool calling** works. Configurati
 
 ```bash
 # .env  (never commit this file)
-LLM_BASE_URL=https://api.cloudflare.com/client/v4/accounts/<ACCOUNT_ID>/ai/v1
-LLM_API_KEY=<API_TOKEN>
+LLM_BASE_URL=https://api.cloudflare.com/client/v4/accounts/YOUR_ACCOUNT_ID/ai/v1
+LLM_API_KEY=YOUR_API_TOKEN
 LLM_MODEL=@cf/meta/llama-3.3-70b-instruct-fp8-fast
 ```
 

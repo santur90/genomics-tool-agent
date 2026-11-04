@@ -144,7 +144,7 @@ Answers must cite ids returned by a tool. The system prompt tells the model neve
 
 - The retrieval store holds one document per Reactome pathway and per GO term, indexed with BM25. An optional embedding backend is available behind the `[rag]` extra.
 - Tests and the benchmark use a small pinned fixture (`tests/fixtures/knowledge_mini`) so they run offline.
-- For the full knowledge base, download the files with the fetch module (`src/gta/rag/fetch.py`); files are cached under `~/.cache/gta/knowledge` (override with `GTA_KNOWLEDGE_DIR`). Downloaded data is never committed.
+- For the full knowledge base, download with gta fetch-knowledge; files are cached under `~/.cache/gta/knowledge` (override with `GTA_KNOWLEDGE_DIR`). Downloaded data is never committed.
 
 ```bash
 gta fetch-knowledge

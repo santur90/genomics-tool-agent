@@ -27,7 +27,6 @@ _NUM = re.compile(r"(?<![\w.])-?\d+(?:,\d{3})*(?:\.\d+)?(?:[eE][-+]?\d+)?(?![\w]
 _LIST_MARKER = re.compile(r"(?m)^\s*(?:\d+[.)]|[-*])\s+")
 _ID = re.compile(r"\b(?:GO:\d{7}|R-HSA-\d+)\b")
 _IDLIKE = re.compile(r"\b(?:GO:\d+|R-HSA-\d+)\b")
-_TOKEN_WITH_DIGITS = re.compile(r"\b[A-Za-z][A-Za-z0-9]*[_-]\d+\b")  # GENE_0076, patient_001, SET_02
 
 # error text that means "the thing you asked for is not there"
 NOT_FOUND = re.compile(
@@ -69,9 +68,21 @@ class VerifyReport:
 # ---------------------------------------------------------------- number handling
 
 
+_SLASH_TOKEN = re.compile(r"[^\s\"'`()\[\],;]*/[^\s\"'`()\[\],;]*")
+# multi-segment identifiers such as filtervcf-20261029-161342-7579, GENE_0076, SET_02, patient_001
+_MULTI_ID = re.compile(r"\b[A-Za-z][A-Za-z0-9]*(?:[_-][A-Za-z0-9]+)*[_-]\d+(?:[_-][A-Za-z0-9]+)*\b")
+
+
+def _drop_path(m: re.Match) -> str:
+    tok = m.group(0)
+    # keep ratios such as 40/50; drop anything path-like (contains a letter)
+    return " " if re.search(r"[A-Za-z]", tok) else tok
+
+
 def _clean_for_numbers(text: str) -> str:
+    text = _SLASH_TOKEN.sub(_drop_path, text)
     text = _IDLIKE.sub(" ", text)
-    text = _TOKEN_WITH_DIGITS.sub(" ", text)
+    text = _MULTI_ID.sub(" ", text)
     return _LIST_MARKER.sub("", text)
 
 

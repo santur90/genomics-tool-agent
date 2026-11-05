@@ -158,3 +158,20 @@ def test_verifier_has_no_access_to_eval_or_task_files():
     src = Path(verify_mod.__file__).read_text()
     for forbidden in ("import eval", "from eval", "import yaml", "tasks.yaml", "graders", "expected"):
         assert forbidden not in src.replace('"""', "").split("from __future__")[1], forbidden
+
+
+def test_run_directory_paths_are_not_numbers():
+    calls = [_ok("filter_vcf", {}, {"n_output": 10})]
+    ans = "Output: /Users/q/Documents/Github/genomics-tool-agent/runs/work/filtervcf-20261029-161342-7579/filtered.vcf.gz (10 records)."
+    assert not verify("q", calls, ans).flagged
+
+
+def test_ratios_like_overlap_are_still_checked():
+    calls = [_ok("run_ora", {}, None, '{"overlap": 40, "set_size": 50}')]
+    assert not verify("q", calls, "Overlap 40/50.").flagged
+    assert verify("q", calls, "Overlap 41/50.").flagged
+
+
+def test_real_unsupported_number_next_to_a_path_is_still_flagged():
+    calls = [_ok("filter_vcf", {}, {"n_output": 10})]
+    assert verify("q", calls, "Wrote runs/work/filtervcf-20261029-1/out.vcf.gz with 999 records.").flagged

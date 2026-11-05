@@ -416,6 +416,13 @@ def run_eval(
     model = "mock" if mock else os.environ.get("LLM_MODEL", "")
     if not model:
         raise SystemExit("LLM_MODEL is not set (use --model or .env).")
+    verifier_mode = (os.environ.get("GTA_VERIFIER") or "off").strip().lower()
+    if verifier_mode not in {"off", "rules"}:
+        raise SystemExit(f"GTA_VERIFIER must be 'off' or 'rules', got {verifier_mode!r}")
+    if verifier_mode != "off":
+        if mock:
+            raise SystemExit("--mock cannot be combined with GTA_VERIFIER (scripted answers have no revision step).")
+        model = f"{model} +verifier-{verifier_mode}"  # separate rows, progress file and summary entry
     slug = re.sub(r"[^\w.-]+", "_", model)
     results_dir.mkdir(parents=True, exist_ok=True)
     partial = (
@@ -457,6 +464,12 @@ def run_eval(
                         "tasks_version": TASKS_VERSION,
                         "knowledge_store": store_identity,
                         "termination_reason": result.termination_reason,
+                        "verifier": getattr(result, "verifier", "off"),
+                        "verifier_issues": getattr(result, "verifier_issues", []),
+                        "verifier_issues_after": getattr(result, "verifier_issues_after", []),
+                        "answer_before_revision": getattr(result, "answer_before_revision", None),
+                        "n_revisions": getattr(result, "n_revisions", 0),
+                        "extra_llm_calls": getattr(result, "extra_llm_calls", 0),
                         "answer": result.answer,
                         "tools_called": [c.name for c in result.calls],
                         "calls": [c.to_log() for c in result.calls],

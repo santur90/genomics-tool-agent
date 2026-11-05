@@ -86,6 +86,13 @@ class AgentResult:
     termination_reason: str = "final_answer"
     trace_path: Path | None = None
     llm_error: LLMError | None = None
+    messages: list[dict[str, Any]] = field(default_factory=list, repr=False)
+    verifier: str = "off"
+    verifier_issues: list[str] = field(default_factory=list)
+    verifier_issues_after: list[str] = field(default_factory=list)
+    answer_before_revision: str | None = None
+    n_revisions: int = 0
+    extra_llm_calls: int = 0
 
 
 def _call_key(name: str, args: str) -> str:
@@ -173,21 +180,23 @@ def _force_final_answer(
     result.answer = answer
 
 
-def run_agent(
+def _run_loop(
     task: str,
     llm: LLM,
     max_steps: int = 8,
     trace_dir: Path | None = None,
     on_event: Callable[[dict[str, Any]], None] | None = None,
+    _messages: list[dict[str, Any]] | None = None,
 ) -> AgentResult:
     """Run the tool-calling loop until a final answer or max_steps."""
     trace = _Trace(trace_dir)
     emit = on_event or (lambda e: None)
     specs = registry.openai_tool_specs()
-    messages: list[dict[str, Any]] = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": task},
-    ]
+    messages: list[dict[str, Any]] = (
+        list(_messages)
+        if _messages is not None
+        else [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": task}]
+    )
     trace.log(type="start", model=getattr(llm, "model", ""), messages=messages)
     result = AgentResult(task=task, answer="", trace_path=trace.path)
     cache: dict[str, tuple[dict[str, Any], dict[str, Any] | None]] = {}
@@ -298,6 +307,7 @@ def run_agent(
     else:
         result.stopped = "max_steps"
     result.termination_reason = result.stopped
+    result.messages = messages
     result.latency_s = time.perf_counter() - t0
     trace.log(
         type="end",
@@ -307,3 +317,113 @@ def run_agent(
         answer=result.answer,
     )
     return result
+
+
+# ---------------------------------------------------------------- optional verifier stage
+
+REVISION_PROMPT = (
+    "Your answer has these problems:\n{issues}\n"
+    "Correct the answer using only the tool results above. If an input the user specified was "
+    "unavailable, say so explicitly and name it; do not silently use a different input and do not "
+    "invent results. If you cannot complete the task, explain why."
+)
+MAX_REVISION_STEPS = 3
+
+
+def _record_to_call(rec: Any) -> dict[str, Any]:
+    """ToolCallRecord -> the plain dict the verifier reads (name, args, ok, error, result_text)."""
+    import dataclasses
+
+    if dataclasses.is_dataclass(rec):
+        vals = [getattr(rec, f.name) for f in dataclasses.fields(rec)]
+        name, raw_args, out, validated = vals[0], vals[1], vals[2], vals[5]  # constructor order
+    else:  # pragma: no cover - fallback if the record is not a dataclass
+        name, raw_args, out, validated = rec.name, rec.args, rec.out, rec.validated
+    if isinstance(validated, dict):
+        args = validated
+    else:
+        try:
+            args = json.loads(raw_args) if isinstance(raw_args, str) else dict(raw_args or {})
+        except ValueError:
+            args = {}
+    ok = "error" not in out
+    return {
+        "name": name,
+        "args": args,
+        "ok": ok,
+        "error": None if ok else str(out.get("error")),
+        "result_text": json.dumps(out, default=str)[:20000] if ok else None,
+    }
+
+
+def _verify_and_revise(
+    task: str,
+    llm: LLM,
+    result: AgentResult,
+    max_steps: int,
+    trace_dir: Path | None,
+    on_event: Callable[[dict[str, Any]], None] | None,
+) -> AgentResult:
+    from gta.verify import format_issues, verify
+
+    if result.stopped == "llm_error":
+        return result
+    report = verify(task, [_record_to_call(r) for r in result.calls], result.answer)
+    result.verifier_issues = report.types
+    result.verifier_issues_after = report.types
+    if not report.flagged:
+        return result
+
+    messages = list(result.messages)
+    if not messages or messages[-1].get("role") != "assistant":
+        messages.append({"role": "assistant", "content": result.answer or "(no final answer was produced)"})
+    messages.append({"role": "user", "content": REVISION_PROMPT.format(issues=format_issues(report))})
+    try:
+        rev = _run_loop(task, llm, MAX_REVISION_STEPS, trace_dir, on_event, _messages=messages)
+    except QuotaExhausted:
+        raise
+    except LLMError:  # keep the first answer if the revision call fails
+        return result
+    if rev.stopped == "llm_error":
+        return result
+
+    result.answer_before_revision = result.answer
+    result.n_revisions = 1
+    result.extra_llm_calls = rev.n_steps
+    result.calls.extend(rev.calls)
+    result.n_steps += rev.n_steps
+    result.n_duplicate_calls += rev.n_duplicate_calls
+    result.prompt_tokens += rev.prompt_tokens
+    result.completion_tokens += rev.completion_tokens
+    result.latency_s += rev.latency_s
+    result.answer = rev.answer
+    result.stopped = rev.stopped
+    result.termination_reason = rev.termination_reason
+    result.messages = rev.messages
+    after = verify(task, [_record_to_call(r) for r in result.calls], result.answer)
+    result.verifier_issues_after = after.types
+    return result
+
+
+def run_agent(
+    task: str,
+    llm: LLM,
+    max_steps: int = 8,
+    trace_dir: Path | None = None,
+    on_event: Callable[[dict[str, Any]], None] | None = None,
+    verifier: str | None = None,
+) -> AgentResult:
+    """Run the tool-calling loop; optionally verify the answer and allow ONE revision round.
+
+    verifier: "off" (default) or "rules". When None, the GTA_VERIFIER environment variable is used.
+    """
+    import os
+
+    mode = (verifier or os.environ.get("GTA_VERIFIER") or "off").strip().lower()
+    if mode not in {"off", "rules"}:
+        raise ValueError(f"unknown verifier mode: {mode!r} (use 'off' or 'rules')")
+    result = _run_loop(task, llm, max_steps, trace_dir, on_event)
+    result.verifier = mode
+    if mode == "off":
+        return result
+    return _verify_and_revise(task, llm, result, max_steps, trace_dir, on_event)

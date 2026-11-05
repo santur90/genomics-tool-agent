@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import os
+import re
 import secrets
 import time
 from collections.abc import Callable
@@ -64,6 +66,7 @@ class ToolCallRecord:
             "ok": not self.is_error,
             "error": None if error is None else str(error),
             "result_summary": summary if isinstance(summary, dict) else None,
+            "result_text": _truncate(redact_secrets(json.dumps(self.result, default=str))),
         }
 
 
@@ -94,6 +97,28 @@ def _call_key(name: str, args: str) -> str:
 
 def _truncate(text: str, limit: int = MAX_TOOL_CHARS) -> str:
     return text if len(text) <= limit else text[:limit] + "...[truncated]"
+
+
+_SECRET_ENV = re.compile(r"KEY|TOKEN|SECRET|PASSWORD|PASSWD|CREDENTIAL", re.IGNORECASE)
+_SECRET_PATTERNS = [
+    re.compile(r"(?i)\b(Bearer|Basic)\s+[A-Za-z0-9._~+/=-]{8,}"),
+    re.compile(r"\bsk-[A-Za-z0-9_-]{8,}"),
+    re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----.*?(?:-----END [A-Z ]*PRIVATE KEY-----|$)", re.DOTALL),
+    re.compile(
+        r"""(?i)\b([\w-]*(?:api[_-]?key|token|secret|password)[\w-]*["']?\s*[:=]\s*["']?)[^\s"',}]+"""
+    ),
+]
+
+
+def redact_secrets(text: str) -> str:
+    """Mask environment secret values and common credential patterns."""
+    for name, value in os.environ.items():
+        if _SECRET_ENV.search(name) and len(value) >= 6:
+            text = text.replace(value, "[REDACTED]")
+    text = _SECRET_PATTERNS[0].sub(r"\1 [REDACTED]", text)
+    text = _SECRET_PATTERNS[1].sub("[REDACTED]", text)
+    text = _SECRET_PATTERNS[2].sub("[REDACTED]", text)
+    return _SECRET_PATTERNS[3].sub(r"\1[REDACTED]", text)
 
 
 class _Trace:

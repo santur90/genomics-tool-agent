@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import contextlib
+import hashlib
 import json
 import os
 import re
@@ -13,6 +14,7 @@ import time
 from collections.abc import Iterator
 from datetime import datetime
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any
 
 import yaml
@@ -22,11 +24,25 @@ from eval.judge import calibrate, judge_answer
 from gta.agent import run_agent
 from gta.llm import LLM, LLMError, MockLLM, OpenAICompatLLM, QuotaExhausted
 
-TASKS_VERSION = "1.1"
+TASKS_VERSION = "1.2"
 EVAL_DIR = Path(__file__).resolve().parent
 ROOT = EVAL_DIR.parent
 RESULTS_DIR = EVAL_DIR / "results"
 KNOWLEDGE_FIXTURE = ROOT / "tests" / "fixtures" / "knowledge_mini"
+KNOWLEDGE_RAW_FILES = ("ReactomePathways.gmt", "ReactomePathways.txt", "go-basic.obo", "goa_human.gaf")
+RESCORE_SUFFIX = ".rescored_v1.2.jsonl"
+# Metrics a rescore carries over unchanged: they depend on the live run, or on full tool outputs that the saved
+# audit log does not keep (error kinds, numeric values outside result summaries); their graders did not change in v1.2.
+RUN_METRICS = {
+    "invalid_call_rate",
+    "n_steps",
+    "n_duplicate_calls",
+    "latency_s",
+    "tokens",
+    "judge_support",
+    "numeric_grounding",
+    "hallucinated_number_rate",
+}
 METRICS = [
     "task_success",
     "tool_selection_accuracy",
@@ -55,6 +71,18 @@ def load_truth() -> dict[str, Any]:
         }
     except FileNotFoundError as exc:
         raise SystemExit("Ground-truth files missing; run `make data` first.") from exc
+
+
+def knowledge_store_identity(fixture: Path = KNOWLEDGE_FIXTURE) -> dict[str, str]:
+    """Pinned store identity: fixture path relative to the repo root and a checksum of the raw fixture files only."""
+    digest = hashlib.sha256()
+    for name in sorted(KNOWLEDGE_RAW_FILES):
+        digest.update(name.encode() + b"\0" + (fixture / name).read_bytes() + b"\0")
+    try:
+        rel = fixture.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        rel = str(fixture)
+    return {"fixture": rel, "sha256": digest.hexdigest()}
 
 
 @contextlib.contextmanager
@@ -193,7 +221,8 @@ def write_summary(results_dir: Path = RESULTS_DIR) -> None:
         rep = json.loads(f.read_text())
         if rep.get("model") != "mock":
             latest.setdefault(rep.get("tasks_version", "1.0"), {})[rep["model"]] = rep
-    if not latest:
+    rescored = _latest_rescored(results_dir)
+    if not latest and not rescored:
         (results_dir / "summary.md").write_text("_No real-model results yet. Run `gta eval --repeats 3`._\n")
         return
     lines = ["Mean±sd across repeats (per-repeat means). – = metric not applicable to the tasks."]
@@ -206,7 +235,126 @@ def write_summary(results_dir: Path = RESULTS_DIR) -> None:
         for model, rep in models.items():
             lines += ["", f"### {model} (tasks v{version}): by category", ""]
             lines += _table("category", rep["aggregate"]["by_category"])
+            store = rep.get("knowledge_store")
+            if store:
+                lines += [
+                    "",
+                    f"Pinned knowledge store: `{store['fixture']}` (raw-file sha256 `{store['sha256']}`)",
+                ]
+    if rescored:
+        lines += [
+            "",
+            "## v1.1 rescored with v1.2 graders",
+            "",
+            "Offline rescore of the saved v1.1 rows (no LLM calls); the v1.1 tables above are unchanged.",
+            "",
+        ]
+        lines += _table(
+            "model",
+            {f"{m} (n={rows[-1]['repeat'] + 1})": aggregate(rows)["overall"] for m, rows in rescored.items()},
+        )
     (results_dir / "summary.md").write_text("\n".join(lines) + "\n")
+
+
+def _latest_rescored(results_dir: Path) -> dict[str, list[dict[str, Any]]]:
+    """Latest rescored rows per real model."""
+    out: dict[str, list[dict[str, Any]]] = {}
+    for f in sorted(results_dir.glob(f"*{RESCORE_SUFFIX}")):
+        rows = _read_partial(f)
+        if rows and rows[0].get("model") != "mock":
+            rows.sort(key=lambda r: r["repeat"])
+            out[rows[0]["model"]] = rows
+    return out
+
+
+def _saved_result(call: dict[str, Any]) -> dict[str, Any]:
+    """Tool result for regrading: the full saved output text when present, else the logged summary/error."""
+    if call.get("result_text") is not None:
+        return {"result_text": call["result_text"]}
+    if not call.get("ok", True):
+        return {"error": call.get("error")}
+    return {"summary": call.get("result_summary") or {}}
+
+
+def _rescore_row(row: dict[str, Any], task: dict[str, Any], truth: dict[str, Any]) -> dict[str, Any]:
+    """Rebuild a run from the saved audit log and regrade it; run-dependent metrics are carried over."""
+    calls = [
+        SimpleNamespace(
+            name=c["name"],
+            args=c.get("args") or {},
+            is_error=not c.get("ok", True),
+            error_kind=None,
+            result=_saved_result(c),
+        )
+        for c in row.get("calls", [])
+    ]
+    result = SimpleNamespace(
+        answer=row.get("answer", ""), calls=calls, n_steps=0, n_duplicate_calls=0, latency_s=0.0,
+        prompt_tokens=0, completion_tokens=0,
+    )  # fmt: skip
+    new = grade_task(task, result, truth)  # type: ignore[arg-type]
+    old = row.get("metrics", {})
+    return {k: (old.get(k) if k in RUN_METRICS else v) for k, v in new.items()}
+
+
+def rescore(
+    path: Path, tasks_path: Path = EVAL_DIR / "tasks.yaml", truth: dict[str, Any] | None = None
+) -> tuple[Path, list[dict[str, Any]]]:
+    """Recompute graded metrics offline from a saved .jsonl, writing `<name>.rescored_v1.2.jsonl` beside it.
+
+    The input is never modified. Returns the output path and one diff record per row.
+    """
+    path = Path(path)
+    name = path.name
+    for suffix in (RESCORE_SUFFIX, ".done.jsonl", ".partial.jsonl", ".jsonl"):
+        if name.endswith(suffix):
+            name = name.removesuffix(suffix)
+            break
+    out = path.with_name(name + RESCORE_SUFFIX)
+    if out.resolve() == path.resolve():
+        raise SystemExit(f"Refusing to overwrite the input file: {path}")
+    rows = _read_partial(path)
+    if not rows:
+        raise SystemExit(f"No rows in {path}")
+    tasks = {t["id"]: t for t in load_tasks(path=tasks_path)}
+    truth = truth if truth is not None else load_truth()
+    diffs, new_rows = [], []
+    for row in rows:
+        task = tasks.get(row["id"])
+        if task is None:
+            new_rows.append(row)
+            diffs.append(
+                {
+                    "id": row["id"],
+                    "repeat": row["repeat"],
+                    "old": None,
+                    "new": None,
+                    "changed": ["task not in tasks.yaml"],
+                }
+            )
+            continue
+        metrics = _rescore_row(row, task, truth)
+        old = row["metrics"]
+        changed = [
+            k for k in metrics
+            if (old.get(k) is None) != (metrics[k] is None)
+            or (metrics[k] is not None and abs(float(old[k]) - float(metrics[k])) > 1e-9)
+        ]  # fmt: skip
+        new_rows.append({**row, "metrics": metrics, "rescored_with": "1.2"})
+        diffs.append(
+            {
+                "id": row["id"],
+                "repeat": row["repeat"],
+                "old": old.get("task_success"),
+                "new": metrics["task_success"],
+                "changed": changed,
+                "has_result_text": all("result_text" in c for c in row.get("calls", [])),
+            }
+        )
+    out.write_text("".join(json.dumps(r) + "\n" for r in new_rows))
+    if out.resolve().parent == RESULTS_DIR.resolve():
+        write_summary(RESULTS_DIR)
+    return out, diffs
 
 
 def _read_partial(path: Path) -> list[dict[str, Any]]:
@@ -227,6 +375,7 @@ def _finalize(
     report = {
         "model": model,
         "tasks_version": TASKS_VERSION,
+        "knowledge_store": knowledge_store_identity(),
         "date": datetime.now().isoformat(timespec="minutes"),
         "repeats": repeats,
         "n_tasks": n_tasks,
@@ -279,6 +428,7 @@ def run_eval(
         (judge_llm or OpenAICompatLLM(model=os.environ.get("LLM_JUDGE_MODEL") or None)) if judge else None
     )
     judge_report = calibrate(judge_client) if judge_client is not None else None
+    store_identity = knowledge_store_identity()
     with fixture_knowledge_base():
         try:
             for k in range(repeats):
@@ -305,6 +455,7 @@ def run_eval(
                         "repeat": k,
                         "model": model,
                         "tasks_version": TASKS_VERSION,
+                        "knowledge_store": store_identity,
                         "termination_reason": result.termination_reason,
                         "answer": result.answer,
                         "tools_called": [c.name for c in result.calls],

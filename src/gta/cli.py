@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+from pathlib import Path
 from typing import Any
 
 import typer
@@ -103,6 +104,12 @@ def eval_cmd(
         help="Also have an LLM judge check each answer sentence against tool outputs "
         "(calibrated on eval/judge_calibration.yaml first; judge model: LLM_JUDGE_MODEL or LLM_MODEL)",
     ),
+    rescore: Path | None = typer.Option(  # noqa: B008
+        None,
+        "--rescore",
+        help="Recompute metrics offline from a saved .done.jsonl with the current graders (no LLM calls); "
+        "writes <name>.rescored_v1.2.jsonl next to it and prints a per-task diff",
+    ),
 ) -> None:
     """Run the evaluation benchmark."""
     load_env()
@@ -111,6 +118,7 @@ def eval_cmd(
     sys.path.insert(0, str(PROJECT_ROOT))
     try:
         from eval.run_eval import QUOTA_MESSAGE, run_eval
+        from eval.run_eval import rescore as rescore_rows
     except ModuleNotFoundError as exc:
         if exc.name not in ("eval", "eval.run_eval"):
             raise
@@ -119,6 +127,30 @@ def eval_cmd(
             "Run from a repository checkout or set GTA_ROOT to it."
         )
         raise typer.Exit(code=1) from exc
+
+    if rescore is not None:
+        if not rescore.is_file():
+            console.print(f"[red]No such file: {rescore}[/red]")
+            raise typer.Exit(code=1)
+        out, diffs = rescore_rows(rescore)
+        console.print("task id | repeat | old success | new success | changed metrics", markup=False)
+        for d in diffs:
+            console.print(
+                f"{d['id']} | {d['repeat']} | {d['old']} | {d['new']} | {', '.join(d['changed']) or '-'}",
+                markup=False,
+                highlight=False,
+            )
+        n_legacy = sum(not d.get("has_result_text", True) for d in diffs)
+        if n_legacy:
+            console.print(
+                f"WARNING: {n_legacy} of {len(diffs)} rows have no saved tool output (calls[].result_text); "
+                "citation validity is unreliable for them (computed from logged summaries only).",
+                markup=False,
+                style="yellow",
+            )
+        n = sum(d["old"] != d["new"] for d in diffs)
+        console.print(f"{n} of {len(diffs)} rows changed success. Rescored rows: {out}", markup=False)
+        return
 
     report = run_eval(
         mock=mock, repeats=repeats, tasks=tasks, sleep=sleep, resume=resume, category=category, judge=judge

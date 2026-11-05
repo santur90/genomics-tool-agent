@@ -411,7 +411,7 @@ def test_new_tools_registered_with_schemas():
 
 
 def test_system_prompt_requires_tool_backed_citations():
-    assert "[GO:0006915]" in SYSTEM_PROMPT and "[R-HSA-109581]" in SYSTEM_PROMPT
+    assert "[GO:XXXXXXX]" in SYSTEM_PROMPT and "[R-HSA-XXXXXX]" in SYSTEM_PROMPT
     assert "Never cite an id that was not returned by a tool" in SYSTEM_PROMPT
 
 

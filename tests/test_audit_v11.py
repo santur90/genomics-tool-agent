@@ -135,7 +135,7 @@ def test_calls_logged_with_validated_args(tmp_path):
     )
     res = run_agent("p SECRET-PROMPT", llm, trace_dir=tmp_path)
     logs = [c.to_log() for c in res.calls]
-    assert set(logs[0]) == {"name", "args", "ok", "error", "result_summary"}
+    assert set(logs[0]) == {"name", "args", "ok", "error", "result_summary", "result_text"}
     assert logs[0]["args"] == {"vcf": VCF, "min_qual": 30.0, "min_dp": 0, "gene": None}
     assert logs[1]["ok"] is False and logs[1]["error"] and logs[1]["result_summary"] is None
     assert "SECRET-PROMPT" not in json.dumps(logs)
@@ -171,7 +171,7 @@ def _task(tid):
 def test_task_corrections():
     from eval.graders import check_answer
 
-    assert TASKS_VERSION == "1.1"
+    assert TASKS_VERSION == "1.2"
     go = _task("rag_find_go_term")
     assert go["prompt"] == "What is the GO term for apoptosis?"
     chk = go["answer_checks"][0]
@@ -185,10 +185,10 @@ def test_task_corrections():
 
 def test_eval_rows_and_report_carry_version_and_calls(tmp_path):
     rep = run_eval(mock=True, tasks="st_vcf_filter_count", results_dir=tmp_path)
-    assert rep["tasks_version"] == "1.1"
+    assert rep["tasks_version"] == "1.2"
     row = rep["tasks"][0]
-    assert row["tasks_version"] == "1.1" and row["termination_reason"]
-    assert set(row["calls"][0]) == {"name", "args", "ok", "error", "result_summary"}
+    assert row["tasks_version"] == "1.2" and row["termination_reason"]
+    assert set(row["calls"][0]) == {"name", "args", "ok", "error", "result_summary", "result_text"}
 
 
 def test_summary_never_merges_versions(tmp_path):

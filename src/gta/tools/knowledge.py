@@ -38,7 +38,7 @@ class GetTermInput(ToolInput):
 
     model_config = ConfigDict(extra="forbid")
     id: str = Field(
-        description="GO or Reactome id returned by search_knowledge/annotate_genes, e.g. GO:0006915"
+        description="GO or Reactome id returned by search_knowledge/annotate_genes, e.g. GO:XXXXXXX"
     )
 
 
@@ -68,7 +68,7 @@ class AnnotateInput(ToolInput):
 @tool(
     "search_knowledge",
     "Search Gene Ontology terms and Reactome pathways by free text and/or gene symbols. Returns ids, names and "
-    "snippets. Use it before making biological claims, and cite only ids returned by tools, e.g. [GO:0006915].",
+    "snippets. Use it before making biological claims, and cite only ids returned by tools, e.g. [GO:XXXXXXX].",
     SearchInput,
 )
 def search_knowledge(query: str, source: str = "all", top_k: int = 5) -> dict[str, Any]:
@@ -107,7 +107,7 @@ def get_term(id: str) -> dict[str, Any]:
         reason = "unknown id" if _ID_FORMAT.match(term_id) else "not a GO/Reactome id"
         raise ToolError(
             f"Unknown term id ({reason}): {id}",
-            "Use search_knowledge to find valid ids; they look like GO:0006915 or R-HSA-109581.",
+            "Use search_knowledge to find valid ids; they look like GO:XXXXXXX or R-HSA-XXXXXX.",
         )
     out = sandbox.new_run_dir("term")
     (out / f"{term_id.replace(':', '_')}.json").write_text(json.dumps(doc, indent=2))

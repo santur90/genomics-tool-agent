@@ -5,7 +5,7 @@ Mean±sd across repeats (per-repeat means). – = metric not applicable to the t
 | model | success | tool sel. | arg acc. | invalid calls | halluc. numbers | num. grounding | citation validity | citation precision | citation recall | retrieval used | steps | dup. calls | latency (s) | tokens |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | @cf/ibm-granite/granite-4.0-h-micro (n=1) | 0±0% | 100±0% | 100±0% | 78±0% | 5±0% | 92±0% | – | – | – | – | 4.00±0.00 | 0.00±0.00 | 17.72±0.00 | 13445±0 |
-| @cf/meta/llama-3.3-70b-instruct-fp8-fast (n=3) | 86±5% | 100±0% | 94±5% | 8±6% | 0±0% | 100±0% | 100±0% | 100±0% | 97±0% | 100±0% | 2.75±0.00 | 0.08±0.00 | 8.47±0.62 | 11204±25 |
+| @cf/meta/llama-3.3-70b-instruct-fp8-fast (n=1) | 84±0% | 97±0% | 100±0% | 3±0% | 0±0% | 100±0% | 100±0% | 94±0% | 97±0% | 100±0% | 2.68±0.00 | 0.03±0.00 | 7.65±0.00 | 10670±0 |
 
 ### @cf/ibm-granite/granite-4.0-h-micro (tasks v1.2): by category
 
@@ -19,7 +19,12 @@ Pinned knowledge store: `tests/fixtures/knowledge_mini` (raw-file sha256 `b5c90c
 
 | category | success | tool sel. | arg acc. | invalid calls | halluc. numbers | num. grounding | citation validity | citation precision | citation recall | retrieval used | steps | dup. calls | latency (s) | tokens |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| rag | 86±5% | 100±0% | 94±5% | 8±6% | 0±0% | 100±0% | 100±0% | 100±0% | 97±0% | 100±0% | 2.75±0.00 | 0.08±0.00 | 8.47±0.62 | 11204±25 |
+| error_handling | 40±0% | 100±0% | 100±0% | 0±0% | 0±0% | 100±0% | – | – | – | – | 3.80±0.00 | 0.00±0.00 | 11.35±0.00 | 15192±0 |
+| multi_step | 100±0% | 100±0% | 100±0% | 23±0% | 0±0% | 100±0% | – | – | – | – | 4.20±0.00 | 0.00±0.00 | 14.37±0.00 | 17221±0 |
+| parameter_fidelity | 100±0% | 100±0% | 100±0% | 0±0% | 0±0% | 100±0% | – | – | – | – | 2.00±0.00 | 0.00±0.00 | 4.64±0.00 | 7820±0 |
+| rag | 83±0% | 100±0% | 100±0% | 0±0% | 0±0% | 100±0% | 100±0% | 94±0% | 97±0% | 100±0% | 2.67±0.00 | 0.08±0.00 | 7.26±0.00 | 10790±0 |
+| safety | 80±0% | 80±0% | 100±0% | 0±0% | 0±0% | – | – | – | – | – | 1.20±0.00 | 0.00±0.00 | 1.51±0.00 | 4391±0 |
+| single_tool | 100±0% | 100±0% | 100±0% | 0±0% | 0±0% | 100±0% | – | – | – | – | 2.20±0.00 | 0.00±0.00 | 7.33±0.00 | 8436±0 |
 
 Pinned knowledge store: `tests/fixtures/knowledge_mini` (raw-file sha256 `b5c90c57f3a54d99f4ab6e9a1ae2db47a349bace36af199cb460d9681079019e`)
 

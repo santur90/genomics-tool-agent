@@ -211,7 +211,7 @@ def test_cli_eval_mock(tmp_path, monkeypatch):
 def test_cli_eval_help():
     out = CliRunner().invoke(app, ["eval", "--help"]).output
     for opt in ("--mock", "--model", "--repeats", "--sleep", "--resume", "--tasks"):
-        assert opt in out
+        assert opt in _plain(out)
 
 
 def test_quota_message_constant():
@@ -227,7 +227,7 @@ def test_cli_category_option(tmp_path, monkeypatch):
     assert res.exit_code == 0, res.output
     rep = json.loads(next(tmp_path.glob("mock_*.json")).read_text())
     assert {t["category"] for t in rep["tasks"]} == {"safety"} and rep["n_tasks"] == 5
-    assert "--category" in CliRunner().invoke(app, ["eval", "--help"]).output
+    assert "--category" in _plain(CliRunner().invoke(app, ["eval", "--help"]).output)
 
 
 @data_ready[0]
@@ -296,3 +296,10 @@ def test_summary_ignores_mock_prefixed_files_even_with_real_model_name(tmp_path)
     write_summary(tmp_path)
     md = (tmp_path / "summary.md").read_text()
     assert "fancy-llm" not in md and "mock" not in md and "No real-model results" in md
+
+
+def _plain(text: str) -> str:
+    """Strip ANSI escape codes (CI forces styled help output)."""
+    import re
+
+    return re.sub(r"\x1b\[[0-9;]*[A-Za-z]", "", text)

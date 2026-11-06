@@ -25,3 +25,4 @@ build/
 coverage.xml
 .ruff_cache/
 tests/fixtures/knowledge_mini/docs.jsonl
+.DS_Store

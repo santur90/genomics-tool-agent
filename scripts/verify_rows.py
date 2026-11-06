@@ -58,7 +58,7 @@ def main() -> int:
                 print(f"{'':48s}{i.detail[:150]}")
 
     print("\nConfusion (rows):")
-    print(f"                  failed   passed")
+    print("                  failed   passed")
     print(f"  flagged        {table[(True, False)]:>6d}   {table[(True, True)]:>6d}")
     print(f"  not flagged    {table[(False, False)]:>6d}   {table[(False, True)]:>6d}")
     n_pass = table[(True, True)] + table[(False, True)]

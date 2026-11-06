@@ -106,7 +106,9 @@ class TestFilterTruth:
         assert filter_vcf(VCF, min_qual=50, min_dp=12)["summary"]["n_output"] == self.t["n_qual50_dp12"] == 10
 
     def test_egfr_qual20(self):
-        assert filter_vcf(VCF, min_qual=20, gene="EGFR")["summary"]["n_output"] == self.t["n_egfr_qual20"] == 5
+        assert (
+            filter_vcf(VCF, min_qual=20, gene="EGFR")["summary"]["n_output"] == self.t["n_egfr_qual20"] == 5
+        )
 
     def test_empty_gene_equals_none(self):
         from gta.tools import registry
@@ -177,7 +179,9 @@ def test_task_corrections():
     chk = go["answer_checks"][0]
     assert check_answer(chk, "GO:0006915", {}) and check_answer(chk, "apoptotic process", {})
     path = _task("rag_gene_to_pathways")["answer_checks"][0]
-    assert check_answer(path, "see R-HSA-5633007", {}) and check_answer(path, "Regulation of TP53 Activity", {})
+    assert check_answer(path, "see R-HSA-5633007", {}) and check_answer(
+        path, "Regulation of TP53 Activity", {}
+    )
     for tid in ("eh_missing_vcf", "eh_missing_gmt"):
         assert check_answer(_task(tid)["answer_checks"][0], "the file is not present", {})
     assert not check_answer(_task("eh_missing_counts")["answer_checks"][0], "the file is not present", {})
@@ -283,9 +287,12 @@ def test_null_strings_not_applied_to_required_or_plain_string_fields():
     assert ORAInput.model_validate({"gmt": "null"}).gmt == "null"  # required str untouched
     from gta.tools.rnaseq import DESeq2Input
 
-    assert DESeq2Input.model_validate(
-        {"counts": "c", "metadata": "m", "design_factor": "none", "ref_level": ""}
-    ).design_factor == "none"
+    assert (
+        DESeq2Input.model_validate(
+            {"counts": "c", "metadata": "m", "design_factor": "none", "ref_level": ""}
+        ).design_factor
+        == "none"
+    )
 
 
 def test_run_ora_null_strings_via_registry():

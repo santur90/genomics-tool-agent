@@ -39,8 +39,10 @@ def fake_tools(monkeypatch):
 
 
 PROMPT = "Inspect data/rnaseq/counts_v2.tsv and tell me what it contains."
-SUBSTITUTE = [("call", ("inspect_file", {"path": "data/rnaseq/counts_v2.tsv"})),
-              ("call", ("inspect_file", {"path": "data/rnaseq/counts.tsv"}))]
+SUBSTITUTE = [
+    ("call", ("inspect_file", {"path": "data/rnaseq/counts_v2.tsv"})),
+    ("call", ("inspect_file", {"path": "data/rnaseq/counts.tsv"})),
+]
 
 
 def test_off_by_default_never_revises(monkeypatch):
@@ -52,14 +54,23 @@ def test_off_by_default_never_revises(monkeypatch):
 
 
 def test_clean_run_has_no_flag_and_no_extra_calls():
-    llm = Scripted([("call", ("inspect_file", {"path": "data/rnaseq/counts.tsv"})), ("answer", "It has 12 rows.")])
+    llm = Scripted(
+        [("call", ("inspect_file", {"path": "data/rnaseq/counts.tsv"})), ("answer", "It has 12 rows.")]
+    )
     res = agent.run_agent("Inspect data/rnaseq/counts.tsv", llm, verifier="rules")
-    assert res.verifier_issues == [] and res.n_revisions == 0 and res.extra_llm_calls == 0 and llm.n_calls == 2
+    assert (
+        res.verifier_issues == [] and res.n_revisions == 0 and res.extra_llm_calls == 0 and llm.n_calls == 2
+    )
 
 
 def test_flagged_run_is_revised_into_a_disclosed_answer():
-    llm = Scripted(SUBSTITUTE + [("answer", "The file has 12 rows."),
-                                 ("answer", "counts_v2.tsv was not found, so I inspected counts.tsv: 12 rows.")])
+    llm = Scripted(
+        SUBSTITUTE
+        + [
+            ("answer", "The file has 12 rows."),
+            ("answer", "counts_v2.tsv was not found, so I inspected counts.tsv: 12 rows."),
+        ]
+    )
     res = agent.run_agent(PROMPT, llm, verifier="rules")
     assert res.verifier_issues == ["input_substitution"]
     assert res.verifier_issues_after == []
@@ -79,14 +90,18 @@ def test_revision_that_still_fails_is_kept_and_reported():
 
 
 def test_only_one_revision_round():
-    llm = Scripted(SUBSTITUTE + [("answer", "12 rows."), ("answer", "12 rows again."), ("answer", "never used")])
+    llm = Scripted(
+        SUBSTITUTE + [("answer", "12 rows."), ("answer", "12 rows again."), ("answer", "never used")]
+    )
     agent.run_agent(PROMPT, llm, verifier="rules")
     assert llm.n_calls == 4 and len(llm.steps) == 1
 
 
 def test_env_switch_and_bad_value(monkeypatch):
     monkeypatch.setenv("GTA_VERIFIER", "rules")
-    llm = Scripted(SUBSTITUTE + [("answer", "12 rows."), ("answer", "counts_v2.tsv was not found; used counts.tsv.")])
+    llm = Scripted(
+        SUBSTITUTE + [("answer", "12 rows."), ("answer", "counts_v2.tsv was not found; used counts.tsv.")]
+    )
     assert agent.run_agent(PROMPT, llm).verifier == "rules"
     with pytest.raises(ValueError):
         agent.run_agent(PROMPT, Scripted([]), verifier="llm")
@@ -94,5 +109,6 @@ def test_env_switch_and_bad_value(monkeypatch):
 
 def test_verifier_never_sees_expected_values_by_construction():
     import inspect
+
     src = inspect.getsource(agent._verify_and_revise)
     assert "yaml" not in src and "eval" not in src.replace("evaluat", "")

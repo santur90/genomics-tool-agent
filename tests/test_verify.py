@@ -7,7 +7,14 @@ from gta.verify import verify
 
 
 def _ok(name, args, summary=None, text=None):
-    return {"name": name, "args": args, "ok": True, "error": None, "result_summary": summary, "result_text": text}
+    return {
+        "name": name,
+        "args": args,
+        "ok": True,
+        "error": None,
+        "result_summary": summary,
+        "result_text": text,
+    }
 
 
 def _err(name, args, error):
@@ -70,12 +77,16 @@ def test_citation_quoted_from_prompt_is_not_flagged():
 
 # ---- input substitution ---------------------------------------------------------------------------
 
-_PROMPT_COUNTS = "Run DESeq2 on data/rnaseq/counts_v2.tsv with data/rnaseq/metadata.tsv and give the number of up genes."
+_PROMPT_COUNTS = (
+    "Run DESeq2 on data/rnaseq/counts_v2.tsv with data/rnaseq/metadata.tsv and give the number of up genes."
+)
 
 
 def _substituted_calls():
     return [
-        _err("run_deseq2", {"counts": "data/rnaseq/counts_v2.tsv"}, "File not found: data/rnaseq/counts_v2.tsv"),
+        _err(
+            "run_deseq2", {"counts": "data/rnaseq/counts_v2.tsv"}, "File not found: data/rnaseq/counts_v2.tsv"
+        ),
         _ok("run_deseq2", {"counts": "data/rnaseq/counts.tsv"}, {"n_up": 52}),
     ]
 
@@ -96,13 +107,19 @@ def test_wrong_column_substitution_is_flagged():
         _err("run_deseq2", {"design_factor": "treatment"}, "Column 'treatment' not found in metadata."),
         _ok("run_deseq2", {"design_factor": "condition"}, {"n_up": 52}),
     ]
-    assert _types(verify(prompt, calls, "Used the 'condition' column: 52 genes up.")) == ["input_substitution"]
+    assert _types(verify(prompt, calls, "Used the 'condition' column: 52 genes up.")) == [
+        "input_substitution"
+    ]
 
 
 def test_validation_error_retry_is_not_substitution():
     prompt = "Run DESeq2 with condition treated vs control."
     calls = [
-        _err("run_deseq2", {"padj_cutoff": "0"}, "Invalid arguments for run_deseq2: ['padj_cutoff: Input should be greater than 0']"),
+        _err(
+            "run_deseq2",
+            {"padj_cutoff": "0"},
+            "Invalid arguments for run_deseq2: ['padj_cutoff: Input should be greater than 0']",
+        ),
         _ok("run_deseq2", {"padj_cutoff": 0.05}, {"n_up": 52}),
     ]
     assert not verify(prompt, calls, "52 genes are up-regulated.").flagged
@@ -120,21 +137,35 @@ def test_value_chosen_by_model_is_not_substitution():
 
 
 def test_empty_answer_after_failure_is_flagged():
-    calls = [_err("run_ora", {"gmt": "data/genesets/hallmark.gmt"}, "File not found: data/genesets/hallmark.gmt")]
+    calls = [
+        _err("run_ora", {"gmt": "data/genesets/hallmark.gmt"}, "File not found: data/genesets/hallmark.gmt")
+    ]
     assert _types(verify("Run ORA", calls, "")) == ["unresolved_error"]
 
 
 def test_answer_that_does_not_name_the_missing_file_is_flagged():
-    calls = [_err("run_ora", {"gmt": "data/genesets/hallmark.gmt"}, "File not found: data/genesets/hallmark.gmt")]
+    calls = [
+        _err("run_ora", {"gmt": "data/genesets/hallmark.gmt"}, "File not found: data/genesets/hallmark.gmt")
+    ]
     ans = "I cannot perform this task as it requires additional information about the files and their locations."
     assert _types(verify("Run ORA against data/genesets/hallmark.gmt", calls, ans)) == ["unreported_error"]
 
 
 def test_answer_that_reports_missing_file_is_not_flagged():
-    calls = [_err("filter_vcf", {"vcf": "data/variants/patient_001.vcf.gz"}, "File not found: data/variants/patient_001.vcf.gz")]
+    calls = [
+        _err(
+            "filter_vcf",
+            {"vcf": "data/variants/patient_001.vcf.gz"},
+            "File not found: data/variants/patient_001.vcf.gz",
+        )
+    ]
     prompt = "Filter data/variants/patient_001.vcf.gz with QUAL>=30 and tell me how many remain."
-    assert not verify(prompt, calls, "The file patient_001.vcf.gz was not found, so I cannot count variants.").flagged
-    assert not verify(prompt, calls, "I cannot do this because the file is not present in the system.").flagged
+    assert not verify(
+        prompt, calls, "The file patient_001.vcf.gz was not found, so I cannot count variants."
+    ).flagged
+    assert not verify(
+        prompt, calls, "I cannot do this because the file is not present in the system."
+    ).flagged
 
 
 def test_results_stated_after_failed_last_call_is_flagged():

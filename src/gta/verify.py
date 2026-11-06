@@ -147,7 +147,9 @@ def _mentions(answer: str, value: str) -> bool:
 # ---------------------------------------------------------------- checks
 
 
-def _check_numbers_and_citations(prompt: str, calls: list[dict[str, Any]], answer: str, rep: VerifyReport) -> None:
+def _check_numbers_and_citations(
+    prompt: str, calls: list[dict[str, Any]], answer: str, rep: VerifyReport
+) -> None:
     ok_outputs = [c for c in calls if c.get("ok") and _output_text(c)]
     ans_nums = extract_numbers(answer)
     ans_ids = set(_ID.findall(answer or ""))
@@ -160,7 +162,9 @@ def _check_numbers_and_citations(prompt: str, calls: list[dict[str, Any]], answe
     pool = prompt_pool + [v for _, v in extract_numbers(_tool_text(calls))]
     for s, x in ans_nums:
         if not _supported(s, x, pool):
-            rep.issues.append(Issue("unsupported_number", f"{s} is in neither the prompt nor any tool output", s))
+            rep.issues.append(
+                Issue("unsupported_number", f"{s} is in neither the prompt nor any tool output", s)
+            )
     haystack = (prompt or "") + "\n" + _tool_text(calls)
     for i in sorted(ans_ids):
         if i not in haystack:
@@ -179,7 +183,12 @@ def _check_substitution(prompt: str, calls: list[dict[str, Any]], answer: str, r
                 continue  # the model chose this value itself, the user did not specify it
             for later in calls[i + 1 :]:
                 new = (later.get("args") or {}).get(key)
-                if later.get("name") == call.get("name") and later.get("ok") and isinstance(new, str) and new != val:
+                if (
+                    later.get("name") == call.get("name")
+                    and later.get("ok")
+                    and isinstance(new, str)
+                    and new != val
+                ):
                     tag = (call["name"], key, val)
                     if tag not in seen and not _mentions(answer, val):
                         seen.add(tag)
@@ -199,7 +208,9 @@ def _check_final_failure(prompt: str, calls: list[dict[str, Any]], answer: str, 
     last = calls[-1]
     err = str(last.get("error") or "")
     if not (answer or "").strip():
-        rep.issues.append(Issue("unresolved_error", "run ended on a failed call and the answer is empty", err))
+        rep.issues.append(
+            Issue("unresolved_error", "run ended on a failed call and the answer is empty", err)
+        )
         return
     acknowledges = bool(ACKNOWLEDGES.search(answer))
     prompt_pool = [v for _, v in extract_numbers(prompt)]
@@ -209,11 +220,17 @@ def _check_final_failure(prompt: str, calls: list[dict[str, Any]], answer: str, 
         return
     if NOT_FOUND.search(err):
         missing = [t for t in _PATHLIKE.findall(err)]
-        missing += [v for v in (last.get("args") or {}).values() if isinstance(v, str) and len(v) >= 3 and v in err]
+        missing += [
+            v for v in (last.get("args") or {}).values() if isinstance(v, str) and len(v) >= 3 and v in err
+        ]
         names_it = any(_mentions(answer, m) for m in missing)
         if not names_it and not acknowledges:
             rep.issues.append(
-                Issue("unreported_error", "run ended on a not-found error; the answer does not say what is missing", err)
+                Issue(
+                    "unreported_error",
+                    "run ended on a not-found error; the answer does not say what is missing",
+                    err,
+                )
             )
 
 

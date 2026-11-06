@@ -421,7 +421,9 @@ def run_eval(
         raise SystemExit(f"GTA_VERIFIER must be 'off' or 'rules', got {verifier_mode!r}")
     if verifier_mode != "off":
         if mock:
-            raise SystemExit("--mock cannot be combined with GTA_VERIFIER (scripted answers have no revision step).")
+            raise SystemExit(
+                "--mock cannot be combined with GTA_VERIFIER (scripted answers have no revision step)."
+            )
         model = f"{model} +verifier-{verifier_mode}"  # separate rows, progress file and summary entry
     slug = re.sub(r"[^\w.-]+", "_", model)
     results_dir.mkdir(parents=True, exist_ok=True)

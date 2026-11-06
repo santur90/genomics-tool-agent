@@ -29,3 +29,4 @@ tests/fixtures/knowledge_mini/docs.jsonl
 *.bak
 *.bak*
 eval/results/mock/
+!eval/results/_cf_*.done.jsonl

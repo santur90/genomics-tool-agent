@@ -207,6 +207,7 @@ Model: `@cf/meta/llama-3.3-70b-instruct-fp8-fast`, temperature 0, 37 tasks. Know
 | v1.0 | 2026-10-29 | n=1 | 20/37 (54%), **not comparable** (see below) |
 | v1.1 | 2026-10-30 | n=1 | 31/37 (84%) |
 | v1.2 | 2026-11-02 | n=1 | 31/37 (84%) |
+| v1.2 (rerun) | 2026-11-06 | n=1 | 31/37 (84%), same six failed tasks |
 
 Re-scoring the 37 saved v1.1 rows with the v1.2 graders changed **0 task outcomes**.
 
@@ -260,6 +261,35 @@ With 5 tasks per category, one task is 20 percentage points. Do not over-read si
 - **Malformed tool-call encoding.** In 2 of 3 runs of `rag_annotate_param_fidelity` the model wrapped each argument as `{"type": "string", "value": "go"}` instead of passing plain values, repeated the invalid call three times, and the loop guard stopped the run. The passing run used plain arguments, so temperature 0 was not fully deterministic here.
 - **Over-interpretation (borderline task).** `rag_ambiguity_apoptosis` describes genes planted for interferon/p53 signalling as apoptosis-related. It passed in 4 of 5 runs across v1.1 and v1.2; its outcome depends on how many retrieved pathways the answer lists, which the precision metric penalises. Treat it as unstable.
 
+### Answer verifier (rule-based, offline evaluation)
+
+A deterministic verifier (`src/gta/verify.py`) checks a finished run using only the user prompt, the tool calls, the tool outputs and the final answer. It never reads expected values, task files or graders (a test asserts it imports nothing from `eval/`). Checks:
+
+| Check | Flags when |
+|---|---|
+| `unsupported_number` | a number in the answer is in neither the prompt nor any tool output |
+| `unsupported_citation` | a GO/Reactome id in the answer was never returned by a tool |
+| `input_substitution` | an input the user named failed (not found), a later call of the same tool succeeded with a different value, and the answer never mentions the original |
+| `unreported_error` / `unresolved_error` | the run ended on a failed call and the answer is empty or does not say what is missing |
+
+Offline results on the 37 saved rows of the v1.2 rerun (2026-11-06) (Llama 3.3 70B, n=1, full tool output stored):
+
+| | Failed tasks | Passed tasks |
+|---|---|---|
+| Flagged | 4 | 0 |
+| Not flagged | 2 | 31 |
+
+- It flags the four failures that involve inputs or errors: `eh_missing_counts`, `eh_wrong_column`, `eh_missing_gmt`, `sf_arbitrary_pipeline_path`.
+- It does not flag `rag_gene_to_pathways` (an omitted pathway) or `rag_ambiguity_apoptosis` (over-interpretation). Every id the answers cite has a source, and the verifier checks support, not completeness or interpretation. It also cannot see malformed tool-call encoding.
+- **Caveat:** the rules were written after inspecting these failures, so 4 of 6 is an in-sample detection rate. The false-flag count (0 of 31 passed tasks, one model) is the more informative number.
+- An earlier version produced one false flag on a passed task: digits inside a run-directory path were read as numbers. It was fixed and covered by regression tests.
+
+The agent can optionally run the verifier after the final answer and allow one revision round (`GTA_VERIFIER=rules`). Verifier runs are stored under a separate model label, so they never mix with baseline rows. **Online results (fixed / broken / unchanged tasks versus baseline) have not been measured yet.** This is an agent harness with a rule-based verifier, not a multi-agent system.
+
+### Exploratory second model: granite-4.0-h-micro (error handling only, n=1)
+
+0/5 under strict argument parsing. In the traces, 13 of the model's 18 tool calls sent their arguments as a JSON string that itself contains a JSON object (double encoding). The strict parser rejected these calls with `arguments must be a JSON object`, and three tasks ended in the repeated-validation-error guard. The argument contents were otherwise correct. This is a format-compatibility result, not a capability comparison with Llama 3.3 70B, and it covers only 5 tasks.
+
 ### Benchmark changelog
 
 | Version | Change |
@@ -294,7 +324,7 @@ Tests need `make data` and the external binaries; CI installs both.
 
 ## Limitations
 
-- One model has been evaluated. A second, smaller model has not been run yet.
+- One model has been evaluated end to end. A second model (granite-4.0-h-micro) was run only on error handling and failed because of an argument-format incompatibility (see above).
 - Single runs for four of six categories; 5 tasks per category (12 for retrieval).
 - Simulated data with planted signals; no real patient data.
 - Task wording and graders were refined after inspecting results (documented in the changelog), so v1.1 and v1.2 scores are baselines, not a blind test.

@@ -284,7 +284,24 @@ Offline results on the 37 saved rows of the v1.2 rerun (2026-11-06) (Llama 3.3 7
 - **Caveat:** the rules were written after inspecting these failures, so 4 of 6 is an in-sample detection rate. The false-flag count (0 of 31 passed tasks, one model) is the more informative number.
 - An earlier version produced one false flag on a passed task: digits inside a run-directory path were read as numbers. It was fixed and covered by regression tests.
 
-The agent can optionally run the verifier after the final answer and allow one revision round (`GTA_VERIFIER=rules`). Verifier runs are stored under a separate model label, so they never mix with baseline rows. **Online results (fixed / broken / unchanged tasks versus baseline) have not been measured yet.** This is an agent harness with a rule-based verifier, not a multi-agent system.
+The agent can optionally run the verifier after the final answer and allow one revision round (`GTA_VERIFIER=rules`). Verifier runs are stored under a separate model label, so they never mix with baseline rows. Online results are reported in the next section. This is an agent harness with a rule-based verifier, not a multi-agent system.
+
+### Answer verifier: online results
+
+Verifier runs use a separate model label (`+verifier-rules`) and are paired with baseline runs of the same tasks (`scripts/compare_runs.py`). One model, rules written after inspecting the baseline failures, so these are in-sample results.
+
+**Error handling, 3 repeats.** Within the run, 5 of 15 first-pass answers passed. The verifier flagged 10 of 15 runs; after one revision round all 15 passed, and none of the 10 revised runs had passed beforehand (10 extra model calls). First-pass outcomes were recomputed offline by swapping the stored pre-revision answer into the same rows and re-scoring, with no new model calls. The revisions were not equivalent. For missing files the answer became a refusal. For the missing design column the model appended a note that `treatment` was not found and `condition` was used, but the answer still led with the substitute analysis and its numbers.
+
+**Full benchmark, n=1.** Paired with the 2026-11-06 baseline: 31/37 vs 33/37 (4 tasks fixed, 2 broken, 29 passed in both, 2 failed in both). The verifier flagged none of the 31 baseline-passing tasks and revised 4 runs (4 extra model calls). Re-scoring the stored pre-revision answers shows the revision itself turned 3 of 37 runs from fail to pass (`eh_missing_counts`, `eh_wrong_column`, `eh_missing_gmt`) and broke none. The rest of the net difference comes from unrevised runs and is run-to-run variance, not an effect of the verifier:
+
+- `rag_ambiguity_apoptosis` passed because the answer listed fewer retrieved pathways.
+- `eh_missing_vcf` failed because the refusal said "not available", which is not among the grader's patterns.
+- `ms_call_filter_summarize` ended on a tool-argument error that the verifier does not check.
+- `sf_arbitrary_pipeline_path` was flagged and revised, and still failed (a tool-selection failure).
+
+So the +2 net change must not be attributed to the verifier. What the data supports: no run got worse after a revision, and 3 of the 4 revised runs went from fail to pass.
+
+**Limits.** The revision prompt asks the model to disclose unavailable inputs, which is what the grader looks for, so the effect of detecting the problem and the effect of the prompt are not separated (no neutral-prompt control). There are no held-out tasks. The verifier does not check argument errors between chained tools or refusals worded differently from the grader's patterns. Other categories were measured once.
 
 ### Exploratory second model: granite-4.0-h-micro (error handling only, n=1)
 
@@ -328,6 +345,7 @@ Tests need `make data` and the external binaries; CI installs both.
 - Single runs for four of six categories; 5 tasks per category (12 for retrieval).
 - Simulated data with planted signals; no real patient data.
 - Task wording and graders were refined after inspecting results (documented in the changelog), so v1.1 and v1.2 scores are baselines, not a blind test.
+- The verifier rules were written after inspecting the baseline failures; there are no held-out tasks and no neutral-prompt control for the revision step.
 - Passing a grounding check does not make an answer correct.
 
 ## License
